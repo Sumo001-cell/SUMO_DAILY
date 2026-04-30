@@ -3,80 +3,70 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Sumo Snack · Closing T04Y26 · International Edition</title>
+<title>Sumo Quarterly · Vol I · Issue IV · April 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
 <style>
 :root{
-  /* Editorial dark — premium ink */
-  --bg:#070B14;--bg-2:#0D131F;--bg-3:#13192A;--bg-4:#1B2235;--bg-5:#252D44;
+  --bg:#080C14;--bg-2:#0E141F;--bg-3:#141B2A;--bg-4:#1B2335;--bg-5:#252D44;
   --line:rgba(255,255,255,0.07);--line-2:rgba(255,255,255,0.14);--line-3:rgba(255,255,255,0.22);
-  --type:#F4F6FA;--type-2:#C8CDD7;--type-3:#8B93A0;--type-4:#5A6173;--type-5:#3D4456;
-  /* BDT orange — warm */
-  --bdt:#E8821E;--bdt-2:#F4901F;--bdt-3:#FFA94D;--bdt-4:#FFC780;--bdt-5:#7B4112;--bdt-6:#3E2208;
-  /* VK purple — cool */
-  --vk:#7C3AED;--vk-2:#9C6DFC;--vk-3:#BB97FE;--vk-4:#DDC8FF;--vk-5:#3F1B7A;--vk-6:#1F0D3D;
-  /* Editorial gold */
-  --gold:#E5B763;--gold-2:#D4A24A;--gold-3:#A07621;--gold-4:#6B4F16;
-  /* Signals */
-  --pos:#22C57F;--pos-2:#16A865;--neg:#EF5664;--neg-2:#C5374A;--warn:#F2A33A;--warn-2:#D88720;--info:#5B92F5;
-  /* Glass */
-  --glass:rgba(13,19,31,0.55);--glass-2:rgba(19,25,42,0.7);--glass-border:rgba(255,255,255,0.08);
-  /* Typography — IBM Plex stack (corporate grade · Bloomberg/Linear/IBM) */
-  --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
-  --serif-it:"IBM Plex Serif",Georgia,"Times New Roman",serif;
-  --sans:"IBM Plex Sans",-apple-system,"Segoe UI",system-ui,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Consolas,"SF Mono",monospace;
-  --rad:8px;--rad-lg:14px;--rad-xl:22px;
+  --type:#F2F4F8;--type-2:#C5CAD3;--type-3:#8A91A0;--type-4:#5A6173;--type-5:#3D4456;
+  --bdt:#E8821E;--bdt-2:#F4901F;--bdt-3:#FFA94D;--bdt-4:#FFC780;--bdt-5:#7B4112;
+  --vk:#7C3AED;--vk-2:#9C6DFC;--vk-3:#BB97FE;--vk-4:#DDC8FF;--vk-5:#3F1B7A;
+  --gold:#D4A24A;--gold-2:#B88835;--gold-3:#806020;
+  --pos:#22C57F;--neg:#EF5664;--warn:#F2A33A;--info:#5B92F5;
+  --serif:"IBM Plex Serif",Georgia,serif;
+  --sans:"IBM Plex Sans",-apple-system,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --rad:6px;--rad-lg:10px;
 }
 [data-theme="light"]{
-  --bg:#F8F5EC;--bg-2:#FFFFFF;--bg-3:#F0EBDC;--bg-4:#E5DFCE;--bg-5:#D4CDB7;
-  --line:rgba(15,18,25,0.10);--line-2:rgba(15,18,25,0.20);--line-3:rgba(15,18,25,0.32);
-  --type:#0E1217;--type-2:#2D3340;--type-3:#5C6473;--type-4:#9DA3AF;--type-5:#C8CDD7;
-  --glass:rgba(255,255,255,0.65);--glass-2:rgba(248,245,236,0.78);--glass-border:rgba(15,18,25,0.10);
+  --bg:#FAF7EE;--bg-2:#FFFFFF;--bg-3:#F2EEDF;--bg-4:#E5DFCE;
+  --line:rgba(15,18,25,0.10);--line-2:rgba(15,18,25,0.20);
+  --type:#0E1217;--type-2:#2D3340;--type-3:#5C6473;--type-4:#9DA3AF;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:120px}
+html{scroll-behavior:smooth}
 body{
   font-family:var(--sans);background:var(--bg);color:var(--type);
   -webkit-font-smoothing:antialiased;font-feature-settings:"tnum","ss01";
-  font-size:13.5px;line-height:1.6;letter-spacing:-0.005em;
+  font-size:14px;line-height:1.65;letter-spacing:-0.005em;
   position:relative;overflow-x:hidden;
 }
 ::selection{background:var(--gold);color:var(--bg)}
 .tnum{font-feature-settings:"tnum"}
-.serif{font-family:var(--serif);letter-spacing:-0.022em}
-.serif-it{font-family:var(--serif-it);font-style:italic}
-.mono{font-family:var(--mono)}
 
-/* ============================================================
-   GLOBAL BACKGROUND — gradient mesh + noise texture + watermark
-   ============================================================ */
+/* Background mesh */
 body::before{
   content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
   background:
-    radial-gradient(ellipse 80% 50% at 0% 0%, rgba(232,130,30,0.10), transparent 60%),
-    radial-gradient(ellipse 70% 50% at 100% 30%, rgba(124,58,237,0.08), transparent 65%),
-    radial-gradient(ellipse 90% 60% at 50% 100%, rgba(229,183,99,0.05), transparent 70%),
-    radial-gradient(circle 800px at 70% 70%, rgba(34,197,127,0.03), transparent 50%);
+    radial-gradient(ellipse 80% 50% at 0% 0%, rgba(232,130,30,0.08), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 100% 30%, rgba(124,58,237,0.07), transparent 65%),
+    radial-gradient(ellipse 90% 60% at 50% 100%, rgba(212,162,74,0.04), transparent 70%);
 }
 body::after{
-  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0.4;
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0.35;
   background-image:url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   mix-blend-mode:overlay;
 }
 
-h1,h2,h3,h4{font-family:var(--serif);letter-spacing:-0.018em;line-height:1.1;font-weight:600;color:var(--type)}
-.h-mega{font-size:clamp(44px,6.5vw,88px);font-weight:600;letter-spacing:-0.03em;line-height:1}
-.h-hero{font-size:clamp(32px,4.4vw,60px);font-weight:600;letter-spacing:-0.022em;line-height:1.08}
-.h-1{font-size:clamp(26px,3vw,40px);font-weight:600;letter-spacing:-0.018em;line-height:1.12}
-.h-2{font-size:clamp(20px,2.4vw,30px);font-weight:600;letter-spacing:-0.014em;line-height:1.18}
-.h-3{font-size:17px;font-weight:600;letter-spacing:-0.008em}
-.h-4{font-size:14px;font-weight:600}
+/* Type */
+h1,h2,h3,h4{font-family:var(--serif);letter-spacing:-0.018em;line-height:1.12;font-weight:600;color:var(--type)}
+.h-mega{font-size:clamp(56px,9vw,140px);font-weight:600;letter-spacing:-0.035em;line-height:0.94}
+.h-display{font-size:clamp(42px,6vw,80px);font-weight:500;letter-spacing:-0.025em;line-height:1.02}
+.h-1{font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-0.02em;line-height:1.1}
+.h-2{font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-0.014em;line-height:1.18}
+.h-3{font-size:18px;font-weight:600}
+.h-4{font-size:14.5px;font-weight:600}
+.lead{font-family:var(--serif);font-size:19px;line-height:1.6;color:var(--type-2);font-weight:400;letter-spacing:-0.005em}
+.body-text{font-size:14px;color:var(--type-2);line-height:1.7}
+.body-text strong{color:var(--type);font-weight:600}
+.body-text em{color:var(--gold);font-style:normal;font-weight:600}
 
+/* Magazine elements */
 .eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
 .eyebrow.mute{color:var(--type-3)}
 .eyebrow.bdt{color:var(--bdt-2)}
@@ -85,167 +75,255 @@ h1,h2,h3,h4{font-family:var(--serif);letter-spacing:-0.018em;line-height:1.1;fon
 .eyebrow.neg{color:var(--neg)}
 .eyebrow.warn{color:var(--warn)}
 
-.lead{font-family:var(--serif);font-size:19px;line-height:1.55;color:var(--type-2);letter-spacing:-0.005em;font-weight:400}
-.body-text{font-size:14px;color:var(--type-2);line-height:1.7}
-.body-text strong{color:var(--type);font-weight:600}
-.body-text em{color:var(--gold);font-style:normal;font-weight:600}
+.lab{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--type-3);font-weight:500}
+.caption{font-family:var(--mono);font-size:10.5px;color:var(--type-3);letter-spacing:0.06em;line-height:1.55}
+.caption strong{color:var(--type-2);font-weight:600}
 
-.page{max-width:1320px;margin:0 auto;padding:0 36px;position:relative}
-.page-narrow{max-width:920px;margin:0 auto;padding:0 36px}
+.folio{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;color:var(--type-3);text-transform:uppercase;font-weight:600}
+
+.roman{font-family:var(--serif);font-style:italic;font-weight:400}
+
+/* Layout */
+.page{max-width:1280px;margin:0 auto;padding:0 40px;position:relative}
+.page-narrow{max-width:920px;margin:0 auto;padding:0 40px}
+.page-wide{max-width:1440px;margin:0 auto;padding:0 32px}
+
 section{padding:96px 0;position:relative}
 section.tight{padding:64px 0}
-.divider{height:1px;background:linear-gradient(90deg,transparent 5%,var(--line-2) 50%,transparent 95%)}
+section.cover-section{padding:0;min-height:100vh}
 
-/* Section watermark (logo mờ làm nền) */
-.section-wm{position:absolute;pointer-events:none;opacity:0.04;z-index:0;width:480px;height:auto;top:50%;left:50%;transform:translate(-50%,-50%)}
-section > .page{position:relative;z-index:1}
-
-/* ============================================================
-   TOP BAR — Glass blur with logo
-   ============================================================ */
-.bar{
-  position:sticky;top:0;z-index:100;
-  background:var(--glass);backdrop-filter:saturate(180%) blur(28px);-webkit-backdrop-filter:saturate(180%) blur(28px);
-  border-bottom:1px solid var(--glass-border);
+/* Section dividers — decorative editorial rules */
+.rule-fancy{position:relative;height:1px;background:var(--line);margin:0;text-align:center}
+.rule-fancy::after{
+  content:"§";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  background:var(--bg);padding:0 16px;color:var(--gold);font-family:var(--serif);font-size:18px;font-weight:600;
 }
-.bar-in{max-width:1320px;margin:0 auto;padding:13px 36px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{height:36px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(232,130,30,0.25))}
-.brand-txt{display:flex;flex-direction:column;gap:1px}
-.brand-name{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--type);letter-spacing:-0.018em;line-height:1}
-.brand-sub{font-family:var(--mono);font-size:9.5px;color:var(--type-3);letter-spacing:0.18em;text-transform:uppercase;font-weight:500}
-.bar-nav{display:flex;gap:18px;font-size:11.5px;flex-wrap:wrap}
-.bar-nav a{color:var(--type-3);text-decoration:none;font-weight:500;transition:color .2s;letter-spacing:0.01em;padding:4px 0;border-bottom:1px solid transparent}
-.bar-nav a:hover,.bar-nav a.active{color:var(--gold);border-bottom-color:var(--gold)}
-.bar-tools{display:flex;gap:10px;align-items:center}
-.bar-meta{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.12em;font-weight:700;background:rgba(229,183,99,0.10);padding:5px 11px;border-radius:6px;border:1px solid rgba(229,183,99,0.28)}
-.theme-tog{background:transparent;border:1px solid var(--line-2);padding:5px 11px;font-family:var(--mono);font-size:10px;color:var(--type-3);letter-spacing:0.1em;border-radius:6px;cursor:pointer;font-weight:600;transition:all .2s}
-.theme-tog:hover{color:var(--gold);border-color:var(--gold)}
+.rule-thick{height:5px;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+.rule-double{height:1px;background:var(--line);position:relative;margin:24px 0}
+.rule-double::before,.rule-double::after{content:"";position:absolute;height:1px;background:var(--line);left:0;right:0}
+.rule-double::before{top:-3px}
+.rule-double::after{top:3px}
 
-/* Reading progress bar */
-.reading-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--bdt),var(--gold),var(--vk));z-index:101;width:0%;transition:width .1s}
-
-/* ============================================================
-   KPI Live Ribbon — sticky under bar
-   ============================================================ */
-.kpi-ribbon{
-  background:var(--glass-2);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--glass-border);overflow-x:auto;
-  position:sticky;top:67px;z-index:99;
-}
-.kpi-ribbon-in{display:flex;min-width:max-content;font-family:var(--mono);font-size:10.5px}
-.kpi-ribbon-in > div{padding:10px 18px;border-right:1px solid var(--line);white-space:nowrap;display:flex;flex-direction:column;gap:2px;line-height:1.2}
-.kpi-ribbon-in > div:last-child{border-right:none}
-.kpi-ribbon .lbl{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--type-3);font-weight:600}
-.kpi-ribbon .val{font-size:13px;font-weight:700;color:var(--type)}
-.kpi-ribbon .val.up{color:var(--pos)}.kpi-ribbon .val.dn{color:var(--neg)}
-.kpi-ribbon .val.bdt-c{color:var(--bdt-2)}.kpi-ribbon .val.vk-c{color:var(--vk-2)}.kpi-ribbon .val.gold-c{color:var(--gold)}
-.kpi-ribbon .delta{font-size:9.5px;color:var(--type-3);letter-spacing:0.04em}
-
-/* Holiday strip */
-.hbar{
-  background:linear-gradient(90deg,rgba(242,163,58,0.16),rgba(242,163,58,0.04));
-  border-top:1px solid rgba(242,163,58,0.22);border-bottom:1px solid rgba(242,163,58,0.22);
-  padding:11px 0;
-}
-.hbar-in{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--type-2)}
-.hbar .tag{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--warn);font-weight:700}
-.hbar strong{color:var(--type);font-weight:700}
-
-/* ============================================================
-   HERO COVER — magazine cover style
-   ============================================================ */
-.hero{padding:80px 0 56px;position:relative;overflow:hidden;min-height:calc(100vh - 160px);display:flex;align-items:center}
-.hero::before{
-  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse 70% 60% at 20% 20%, rgba(232,130,30,0.18), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 90% 80%, rgba(124,58,237,0.16), transparent 60%);
-}
-.hero::after{
-  content:"";position:absolute;inset:0;z-index:0;
-  background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size:80px 80px;
-  mask-image:radial-gradient(ellipse 60% 50% at 50% 50%, black 30%, transparent 80%);
-  -webkit-mask-image:radial-gradient(ellipse 60% 50% at 50% 50%, black 30%, transparent 80%);
-  opacity:0.45;
-  pointer-events:none;
-}
-.hero-watermark{position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:600px;opacity:0.05;z-index:0;pointer-events:none}
-.hero-in{position:relative;z-index:2;width:100%}
-.hero-meta-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:64px;padding-bottom:24px;border-bottom:1px solid var(--line-2);flex-wrap:wrap;gap:20px}
-.hero-meta-top .vol{font-family:var(--serif);font-size:17px;color:var(--gold);font-weight:500;letter-spacing:-0.005em}
-.hero-meta-top .vol b{color:var(--type);font-weight:700;font-family:var(--serif)}
-.hero-meta-top .pub{font-family:var(--mono);font-size:10.5px;color:var(--type-3);letter-spacing:0.14em;text-align:right;line-height:1.7}
-.hero-meta-top .pub b{color:var(--type);font-weight:700;display:block}
-
-.hero-row{display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:center;margin-bottom:48px}
-@media(max-width:880px){.hero-row{grid-template-columns:1fr;gap:24px}}
-.hero-logo img{width:200px;height:auto;display:block;filter:drop-shadow(0 12px 40px rgba(232,130,30,0.28))}
-.hero-title-block .eyebrow{margin-bottom:16px;display:block}
-.hero-title-block h1{margin-bottom:20px}
-.hero-title-block h1 em{font-family:var(--serif-it);font-style:italic;background:linear-gradient(135deg,var(--bdt) 0%,var(--gold) 50%,var(--vk) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
-.hero-lead{max-width:780px;font-size:20px;font-family:var(--serif);color:var(--type-2);line-height:1.55;font-weight:400;letter-spacing:-0.008em}
-.hero-lead strong{color:var(--type);font-weight:600}
-
-/* 4 hero KPI cards · glass morphism */
-.hero-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
-@media(max-width:880px){.hero-kpis{grid-template-columns:repeat(2,1fr)}}
-.h-kpi{
-  position:relative;background:var(--glass-2);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border:1px solid var(--glass-border);border-radius:var(--rad-xl);
-  padding:24px 22px;display:flex;flex-direction:column;gap:10px;
-  transition:all .3s cubic-bezier(.2,.8,.2,1);
-  overflow:hidden;
-}
-.h-kpi::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--bdt),var(--gold))}
-.h-kpi.bdt::before{background:linear-gradient(90deg,var(--bdt),var(--bdt-3))}
-.h-kpi.vk::before{background:linear-gradient(90deg,var(--vk),var(--vk-3))}
-.h-kpi.pos::before{background:linear-gradient(90deg,var(--pos),var(--pos-2))}
-.h-kpi.neg::before{background:linear-gradient(90deg,var(--neg),var(--neg-2))}
-.h-kpi:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 16px 40px rgba(0,0,0,0.32)}
-.h-kpi .l{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--type-3);font-weight:600}
-.h-kpi .v{font-family:var(--serif);font-size:42px;font-weight:700;letter-spacing:-0.025em;line-height:0.95}
-.h-kpi .v small{font-family:var(--sans);font-size:14px;color:var(--type-3);font-weight:500;margin-left:3px}
-.h-kpi .d{font-size:11.5px;color:var(--type-3);line-height:1.5}
-.h-kpi.bdt .v{color:var(--bdt-2)}.h-kpi.vk .v{color:var(--vk-2)}.h-kpi.pos .v{color:var(--pos)}.h-kpi.neg .v{color:var(--neg)}.h-kpi.gold .v{color:var(--gold)}
-
-/* ============================================================
-   Section header
-   ============================================================ */
-.shead{margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:36px;flex-wrap:wrap;position:relative}
-.shead::after{content:"";position:absolute;left:0;bottom:-1px;width:80px;height:2px;background:linear-gradient(90deg,var(--gold),transparent)}
+/* Section header — magazine style */
+.shead{margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;position:relative}
 .shead .l{max-width:780px}
-.shead h2{margin:8px 0}
+.shead h2{margin:10px 0}
+.shead .sub-title{font-family:var(--serif);font-size:16px;color:var(--type-3);font-weight:400;letter-spacing:-0.005em;margin-top:4px}
 .shead .r{font-family:var(--mono);font-size:10.5px;color:var(--type-3);letter-spacing:0.1em;text-align:right;line-height:1.7}
 
-/* ============================================================
-   Glass cards
-   ============================================================ */
-.card{
-  background:var(--glass-2);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border:1px solid var(--glass-border);border-radius:var(--rad-lg);overflow:hidden;
-  transition:border-color .3s,box-shadow .3s;
-}
-.card:hover{border-color:var(--line-2);box-shadow:0 12px 36px rgba(0,0,0,0.18)}
-.chead{padding:18px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
-.chead h3{font-size:16px;font-weight:600;letter-spacing:-0.005em;font-family:var(--sans)}
-.chead .meta{font-family:var(--mono);font-size:10.5px;color:var(--type-3);letter-spacing:0.06em}
-.cbody{padding:22px 24px}
-.cbody.nopad{padding:0}
-.chart-wrap{height:340px;padding:16px 4px;position:relative}
-.chart-wrap.tall{height:480px}
-.chart-wrap.short{height:240px}
-.chart-wrap.tiny{height:180px}
+/* Section number badge */
+.sec-no{display:inline-block;font-family:var(--serif);font-size:14px;font-weight:600;color:var(--gold);margin-right:10px;letter-spacing:0.04em}
 
 /* ============================================================
-   Insight callout — pull quote style
+   COVER PAGE — Magazine cover
    ============================================================ */
+.cover{
+  min-height:100vh;display:flex;flex-direction:column;
+  padding:48px 40px 64px;position:relative;overflow:hidden;
+  border-bottom:8px solid var(--gold);
+}
+.cover::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 60% at 15% 20%, rgba(232,130,30,0.16), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 80%, rgba(124,58,237,0.14), transparent 60%);
+}
+.cover::after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px, transparent 1px),linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 60% 50% at 50% 50%, black 30%, transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse 60% 50% at 50% 50%, black 30%, transparent 80%);
+  opacity:0.4;
+}
+.cover-watermark{position:absolute;right:-120px;top:50%;transform:translateY(-50%);width:560px;opacity:0.045;z-index:0;pointer-events:none}
+.cover-in{max-width:1280px;margin:0 auto;width:100%;position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+
+.cover-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;padding-bottom:24px;border-bottom:1px solid var(--line-2)}
+.cover-top .masthead{display:flex;align-items:center;gap:14px}
+.cover-top .masthead img{height:42px;width:auto;filter:drop-shadow(0 4px 12px rgba(232,130,30,0.3))}
+.cover-top .mh-text{display:flex;flex-direction:column;gap:2px}
+.cover-top .mh-name{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--type);letter-spacing:-0.018em;line-height:1}
+.cover-top .mh-sub{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:var(--type-3);text-transform:uppercase;font-weight:500}
+.cover-top .vol{font-family:var(--serif);font-size:15px;color:var(--gold);font-weight:500;letter-spacing:-0.005em}
+.cover-top .vol b{color:var(--type);font-weight:700}
+
+.cover-mid{padding:80px 0;display:grid;grid-template-columns:1fr;gap:32px}
+.cover-issue-bar{display:flex;align-items:center;gap:18px;font-family:var(--mono);font-size:11px;letter-spacing:0.16em;color:var(--type-3);text-transform:uppercase;font-weight:500;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.cover-issue-bar > span{display:flex;align-items:center;gap:6px}
+.cover-issue-bar .dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+.cover-title h1{margin-bottom:18px}
+.cover-title h1 em{font-style:normal;color:var(--gold);font-weight:600}
+.cover-tagline{font-family:var(--serif);font-size:24px;font-weight:400;color:var(--type-2);line-height:1.5;letter-spacing:-0.012em;max-width:780px;margin-top:12px}
+.cover-tagline strong{color:var(--type);font-weight:600}
+
+.cover-bot{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;padding-top:32px;border-top:1px solid var(--line-2);align-items:end}
+@media(max-width:780px){.cover-bot{grid-template-columns:1fr}}
+.cover-features{display:flex;flex-direction:column;gap:12px}
+.cover-features h4{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px}
+.cover-features ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.cover-features li{font-family:var(--serif);font-size:15px;color:var(--type-2);line-height:1.45;display:flex;gap:12px;align-items:baseline}
+.cover-features li .nm{font-family:var(--mono);font-size:10px;color:var(--gold);font-weight:600;letter-spacing:0.06em;min-width:32px}
+.cover-features li strong{color:var(--type);font-weight:600}
+.cover-meta{font-family:var(--mono);font-size:11px;color:var(--type-3);letter-spacing:0.06em;line-height:1.8;text-align:right}
+.cover-meta b{color:var(--type);font-weight:600;display:block;margin-bottom:6px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase}
+
+/* ============================================================
+   TOP NAV — STATIC (NOT sticky)
+   ============================================================ */
+.topnav{
+  position:relative;z-index:5;
+  background:var(--bg-2);border-bottom:1px solid var(--line);
+}
+.topnav-in{max-width:1280px;margin:0 auto;padding:13px 40px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.topnav-brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:15px;font-weight:600;color:var(--type)}
+.topnav-brand img{height:24px;width:auto}
+.topnav-links{display:flex;gap:14px;font-family:var(--mono);font-size:10.5px;flex-wrap:wrap;letter-spacing:0.06em}
+.topnav-links a{color:var(--type-3);text-decoration:none;font-weight:500;text-transform:uppercase}
+.topnav-links a:hover{color:var(--gold)}
+.theme-tog{background:transparent;border:1px solid var(--line-2);padding:5px 11px;font-family:var(--mono);font-size:10px;color:var(--type-3);letter-spacing:0.1em;border-radius:4px;cursor:pointer;font-weight:600}
+.theme-tog:hover{color:var(--gold);border-color:var(--gold)}
+
+/* Holiday strip */
+.hbar{background:linear-gradient(90deg,rgba(242,163,58,0.16),rgba(242,163,58,0.04));border-top:1px solid rgba(242,163,58,0.24);border-bottom:1px solid rgba(242,163,58,0.24);padding:11px 0}
+.hbar-in{max-width:1280px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--type-2)}
+.hbar .tag{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--warn);font-weight:700}
+.hbar strong{color:var(--type);font-weight:600}
+
+/* ============================================================
+   CONTENTS PAGE
+   ============================================================ */
+.contents-section{padding:80px 0;position:relative}
+.contents-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;padding-bottom:18px;border-bottom:2px solid var(--gold)}
+.contents-head h2{font-family:var(--serif);font-size:48px;font-weight:600;letter-spacing:-0.02em}
+.contents-head .pn{font-family:var(--mono);font-size:11px;color:var(--type-3);letter-spacing:0.18em;text-transform:uppercase}
+
+.contents-intro{font-family:var(--serif);font-size:18px;color:var(--type-2);line-height:1.6;max-width:680px;margin-bottom:48px;padding-left:24px;border-left:3px solid var(--gold)}
+
+.contents-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+@media(max-width:780px){.contents-grid{grid-template-columns:1fr}}
+.contents-row{display:grid;grid-template-columns:32px 1fr 56px;align-items:baseline;padding:14px 0;border-bottom:1px dotted var(--line-2);gap:14px}
+.contents-row:last-child{border-bottom:none}
+.contents-row .rn{font-family:var(--serif);font-size:14px;color:var(--type-3);font-weight:500;letter-spacing:0.04em}
+.contents-row .rt{display:flex;flex-direction:column;gap:2px}
+.contents-row .rt .ti{font-family:var(--serif);font-size:16px;color:var(--type);font-weight:600;letter-spacing:-0.005em}
+.contents-row .rt .ds{font-family:var(--sans);font-size:12px;color:var(--type-3);font-weight:400}
+.contents-row .rp{font-family:var(--mono);font-size:11px;color:var(--gold);text-align:right;font-weight:600;letter-spacing:0.04em}
+
+/* ============================================================
+   EDITOR'S LETTER — 2 column flowing
+   ============================================================ */
+.letter-section{padding:96px 0;position:relative}
+.letter-head{margin-bottom:48px;text-align:center}
+.letter-head .eyebrow{margin-bottom:16px;display:block}
+.letter-head h2{font-family:var(--serif);font-size:clamp(36px,5vw,68px);font-weight:500;letter-spacing:-0.025em;margin-bottom:14px}
+.letter-head h2 em{font-style:normal;color:var(--gold);font-weight:600}
+.letter-head .deck{font-family:var(--serif);font-size:17px;color:var(--type-3);font-weight:400;letter-spacing:-0.005em;max-width:600px;margin:0 auto}
+
+.letter-body{column-count:2;column-gap:48px;column-rule:1px solid var(--line);max-width:980px;margin:0 auto;padding:0 24px}
+@media(max-width:880px){.letter-body{column-count:1}}
+.letter-body p{font-family:var(--serif);font-size:15.5px;line-height:1.85;color:var(--type-2);margin-bottom:18px;font-weight:400;letter-spacing:0.001em;break-inside:avoid;orphans:3;widows:3}
+.letter-body p strong{color:var(--type);font-weight:600}
+.letter-body p em{color:var(--gold);font-style:normal;font-weight:600}
+.letter-body p.first::first-letter{
+  font-family:var(--serif);font-size:88px;float:left;line-height:0.85;
+  margin:8px 14px 0 0;color:var(--gold);font-weight:600;
+}
+
+.letter-pull{
+  margin:32px auto;padding:32px 40px;text-align:center;max-width:780px;
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(20px,2.4vw,28px);line-height:1.45;color:var(--type);letter-spacing:-0.014em;
+  border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);position:relative;
+}
+.letter-pull::before{content:"§";position:absolute;left:50%;top:-14px;transform:translateX(-50%);background:var(--bg);padding:0 14px;color:var(--gold);font-size:24px;font-weight:600}
+.letter-pull em{color:var(--gold);font-style:normal;font-weight:600}
+
+.letter-sig{max-width:780px;margin:48px auto 0;padding-top:24px;border-top:1px solid var(--line);text-align:right}
+.letter-sig .em{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--type);display:block;margin-bottom:6px}
+.letter-sig .who-meta{font-family:var(--mono);font-size:10.5px;color:var(--type-3);letter-spacing:0.1em}
+
+/* ============================================================
+   THE NUMBERS · Opening spread (6 hero cards)
+   ============================================================ */
+.numbers-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line-2);overflow:hidden;
+}
+@media(max-width:780px){.numbers-grid{grid-template-columns:repeat(2,1fr)}}
+.num-cell{
+  background:var(--bg-2);padding:36px 32px;
+  display:flex;flex-direction:column;justify-content:space-between;gap:16px;
+  min-height:240px;position:relative;transition:background .3s;
+}
+.num-cell:hover{background:var(--bg-3)}
+.num-cell .num-label{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--type-3);font-weight:600}
+.num-cell .num-big{font-family:var(--serif);font-size:64px;font-weight:600;letter-spacing:-0.028em;line-height:0.95}
+.num-cell .num-big small{font-family:var(--sans);font-size:18px;color:var(--type-3);font-weight:500;margin-left:4px}
+.num-cell .num-cap{font-family:var(--serif);font-size:14px;color:var(--type-2);line-height:1.5;font-weight:400}
+.num-cell .num-cap strong{color:var(--type);font-weight:600}
+.num-cell .num-status{
+  display:inline-block;align-self:flex-start;font-family:var(--mono);font-size:9.5px;font-weight:700;
+  padding:4px 10px;border-radius:4px;letter-spacing:0.08em;text-transform:uppercase;
+  background:rgba(34,197,127,0.16);color:var(--pos);
+}
+.num-cell .num-status.warn{background:rgba(242,163,58,0.16);color:var(--warn)}
+.num-cell .num-status.neg{background:rgba(239,86,100,0.16);color:var(--neg)}
+.num-cell .num-status.gold{background:rgba(212,162,74,0.16);color:var(--gold)}
+.num-cell.bdt .num-big{color:var(--bdt-2)}
+.num-cell.vk .num-big{color:var(--vk-2)}
+.num-cell.gold .num-big{color:var(--gold)}
+.num-cell.pos .num-big{color:var(--pos)}
+.num-cell.neg .num-big{color:var(--neg)}
+.num-cell.warn .num-big{color:var(--warn)}
+
+/* ============================================================
+   PORTFOLIO sections — case study format
+   ============================================================ */
+.portfolio-head{
+  display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;
+  padding-bottom:24px;border-bottom:2px solid var(--line-2);margin-bottom:36px;
+}
+@media(max-width:780px){.portfolio-head{grid-template-columns:1fr}}
+.portfolio-num{font-family:var(--serif);font-size:96px;font-weight:300;letter-spacing:-0.04em;line-height:0.85;color:var(--gold)}
+.portfolio-num small{font-family:var(--mono);font-size:11px;color:var(--type-3);font-weight:500;letter-spacing:0.18em;display:block;margin-top:8px;text-transform:uppercase}
+.portfolio-head .ti h2{font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:600;letter-spacing:-0.022em;line-height:1.05;margin-bottom:6px}
+.portfolio-head .ti .sub{font-family:var(--serif);font-size:16px;color:var(--type-3);font-weight:400;letter-spacing:-0.005em}
+.portfolio-meta{font-family:var(--mono);font-size:10.5px;color:var(--type-3);letter-spacing:0.06em;line-height:1.7;text-align:right;border-left:1px solid var(--line);padding-left:18px}
+.portfolio-meta b{color:var(--type);display:block;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;font-size:11px;margin-bottom:4px}
+
+/* Portfolio stats panel */
+.portfolio-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border:1px solid var(--line);border-radius:var(--rad-lg);overflow:hidden;
+  margin-bottom:24px;
+}
+@media(max-width:780px){.portfolio-stats{grid-template-columns:repeat(2,1fr)}}
+.portfolio-stat{padding:22px 24px;border-right:1px solid var(--line);background:var(--bg-2)}
+.portfolio-stat:last-child{border-right:none}
+.portfolio-stat .l{font-family:var(--mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--type-3);font-weight:600;margin-bottom:8px}
+.portfolio-stat .v{font-family:var(--serif);font-size:28px;font-weight:600;letter-spacing:-0.018em;line-height:1}
+.portfolio-stat .v small{font-family:var(--sans);font-size:11px;color:var(--type-3);font-weight:500;margin-left:2px}
+.portfolio-stat .d{font-family:var(--sans);font-size:11px;color:var(--type-3);margin-top:6px;line-height:1.5}
+.portfolio-stats.bdt .v{color:var(--bdt-2)}
+.portfolio-stats.vk .v{color:var(--vk-2)}
+
+/* Card */
+.card{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--rad-lg);overflow:hidden}
+.chead{padding:16px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.chead h3{font-size:15px;font-weight:600;letter-spacing:-0.005em;font-family:var(--sans)}
+.chead .meta{font-family:var(--mono);font-size:10.5px;color:var(--type-3);letter-spacing:0.06em}
+.cbody{padding:20px 22px}
+.cbody.nopad{padding:0}
+.chart-wrap{height:340px;padding:14px 4px;position:relative}
+.chart-wrap.tall{height:460px}
+.chart-wrap.short{height:240px}
+
+/* Insight callout — magazine pull-quote style */
 .insight{
-  margin-top:16px;padding:14px 18px;
-  background:linear-gradient(180deg,var(--bg-3),var(--bg-2));
+  margin-top:14px;padding:14px 18px;
+  background:var(--bg-3);
   border-left:3px solid var(--bdt);border-radius:0 var(--rad) var(--rad) 0;
   font-size:13px;color:var(--type-2);line-height:1.65;
 }
@@ -254,97 +332,8 @@ section > .page{position:relative;z-index:1}
 .insight.pos{border-left-color:var(--pos)}
 .insight.warn{border-left-color:var(--warn)}
 .insight.neg{border-left-color:var(--neg)}
-.insight strong{color:var(--type);font-weight:700}
-.insight em{color:var(--gold);font-style:normal;font-family:var(--serif);font-weight:600}
-
-/* Pull quote (editorial) */
-.pull-quote{
-  margin:32px 0;padding:28px 32px;text-align:center;
-  font-family:var(--serif);font-weight:400;
-  font-size:clamp(19px,2.2vw,26px);line-height:1.45;color:var(--type);letter-spacing:-0.012em;
-  border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);
-  position:relative;
-}
-.pull-quote::before{content:'"';position:absolute;left:50%;top:-22px;transform:translateX(-50%);background:var(--bg);padding:0 18px;color:var(--gold);font-size:42px;font-family:var(--serif);line-height:1;font-weight:600}
-.pull-quote em{color:var(--gold);font-style:normal;font-weight:600}
-
-/* ============================================================
-   S-C-R box
-   ============================================================ */
-.sxr{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
-@media(max-width:880px){.sxr{grid-template-columns:1fr}}
-.sxr-c{
-  background:var(--glass-2);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border:1px solid var(--glass-border);border-radius:var(--rad-lg);padding:20px 22px;
-  transition:transform .25s,border-color .25s;
-}
-.sxr-c:hover{transform:translateY(-2px);border-color:var(--line-2)}
-.sxr-c h4{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--type-3);margin-bottom:10px;font-weight:700;display:flex;align-items:center;gap:9px}
-.sxr-c h4::before{content:"";width:7px;height:7px;border-radius:50%}
-.sxr-c.s h4::before{background:var(--pos);box-shadow:0 0 0 4px rgba(34,197,127,0.18)}
-.sxr-c.c h4::before{background:var(--warn);box-shadow:0 0 0 4px rgba(242,163,58,0.18)}
-.sxr-c.r h4::before{background:var(--neg);box-shadow:0 0 0 4px rgba(239,86,100,0.18)}
-.sxr-c p{font-size:13px;color:var(--type-2);line-height:1.65}
-.sxr-c p strong{color:var(--type);font-weight:700}
-
-/* Executive Summary box */
-.sumbox{
-  background:linear-gradient(180deg,var(--glass-2),rgba(13,19,31,0.85));
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border:1px solid var(--glass-border);border-radius:var(--rad-xl);
-  padding:32px 36px;margin-top:28px;position:relative;overflow:hidden;
-}
-.sumbox::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--bdt),var(--gold),var(--vk))}
-.sumbox h3{font-family:var(--serif);font-size:20px;font-weight:600;margin-bottom:16px;color:var(--type)}
-.sumbox p{font-size:14.5px;color:var(--type-2);line-height:1.75;margin-bottom:12px;font-family:var(--sans)}
-.sumbox p strong{color:var(--type);font-weight:600}
-.sumbox p:last-child{margin-bottom:0}
-
-/* ============================================================
-   Outlet banner
-   ============================================================ */
-.ob{
-  display:flex;align-items:center;gap:18px;padding:24px 28px;
-  background:var(--glass-2);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border:1px solid var(--glass-border);border-radius:var(--rad-lg);
-  margin-bottom:24px;position:relative;overflow:hidden;
-}
-.ob.bdt{border-left:5px solid var(--bdt)}
-.ob.vk{border-left:5px solid var(--vk)}
-.ob::before{content:"";position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:280px;height:280px;border-radius:50%;opacity:0.06;pointer-events:none}
-.ob.bdt::before{background:radial-gradient(circle,var(--bdt) 0%,transparent 70%)}
-.ob.vk::before{background:radial-gradient(circle,var(--vk) 0%,transparent 70%)}
-.ob .dot-big{
-  width:56px;height:56px;border-radius:14px;display:grid;place-items:center;
-  font-family:var(--serif);font-weight:700;font-size:24px;color:#fff;
-  position:relative;z-index:1;
-}
-.ob.bdt .dot-big{background:linear-gradient(135deg,var(--bdt-3),var(--bdt-5));box-shadow:0 8px 24px rgba(232,130,30,0.4)}
-.ob.vk .dot-big{background:linear-gradient(135deg,var(--vk-3),var(--vk-5));box-shadow:0 8px 24px rgba(124,58,237,0.4)}
-.ob .titles h3{font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:-0.018em;margin-bottom:4px}
-.ob .titles .meta{font-family:var(--mono);font-size:10.5px;color:var(--type-3);letter-spacing:0.08em}
-.ob .stats{margin-left:auto;display:flex;gap:24px;flex-wrap:wrap;position:relative;z-index:1}
-.ob .stats > div{padding-left:18px;border-left:1px solid var(--line)}
-.ob .stats .l{font-family:var(--mono);font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--type-3);font-weight:600;margin-bottom:3px}
-.ob .stats .v{font-family:var(--serif);font-size:22px;font-weight:700;letter-spacing:-0.01em}
-.ob.bdt .stats .v{color:var(--bdt-2)}
-.ob.vk .stats .v{color:var(--vk-2)}
-
-/* Outlet KPIs */
-.outlet-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
-@media(max-width:880px){.outlet-kpis{grid-template-columns:repeat(2,1fr)}}
-.outlet-kpi{
-  padding:18px 20px;background:var(--glass-2);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border:1px solid var(--glass-border);border-radius:var(--rad-lg);
-  transition:transform .25s,border-color .25s;position:relative;overflow:hidden;
-}
-.outlet-kpi:hover{transform:translateY(-2px);border-color:var(--line-2)}
-.outlet-kpi .l{font-family:var(--mono);font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--type-3);font-weight:600;margin-bottom:8px}
-.outlet-kpi .v{font-family:var(--serif);font-size:30px;font-weight:700;letter-spacing:-0.022em;line-height:1}
-.outlet-kpi .v small{font-size:12px;color:var(--type-3);font-weight:500;margin-left:3px;font-family:var(--sans)}
-.outlet-kpi .d{font-size:11px;color:var(--type-3);margin-top:6px;line-height:1.45}
-.outlet-kpis.bdt .v{color:var(--bdt-2)}
-.outlet-kpis.vk .v{color:var(--vk-2)}
+.insight strong{color:var(--type);font-weight:600}
+.insight em{color:var(--gold);font-style:normal;font-weight:600}
 
 /* Grid */
 .g-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -354,11 +343,9 @@ section > .page{position:relative;z-index:1}
 @media(max-width:1080px){.g-3{grid-template-columns:1fr 1fr}}
 @media(max-width:880px){.g-2,.g-3,.g-32,.g-23{grid-template-columns:1fr}}
 
-/* ============================================================
-   Tables
-   ============================================================ */
+/* Tables */
 .tbl{width:100%;border-collapse:collapse;font-size:12.5px;font-family:var(--mono)}
-.tbl thead th{text-align:left;padding:12px 14px;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--type-3);font-weight:600;border-bottom:1px solid var(--line-2);background:var(--bg-3);white-space:nowrap}
+.tbl thead th{text-align:left;padding:11px 14px;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--type-3);font-weight:600;border-bottom:1px solid var(--line-2);background:var(--bg-3);white-space:nowrap}
 .tbl thead th.r{text-align:right}
 .tbl tbody td{padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
 .tbl tbody tr:hover td{background:rgba(232,130,30,0.04)}
@@ -369,68 +356,25 @@ section > .page{position:relative;z-index:1}
 .tbl .pct{color:var(--bdt-2);font-weight:600}
 .tbl tr.danger td{background:rgba(239,86,100,0.10)}
 .tbl tr.warn td{background:rgba(242,163,58,0.07)}
-.tbl tr.tea td{background:rgba(229,183,99,0.08)}
+.tbl tr.tea td{background:rgba(212,162,74,0.08)}
 .tbl tr.tea .name{color:var(--gold);font-weight:600}
 .tbl tfoot td{padding:13px 14px;font-weight:700;background:var(--bg-3);border-top:2px solid var(--gold);font-feature-settings:"tnum"}
-
-/* Inventory badges */
 .inv-badge{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:0.08em;text-transform:uppercase}
 .inv-badge.danger{background:rgba(239,86,100,0.20);color:var(--neg)}
 .inv-badge.warn{background:rgba(242,163,58,0.20);color:var(--warn)}
 .inv-badge.ok{background:rgba(34,197,127,0.20);color:var(--pos)}
 .inv-badge.high{background:rgba(91,146,245,0.20);color:var(--info)}
 
-/* SKU bar */
-.sku-bar{display:inline-block;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--bdt-5),var(--bdt));vertical-align:middle}
-.sku-bar.vk{background:linear-gradient(90deg,var(--vk-5),var(--vk))}
-.sku-bar.gold{background:linear-gradient(90deg,var(--gold-3),var(--gold))}
-
-/* Score 6 grid */
-.score-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:var(--line);border:1px solid var(--line);border-radius:var(--rad-xl);overflow:hidden;
-}
-@media(max-width:880px){.score-grid{grid-template-columns:repeat(2,1fr)}}
-.score-cell{
-  padding:26px 24px;background:var(--glass-2);backdrop-filter:blur(16px);
-  min-height:160px;display:flex;flex-direction:column;justify-content:space-between;gap:12px;
-  position:relative;overflow:hidden;transition:background .3s;
-}
-.score-cell:hover{background:var(--bg-3)}
-.score-cell .top{display:flex;align-items:center;justify-content:space-between}
-.score-cell .lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--type-3);font-weight:600}
-.score-cell .chip{font-family:var(--mono);font-size:9.5px;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(34,197,127,0.16);color:var(--pos);letter-spacing:0.04em}
-.score-cell .chip.warn{background:rgba(242,163,58,0.16);color:var(--warn)}
-.score-cell .chip.neg{background:rgba(239,86,100,0.16);color:var(--neg)}
-.score-cell .chip.gold{background:rgba(229,183,99,0.16);color:var(--gold)}
-.score-cell .v{font-family:var(--serif);font-size:38px;font-weight:700;letter-spacing:-0.025em;line-height:1}
-.score-cell .v small{font-family:var(--sans);font-size:13px;color:var(--type-3);font-weight:500;margin-left:3px}
-.score-cell .d{font-size:11.5px;color:var(--type-3);line-height:1.5}
-
-/* Tabs / Segmented control for interactive dashboards */
-.seg{
-  display:inline-flex;gap:4px;padding:4px;
-  background:var(--bg-3);border:1px solid var(--line);border-radius:10px;
-  margin-bottom:16px;flex-wrap:wrap;
-}
-.seg button{
-  background:transparent;border:none;color:var(--type-3);
-  padding:8px 14px;border-radius:7px;cursor:pointer;
-  font-family:var(--sans);font-size:12px;font-weight:600;
-  transition:all .2s;letter-spacing:-0.005em;
-}
+/* Tabs */
+.seg{display:inline-flex;gap:4px;padding:4px;background:var(--bg-3);border:1px solid var(--line);border-radius:8px;margin-bottom:16px;flex-wrap:wrap}
+.seg button{background:transparent;border:none;color:var(--type-3);padding:8px 14px;border-radius:6px;cursor:pointer;font-family:var(--sans);font-size:12px;font-weight:600;transition:all .2s}
 .seg button:hover{color:var(--type)}
-.seg button.on{
-  background:linear-gradient(180deg,var(--bdt),var(--bdt-5));
-  color:#fff;box-shadow:0 2px 12px rgba(232,130,30,0.32);
-}
+.seg button.on{background:linear-gradient(180deg,var(--bdt),var(--bdt-5));color:#fff}
 .dash-pane{display:none}
-.dash-pane.on{display:block;animation:fade .35s ease}
+.dash-pane.on{display:block;animation:fade .3s ease}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
-/* ============================================================
-   Cohort heatmap (true heatmap with smooth gradient)
-   ============================================================ */
+/* Cohort heatmap */
 .cohort{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11.5px;margin-top:8px}
 .cohort thead th{padding:10px 6px;text-align:center;font-size:10px;color:var(--type-3);font-weight:600;letter-spacing:0.06em}
 .cohort thead th:first-child{text-align:left;padding-left:14px;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase}
@@ -438,34 +382,22 @@ section > .page{position:relative;z-index:1}
 .cohort tbody td:first-child{text-align:left;padding-left:14px;color:var(--type-3);font-weight:500;width:100px}
 .cohort tbody td:first-child small{display:block;font-size:9px;color:var(--type-4)}
 .cohort .c{padding:11px 0;border-radius:4px;color:#fff;cursor:pointer;transition:transform .15s}
-.cohort .c:hover{transform:scale(1.15);z-index:2;outline:1.5px solid #fff;outline-offset:1px}
+.cohort .c:hover{transform:scale(1.15);z-index:2;outline:1.5px solid #fff}
 .heat-leg{display:flex;align-items:center;gap:12px;margin-top:18px;font-family:var(--mono);font-size:10.5px;color:var(--type-3)}
-.heat-leg .scale{flex:1;max-width:280px;height:10px;border-radius:5px;background:linear-gradient(90deg,#1B2235 0%,#5B92F5 18%,#5EEAD4 38%,#FCD34D 58%,#FB923C 75%,#DC2626 100%)}
+.heat-leg .scale{flex:1;max-width:280px;height:9px;border-radius:5px;background:linear-gradient(90deg,#1B2335 0%,#5B92F5 18%,#5EEAD4 38%,#FCD34D 58%,#FB923C 75%,#DC2626 100%)}
 
-/* ============================================================
-   Forecast cards
-   ============================================================ */
+/* Forecast cards */
 .fc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
 @media(max-width:1080px){.fc-grid{grid-template-columns:repeat(2,1fr)}}
-.fc{
-  padding:22px 24px;background:var(--glass-2);backdrop-filter:blur(16px);
-  border:1px solid var(--glass-border);border-radius:var(--rad-lg);
-  transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden;
-}
-.fc:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,0.24)}
+.fc{padding:22px 24px;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--rad-lg);transition:transform .25s;position:relative;overflow:hidden}
+.fc:hover{transform:translateY(-3px)}
 .fc::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
-.fc.bear::before{background:var(--neg)}
-.fc.base::before{background:var(--type-3)}
-.fc.bull::before{background:var(--pos)}
-.fc.moon::before{background:linear-gradient(90deg,var(--gold),var(--gold-2))}
+.fc.bear::before{background:var(--neg)}.fc.base::before{background:var(--type-3)}.fc.bull::before{background:var(--pos)}.fc.moon::before{background:var(--gold)}
 .fc h4{font-family:var(--mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--type-3);margin-bottom:8px;font-weight:600}
 .fc h4 small{color:var(--type-4);font-weight:500}
-.fc .v{font-family:var(--serif);font-size:38px;font-weight:700;letter-spacing:-0.022em;line-height:1}
+.fc .v{font-family:var(--serif);font-size:38px;font-weight:600;letter-spacing:-0.022em;line-height:1}
 .fc .v small{font-size:13px;color:var(--type-3);font-weight:500;margin-left:2px;font-family:var(--sans)}
-.fc.bear .v{color:var(--neg)}
-.fc.base .v{color:var(--type-2)}
-.fc.bull .v{color:var(--pos)}
-.fc.moon .v{color:var(--gold)}
+.fc.bear .v{color:var(--neg)}.fc.base .v{color:var(--type-2)}.fc.bull .v{color:var(--pos)}.fc.moon .v{color:var(--gold)}
 .fc .d{font-size:12px;color:var(--type-3);margin-top:11px;line-height:1.55}
 .fc .d strong{color:var(--type);font-weight:600}
 
@@ -481,12 +413,7 @@ section > .page{position:relative;z-index:1}
 /* 3-Horizon */
 .h3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
 @media(max-width:980px){.h3-grid{grid-template-columns:1fr}}
-.h3-col{
-  padding:24px;background:var(--glass-2);backdrop-filter:blur(16px);
-  border:1px solid var(--glass-border);border-radius:var(--rad-lg);
-  transition:transform .25s;
-}
-.h3-col:hover{transform:translateY(-3px)}
+.h3-col{padding:24px;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--rad-lg)}
 .h3-col.h1{border-top:3px solid var(--neg)}
 .h3-col.h2{border-top:3px solid var(--warn)}
 .h3-col.h3{border-top:3px solid var(--info)}
@@ -518,37 +445,27 @@ section > .page{position:relative;z-index:1}
 .plan-tbl .when small{font-family:var(--sans);font-weight:500;color:var(--type-3);font-size:10px;display:block;margin-top:2px}
 .plan-tbl .what{font-family:var(--sans);color:var(--type-2);line-height:1.55}
 .plan-tbl .target{text-align:right;font-weight:700;color:var(--type)}
-.plan-tbl tr.holiday td{background:rgba(242,163,58,0.07);color:var(--type-3);font-style:italic}
-.plan-tbl tr.holiday .when small{color:var(--warn);font-weight:600;font-style:normal}
+.plan-tbl tr.holiday td{background:rgba(242,163,58,0.07);color:var(--type-3)}
+.plan-tbl tr.holiday .when small{color:var(--warn);font-weight:600}
 .plan-tbl tfoot td{padding:14px;font-weight:700;background:var(--bg-3);border-top:2px solid var(--gold)}
 
-/* Activation cards */
+/* Activation */
 .act-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
 @media(max-width:880px){.act-grid{grid-template-columns:1fr}}
-.act-card{
-  padding:22px 24px;background:var(--glass-2);backdrop-filter:blur(16px);
-  border:1px solid var(--glass-border);border-radius:var(--rad-lg);
-  transition:transform .25s,border-color .25s;
-}
-.act-card:hover{transform:translateY(-2px);border-color:var(--line-2)}
-.act-card h4{font-family:var(--serif);font-size:18px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:11px;letter-spacing:-0.01em}
+.act-card{padding:22px 24px;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--rad-lg);transition:transform .25s}
+.act-card:hover{transform:translateY(-2px)}
+.act-card h4{font-family:var(--serif);font-size:18px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:11px}
 .act-card h4 .pin{font-family:var(--mono);font-size:9.5px;font-weight:700;padding:4px 10px;border-radius:4px;background:var(--bg-4);color:var(--type-3);letter-spacing:0.08em;text-transform:uppercase}
 .act-card h4 .pin.warn{background:rgba(242,163,58,0.20);color:var(--warn)}
 .act-card h4 .pin.pos{background:rgba(34,197,127,0.20);color:var(--pos)}
-.act-card h4 .pin.gold{background:rgba(229,183,99,0.20);color:var(--gold)}
+.act-card h4 .pin.gold{background:rgba(212,162,74,0.20);color:var(--gold)}
 .act-card .when{font-family:var(--mono);font-size:10.5px;color:var(--type-3);letter-spacing:0.08em;margin-bottom:14px}
 .act-card .desc{font-size:13px;color:var(--type-2);line-height:1.65}
 .act-card .desc strong{color:var(--type);font-weight:600}
 
 /* Board card */
-.board-card{
-  padding:36px 40px;
-  background:linear-gradient(180deg,var(--glass-2),rgba(13,19,31,0.85));
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border:1px solid var(--gold-3);border-radius:var(--rad-xl);
-  position:relative;overflow:hidden;
-}
-.board-card::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:6px;background:linear-gradient(90deg,var(--bdt),var(--gold),var(--vk));border-radius:var(--rad-xl) var(--rad-xl) 0 0}
+.board-card{padding:36px 40px;background:var(--bg-2);border:1px solid var(--gold-3);border-radius:var(--rad-lg);position:relative;overflow:hidden}
+.board-card::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:6px;background:linear-gradient(90deg,var(--bdt),var(--gold),var(--vk));border-radius:var(--rad-lg) var(--rad-lg) 0 0}
 .board-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:18px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--line)}
 .board-head .l h3{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:-0.022em}
 .board-head .l p{font-family:var(--mono);font-size:11px;color:var(--type-3);letter-spacing:0.08em;margin-top:5px}
@@ -558,7 +475,7 @@ section > .page{position:relative;z-index:1}
 @media(max-width:880px){.board-3{grid-template-columns:1fr}}
 .board-cell{padding:18px;background:var(--bg-3);border:1px solid var(--line);border-radius:var(--rad)}
 .board-cell .l{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--type-3);font-weight:600;margin-bottom:8px}
-.board-cell .v{font-family:var(--serif);font-size:28px;font-weight:700;letter-spacing:-0.022em;line-height:1}
+.board-cell .v{font-family:var(--serif);font-size:28px;font-weight:600;letter-spacing:-0.022em;line-height:1}
 .board-cell .v small{font-family:var(--sans);font-size:11px;color:var(--type-3);font-weight:500;display:block;margin-top:8px}
 .board-cell.b1 .v{color:var(--neg)}
 .board-cell.b2 .v{color:var(--type)}
@@ -567,240 +484,344 @@ section > .page{position:relative;z-index:1}
 .board-narrative p strong{color:var(--type);font-weight:600}
 .board-narrative em{color:var(--gold);font-style:normal;font-weight:600}
 
-/* Footer */
-.foot{padding:64px 0 36px;border-top:1px solid var(--line);position:relative}
-.foot::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:80px;height:1px;background:var(--gold);box-shadow:0 0 12px var(--gold)}
-.foot-in{max-width:1320px;margin:0 auto;padding:0 36px}
-.foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:36px}
-@media(max-width:880px){.foot-grid{grid-template-columns:repeat(2,1fr)}}
-.foot-grid h5{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600}
-.foot-grid p{font-family:var(--mono);font-size:11px;color:var(--type-2);line-height:1.8}
-.foot-grid p strong{color:var(--type);font-weight:700}
-.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10px;color:var(--type-3);letter-spacing:0.08em;flex-wrap:wrap;gap:14px}
-.foot-bot img{height:32px;width:auto;opacity:0.7;filter:grayscale(0.3)}
+/* Colophon (footer) */
+.colophon{padding:64px 0 40px;border-top:2px solid var(--gold);position:relative;background:var(--bg-2)}
+.colophon-in{max-width:1280px;margin:0 auto;padding:0 40px}
+.colophon-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:36px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.colophon-head .ti{font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:-0.018em}
+.colophon-head .ti em{font-style:normal;color:var(--gold);font-weight:600}
+.colophon-head .meta{font-family:var(--mono);font-size:10.5px;color:var(--type-3);letter-spacing:0.08em;text-align:right}
+.colophon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:36px}
+@media(max-width:880px){.colophon-grid{grid-template-columns:repeat(2,1fr)}}
+.colophon-grid h5{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600}
+.colophon-grid p{font-family:var(--mono);font-size:11px;color:var(--type-2);line-height:1.8}
+.colophon-grid p strong{color:var(--type);font-weight:600}
+.colophon-bot{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--line);font-family:var(--mono);font-size:10px;color:var(--type-3);letter-spacing:0.08em;flex-wrap:wrap;gap:14px}
+.colophon-bot img{height:32px;width:auto;opacity:0.7}
 
-/* Print */
-@media print{
-  body{background:#fff;color:#000}
-  body::before,body::after{display:none}
-  .bar,.kpi-ribbon,.theme-tog,.reading-progress{display:none}
-  section{page-break-after:always;padding:32px 0}
-}
+@media print{body{background:#fff;color:#000}body::before,body::after{display:none}.theme-tog{display:none}section{page-break-after:always}}
 </style>
 </head>
 
 <body data-theme="dark">
 
-<!-- Reading progress -->
-<div class="reading-progress" id="readProgress"></div>
-
-<!-- ======================== TOP BAR ======================== -->
-<header class="bar">
-  <div class="bar-in">
-    <div class="brand">
-      <img src="img/logo.png" alt="Sumo Snack" />
-      <div class="brand-txt">
-        <div class="brand-name">Sumo Snack</div>
-        <div class="brand-sub">Closing T04Y26 · International Edition</div>
-      </div>
+<!-- ========================== TOP NAV (STATIC) ========================== -->
+<header class="topnav">
+  <div class="topnav-in">
+    <div class="topnav-brand">
+      <img src="img/logo.png" alt="Sumo" />
+      Sumo Quarterly
     </div>
-    <nav class="bar-nav" id="topNav">
+    <nav class="topnav-links">
       <a href="#cover">Cover</a>
+      <a href="#contents">Contents</a>
       <a href="#letter">Letter</a>
-      <a href="#scoreboard">Scoreboard</a>
-      <a href="#daily">Daily</a>
-      <a href="#bdt">Bùi Đình Túy</a>
-      <a href="#vk">Vạn Kiếp</a>
-      <a href="#tonkho">Tồn kho</a>
-      <a href="#pareto">Pareto NVL</a>
-      <a href="#traffic">Traffic+CR</a>
-      <a href="#scorecard">Scorecard 4T</a>
-      <a href="#forecast">Forecast</a>
-      <a href="#plan">Plan T05</a>
+      <a href="#numbers">Numbers</a>
+      <a href="#month">The Month</a>
+      <a href="#bdt">Portfolio I</a>
+      <a href="#vk">Portfolio II</a>
+      <a href="#cross">Cross-ref</a>
+      <a href="#inv">Inventory</a>
+      <a href="#pareto">Pareto</a>
+      <a href="#traffic">Traffic</a>
+      <a href="#cohort">Cohort</a>
+      <a href="#qp">Quarterly</a>
+      <a href="#fwd">Forward</a>
+      <a href="#strat">Strategy</a>
+      <a href="#plan">Plan</a>
       <a href="#board">Board</a>
     </nav>
-    <div class="bar-tools">
-      <button class="theme-tog" id="themeTog">DARK</button>
-      <div class="bar-meta">VOL I · NO 04</div>
-    </div>
+    <button class="theme-tog" id="themeTog">DARK</button>
   </div>
 </header>
 
-<!-- KPI Ribbon -->
-<div class="kpi-ribbon">
-  <div class="kpi-ribbon-in">
-    <div><div class="lbl">DT Hệ thống</div><div class="val">44.612k</div><div class="delta">━ 99,1% HV tháng</div></div>
-    <div><div class="lbl">P&L dòng tiền</div><div class="val dn">−4.436k</div><div class="delta">▼ −9,7%</div></div>
-    <div><div class="lbl">Số đơn</div><div class="val">1.679</div><div class="delta">━ DS 1,53</div></div>
-    <div><div class="lbl">Bùi Đình Túy 28d</div><div class="val bdt-c">42.179k</div><div class="delta">━ 93,7% HV</div></div>
-    <div><div class="lbl">Vạn Kiếp 2d</div><div class="val vk-c">2.433k</div><div class="delta">▲ DS 1,81 ★</div></div>
-    <div><div class="lbl">Shopee</div><div class="val up">5.231k</div><div class="delta">▲ ×12 vs T1</div></div>
-    <div><div class="lbl">Lãi gộp</div><div class="val up">66,7%</div><div class="delta">▲ Healthy</div></div>
-    <div><div class="lbl">Tiêu hao</div><div class="val dn">10.179k</div><div class="delta">▼ 22,3%</div></div>
-    <div><div class="lbl">Tồn kho cuối</div><div class="val gold-c">10.444k</div><div class="delta">━ 3 nhóm</div></div>
-    <div><div class="lbl">Trà VK</div><div class="val gold-c">10,7%</div><div class="delta">★ Signal</div></div>
-    <div><div class="lbl">Lễ 30/4 + 1/5</div><div class="val" style="color:var(--warn)">2 NGÀY</div><div class="delta">━ ĐÓNG CỬA</div></div>
-  </div>
-</div>
-
 <!-- Holiday strip -->
 <div class="hbar">
-  <div class="page hbar-in">
+  <div class="hbar-in">
     <span class="tag">Lịch nghỉ Lễ</span>
-    <span><strong>30/04/2026</strong> Giải phóng miền Nam · <strong>01/05/2026</strong> Quốc tế Lao động (trùng Rằm 15/4 âm) · 2 cửa hàng đều <strong>ĐÓNG CỬA</strong> · không có hoạt động bán · mở lại <strong>Thứ Bảy 02/05</strong></span>
+    <span><strong>30/04/2026</strong> Giải phóng miền Nam · <strong>01/05/2026</strong> Quốc tế Lao động (trùng Rằm 15/4 âm) · 2 cửa hàng đều <strong>ĐÓNG CỬA</strong> · mở lại <strong>Thứ Bảy 02/05</strong></span>
   </div>
 </div>
 
-<!-- ======================== HERO COVER ======================== -->
-<section class="hero" id="cover">
-  <img src="img/logo.png" class="hero-watermark" alt="" />
-  <div class="page hero-in">
-    <div class="hero-meta-top">
-      <div class="vol"><b>Sumo Quarterly</b> · The Director's Edition · Vol I · Issue 04</div>
-      <div class="pub"><b>Phát hành 29.04.2026</b>Bình Thạnh · TP.HCM<br>32 trang · 13 sections · v5</div>
+<!-- ========================== COVER ========================== -->
+<section class="cover" id="cover">
+  <img src="img/logo.png" alt="" class="cover-watermark" />
+  <div class="cover-in">
+    <div class="cover-top">
+      <div class="masthead">
+        <img src="img/logo.png" alt="Sumo" />
+        <div class="mh-text">
+          <div class="mh-name">Sumo Quarterly</div>
+          <div class="mh-sub">The Director's Edition · Operating Review</div>
+        </div>
+      </div>
+      <div class="vol"><b>Volume I</b> · Issue IV · April 2026</div>
     </div>
-    <div class="hero-row">
-      <div class="hero-logo"><img src="img/logo.png" alt="Sumo Snack" /></div>
-      <div class="hero-title-block">
-        <span class="eyebrow">Closing report · Multi-location issue · End-of-month</span>
-        <h1 class="h-mega serif">Closing <em>T04Y26</em></h1>
-        <p class="hero-lead">29 ngày · hai cửa hàng · 44,6 triệu doanh thu · một câu chuyện về <strong>kỷ luật chi phí</strong> và <strong>cơ hội giao thoa</strong> giữa Bùi Đình Túy và Vạn Kiếp.</p>
+
+    <div class="cover-mid">
+      <div class="cover-issue-bar">
+        <span><span class="dot"></span>Closing T04Y26</span>
+        <span><span class="dot"></span>Multi-location</span>
+        <span><span class="dot"></span>32 Pages</span>
+        <span><span class="dot"></span>17 Sections</span>
+        <span><span class="dot"></span>Hai cửa hàng · 29 ngày bán</span>
+      </div>
+      <div class="cover-title">
+        <h1 class="h-mega">Hai cửa hàng. <em>Hai mươi tám ngày.</em><br>Bốn mươi bốn triệu <em>câu hỏi.</em></h1>
+        <p class="cover-tagline">Đóng tháng 04 năm 2026 · <strong>Bùi Đình Túy</strong> 28 ngày + <strong>Vạn Kiếp</strong> 2 ngày khai trương · Một câu chuyện về kỷ luật chi phí và cơ hội giao thoa.</p>
       </div>
     </div>
 
-    <div class="hero-kpis tnum">
-      <div class="h-kpi"><div class="l">DT Net hệ thống</div><div class="v">44,6<small>tr</small></div><div class="d">99,1% HV tháng (45M target) · 1.679 đơn</div></div>
-      <div class="h-kpi neg"><div class="l">LN dòng tiền</div><div class="v">−4,4<small>tr</small></div><div class="d">Margin −9,7% · sửa được bằng SOP tiêu hao</div></div>
-      <div class="h-kpi bdt"><div class="l">Bùi Đình Túy · 28 ngày</div><div class="v">42,2<small>tr</small></div><div class="d">94,5% hệ thống · DS 1,52 · 1.601 đơn</div></div>
-      <div class="h-kpi vk"><div class="l">Vạn Kiếp · 2 ngày ★</div><div class="v">2,4<small>tr</small></div><div class="d">DS 1,81 +19% · Trà 10,7% signal</div></div>
-    </div>
-
-    <div class="sxr">
-      <div class="sxr-c s">
-        <h4>STATUS · TÌNH TRẠNG</h4>
-        <p><strong>Vàng nhạt.</strong> Hệ thống đạt 99,1% hòa vốn — gần đỉnh nhưng chưa vượt. <strong>Vạn Kiếp khai trương đúng hẹn</strong> với DS 1,81 cao hơn BDT. <strong>Shopee scale ×12</strong> trong 4 tuần — tín hiệu tích cực rõ rệt.</p>
+    <div class="cover-bot">
+      <div class="cover-features">
+        <h4>Trong số này</h4>
+        <ul>
+          <li><span class="nm">04</span><span><strong>Letter from the Operator</strong> · Tháng tư trong năm đoạn văn</span></li>
+          <li><span class="nm">07</span><span><strong>Portfolio No.I</strong> · Bùi Đình Túy at 28 days · 42,18 triệu</span></li>
+          <li><span class="nm">11</span><span><strong>Portfolio No.II</strong> · Vạn Kiếp · two days in</span></li>
+          <li><span class="nm">17</span><span><strong>Inventory Brief</strong> · Tồn kho 10,4 triệu · Dầu Ăn hết</span></li>
+          <li><span class="nm">25</span><span><strong>Forward Look</strong> · Bốn kịch bản tháng 5</span></li>
+          <li><span class="nm">31</span><span><strong>Board Brief</strong> · Một trang nói tất cả</span></li>
+        </ul>
       </div>
-      <div class="sxr-c c">
-        <h4>CONCERN · LO NGẠI</h4>
-        <p><strong>Tiêu hao 22,3%</strong> vượt trần 15% (hao ~3M/tháng). <strong>Dầu Ăn tồn 0</strong> + Bọc 2 ly hết — sắp gián đoạn. Concentration risk: Top 10 SKU = 75,8% DT.</p>
-      </div>
-      <div class="sxr-c r">
-        <h4>RISK · RỦI RO</h4>
-        <p><strong>Đỏ.</strong> 2 ngày Lễ 30/4 + 1/5 đóng cửa · 01/5 trùng Rằm 15/4 âm — <em>không khai thác được kỳ Rằm</em>. LN có khấu hao −6,2tr · cần ramp Vạn Kiếp.</p>
+      <div class="cover-meta">
+        <b>Compiled</b>
+        29 April 2026 · 23:59 ICT<br>
+        Bình Thạnh · TP.HCM<br>
+        141 Bùi Đình Túy<br>
+        88 Vạn Kiếp<br>
+        <br>
+        <b>Source</b>
+        Sumo_v34.xlsx · Ton.NVL · Data.Sales<br>
+        Phí Shopee 35,2% exact<br>
+        BDT/VK by Người tạo<br>
+        <br>
+        <b>Edition</b>
+        v6 · Magazine × Portfolio
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- ========================== CONTENTS ========================== -->
+<section class="contents-section" id="contents">
+  <div class="page">
+    <div class="contents-head">
+      <h2 class="serif">Contents.</h2>
+      <span class="pn">Page 02 · April 2026</span>
+    </div>
+    <p class="contents-intro">Báo cáo cuối tháng được tổ chức như một số tạp chí. Ba phần chính: <strong style="color:var(--type)">Portfolio</strong> phân tích từng cửa hàng như case study · <strong style="color:var(--type)">Briefs</strong> các chuyên đề (tồn kho, traffic, cohort) · <strong style="color:var(--type)">Forward Look</strong> kịch bản tháng tới và plan hành động.</p>
 
-<!-- ======================== LETTER ======================== -->
-<section id="letter" class="tight">
-  <div class="page-narrow">
-    <div class="shead">
-      <div class="l">
-        <div class="eyebrow gold">I · LETTER FROM THE OPERATOR</div>
-        <h2 class="h-1 serif">The month, told <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">plainly</em>.</h2>
-        <p class="body-text" style="font-style:normal;font-family:var(--serif);font-weight:600;font-size:15px;color:var(--type-3);margin-top:8px">Một bức thư từ chính người vận hành. Năm đoạn. Không slide. Không bullet.</p>
+    <div class="contents-grid">
+      <div>
+        <div class="contents-row">
+          <span class="rn">I</span>
+          <div class="rt"><div class="ti">Letter from the Operator</div><div class="ds">Tháng tư trong năm đoạn văn · drop cap, two-column</div></div>
+          <span class="rp">04</span>
+        </div>
+        <div class="contents-row">
+          <span class="rn">II</span>
+          <div class="rt"><div class="ti">The Numbers</div><div class="ds">Sáu hero numbers định nghĩa tháng vừa qua</div></div>
+          <span class="rp">06</span>
+        </div>
+        <div class="contents-row">
+          <span class="rn">III</span>
+          <div class="rt"><div class="ti">The Month in One Chart</div><div class="ds">Daily · cumulative · hòa vốn · annotations</div></div>
+          <span class="rp">07</span>
+        </div>
+        <div class="contents-row">
+          <span class="rn">IV</span>
+          <div class="rt"><div class="ti">Portfolio No.I — Bùi Đình Túy</div><div class="ds">28 ngày · 42,18 triệu · case study flagship</div></div>
+          <span class="rp">09</span>
+        </div>
+        <div class="contents-row">
+          <span class="rn">V</span>
+          <div class="rt"><div class="ti">Portfolio No.II — Vạn Kiếp</div><div class="ds">2 ngày khai trương · DS 1,81 · dòng Trà 10,7%</div></div>
+          <span class="rp">13</span>
+        </div>
+        <div class="contents-row">
+          <span class="rn">VI</span>
+          <div class="rt"><div class="ti">Cross-Reference</div><div class="ds">Side-by-side · cross-pollination thesis</div></div>
+          <span class="rp">16</span>
+        </div>
+        <div class="contents-row">
+          <span class="rn">VII</span>
+          <div class="rt"><div class="ti">Inventory Brief</div><div class="ds">3 nhóm NVL · vòng quay · cảnh báo Dầu Ăn</div></div>
+          <span class="rp">17</span>
+        </div>
+        <div class="contents-row">
+          <span class="rn">VIII</span>
+          <div class="rt"><div class="ti">Pareto · Top NVL Usage</div><div class="ds">Chuối 38% · Top 3 = 70% xuất bán</div></div>
+          <span class="rp">21</span>
+        </div>
+      </div>
+      <div>
+        <div class="contents-row">
+          <span class="rn">IX</span>
+          <div class="rt"><div class="ti">Traffic & Conversion</div><div class="ds">Funnel · CR 0,58% · Vạn Kiếp baseline plan</div></div>
+          <span class="rp">22</span>
+        </div>
+        <div class="contents-row">
+          <span class="rn">X</span>
+          <div class="rt"><div class="ti">The Cohort</div><div class="ds">Day × Hour heatmap · Thứ Ba 17h là vàng</div></div>
+          <span class="rp">23</span>
+        </div>
+        <div class="contents-row">
+          <span class="rn">XI</span>
+          <div class="rt"><div class="ti">Quarterly Performance</div><div class="ds">4-week scorecard · trend xu hướng</div></div>
+          <span class="rp">24</span>
+        </div>
+        <div class="contents-row">
+          <span class="rn">XII</span>
+          <div class="rt"><div class="ti">Forward Look</div><div class="ds">Forecast 4 kịch bản · sensitivity 5×5</div></div>
+          <span class="rp">25</span>
+        </div>
+        <div class="contents-row">
+          <span class="rn">XIII</span>
+          <div class="rt"><div class="ti">Strategy Map & Risk</div><div class="ds">3-Horizon plan · top 5 rủi ro</div></div>
+          <span class="rp">27</span>
+        </div>
+        <div class="contents-row">
+          <span class="rn">XIV</span>
+          <div class="rt"><div class="ti">Plan T05Y26 + Activation</div><div class="ds">Tuần 1 · ngày · owner · target</div></div>
+          <span class="rp">29</span>
+        </div>
+        <div class="contents-row">
+          <span class="rn">XV</span>
+          <div class="rt"><div class="ti">Board Brief</div><div class="ds">Một trang · 60 giây · stakeholder summary</div></div>
+          <span class="rp">31</span>
+        </div>
+        <div class="contents-row">
+          <span class="rn">XVI</span>
+          <div class="rt"><div class="ti">Colophon · Methodology</div><div class="ds">Source · phương pháp · kỳ tới</div></div>
+          <span class="rp">32</span>
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="sumbox">
-      <h3>Tóm tắt điều hành.</h3>
-      <p>Hệ thống Sumo Snack đạt <strong>DT Net 44,6 triệu</strong> trong T04Y26, đạt <strong>99,1%</strong> mục tiêu hoà vốn. LN dòng tiền âm <strong>−4,4 triệu (−9,7%)</strong> nhưng <em>không phải vấn đề doanh thu</em> — lãi gộp SKU vẫn 66,7%. Vấn đề thực ở <strong>tiêu hao 22,3% vượt trần 15%</strong>.</p>
-      <p><strong>Bùi Đình Túy</strong> đóng góp 42,18 triệu (94,5%). <strong>Vạn Kiếp</strong> khai trương 27/04 đem lại 2,43 triệu trong 2 ngày, DS <strong>1,81</strong> cao hơn BDT (1,52), với dòng <em>Trà chiếm 10,7%</em> — đủ tín hiệu launch ở BDT T05.</p>
-      <p><strong>Bốn việc trước Lễ:</strong> đóng sổ T04 hôm nay; setup Shopee Vạn Kiếp · live trước 30/04; SOP tiêu hao trần 15%; nhập Dầu Ăn gấp · loại bỏ tươi sống tránh hỏng 2 ngày Lễ.</p>
+<div class="rule-fancy"></div>
+
+<!-- ========================== I · LETTER ========================== -->
+<section class="letter-section" id="letter">
+  <div class="page-narrow">
+    <div class="letter-head">
+      <span class="eyebrow">No. I · Editor's Letter</span>
+      <h2>The month, told <em>plainly</em>.</h2>
+      <p class="deck">Một bức thư từ chính người vận hành · Năm đoạn · Không slide · Không bullet</p>
     </div>
 
-    <div class="pull-quote">
+    <div class="letter-body">
+      <p class="first"><strong>Tháng tư khép lại với doanh thu hệ thống 44.612.099 đồng</strong> trên 1.679 đơn hàng, gần đạt mức hoà vốn 45.034.000 đồng nhưng chưa vượt qua. Tổng chi phí 50.109.337 đồng đẩy lợi nhuận dòng tiền về <strong>âm 4.436.337 đồng</strong>. Đây là tháng đầu tiên Sumo vận hành mô hình hai cửa hàng, với Bùi Đình Túy hoạt động đủ 28 ngày và Vạn Kiếp khai trương đúng ngày 27.</p>
+      <p>Nhìn sâu hơn, model kinh doanh không phải vấn đề. <strong>Lãi gộp 66,7%</strong> trên cấp SKU, đỉnh cao nhất 28.04 với 2.747.000đ/ngày từ riêng Bùi Đình Túy, Drop Size trung bình BDT đạt 1,52 — đều là chỉ số khoẻ. Vấn đề nằm ở phía chi phí, cụ thể là khoản <em>tiêu hao 10.179.000 đồng chiếm 22,3% doanh thu</em>. Một SOP kiểm kho nghiêm túc có thể kéo tỷ lệ này xuống 12-15%, đủ để bù gap hoà vốn ngay tháng sau.</p>
+      <p><strong>Vạn Kiếp là bất ngờ tích cực nhất.</strong> Sau 2 ngày khai trương đạt 78 đơn, 2.433.000đ doanh thu, Drop Size 1,81 — cao hơn BDT 19%. Day 1 (27.04) đạt 47 đơn / 1.543.000đ. Đáng chú ý nhất, Vạn Kiếp khai thác <em>dòng Trà</em> — Trà SUMO, Trà Vải Hoa Hồng, Trà Mơ Đào — chiếm 10,7% doanh thu của riêng VK. BDT chưa có dòng này. Cơ hội giao thoa rõ ràng.</p>
+      <p><strong>Bốn việc cần xử lý trong 48 giờ tới:</strong> đóng sổ kế toán T04 trước khi nghỉ Lễ; setup Shopee Food cho Vạn Kiếp · live trước 30.04; ban hành SOP tiêu hao chặt với mục tiêu 15% trần; và <em>nhập gấp Dầu Ăn</em> (tồn 0!) trước Lễ. Hai ngày Lễ 30.04 và 01.05 hệ thống đóng cửa — 01.05 trùng Rằm 15/4 âm nhưng do đóng cửa nên không khai thác.</p>
+      <p>Tháng 5 không cần đột phá — chỉ cần <em>kỷ luật chi phí + tận dụng đòn bẩy đã có sẵn</em>. Nếu chúng ta đạt 1.650k/ngày trung bình BDT (so 1.506k hiện tại) và VK ramp lên 35-50 đơn/ngày, hệ thống vượt hoà vốn lần đầu trong mô hình multi-location. Báo cáo này sẽ cho thấy con đường để đến đó.</p>
+    </div>
+
+    <div class="letter-pull">
       Vấn đề không phải doanh thu — <em>vấn đề là 22 phần trăm doanh thu đã biến mất qua tiêu hao</em> trước khi đến lợi nhuận.
     </div>
 
-    <p class="body-text" style="margin-bottom:18px;font-size:15px;line-height:1.85;font-family:var(--serif-it);font-style:italic;color:var(--type-2)">
-      Tháng tư khép lại với doanh thu hệ thống 44.612.099 đồng trên 1.679 đơn hàng, gần đạt mức hoà vốn 45.034.000 đồng nhưng chưa vượt qua. Tổng chi phí 50.109.337 đồng đẩy lợi nhuận dòng tiền về <strong style="font-style:normal;font-family:var(--serif);color:var(--neg)">âm 4.436.337 đồng</strong>. Đây là tháng đầu tiên Sumo vận hành mô hình hai cửa hàng, với Bùi Đình Túy hoạt động đủ 28 ngày và Vạn Kiếp khai trương đúng ngày 27.
-    </p>
-    <p class="body-text" style="margin-bottom:18px;font-size:15px;line-height:1.85;font-family:var(--serif-it);font-style:italic;color:var(--type-2)">
-      Nhìn sâu hơn, model kinh doanh không phải vấn đề. <strong style="font-style:normal;font-family:var(--serif)">Lãi gộp 66,7%</strong> trên cấp SKU, đỉnh cao nhất 28.04 với 2.747.000đ/ngày từ riêng Bùi Đình Túy, Drop Size trung bình BDT đạt 1,52 — đều là chỉ số khoẻ. Một SOP kiểm kho nghiêm túc có thể kéo tỷ lệ tiêu hao xuống 12-15%, đủ để bù gap hoà vốn ngay tháng sau.
-    </p>
-    <p class="body-text" style="margin-bottom:18px;font-size:15px;line-height:1.85;font-family:var(--serif-it);font-style:italic;color:var(--type-2)">
-      Vạn Kiếp là bất ngờ tích cực nhất. Sau 2 ngày khai trương, cửa hàng này đạt 78 đơn, 2.433.000đ doanh thu, Drop Size 1,81 — cao hơn BDT 19%. Đáng chú ý, Vạn Kiếp khai thác <strong style="font-style:normal;font-family:var(--serif);color:var(--gold)">dòng Trà</strong> — Trà SUMO, Trà Vải Hoa Hồng, Trà Mơ Đào — chiếm 10,7% doanh thu của riêng VK. <strong style="font-style:normal;font-family:var(--serif)">Cơ hội giao thoa rõ ràng</strong>.
-    </p>
-    <p class="body-text" style="text-align:right;margin-top:32px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--serif);font-style:normal">
-      <span style="font-family:var(--serif-it);font-style:italic;font-size:18px;color:var(--type)">— Editor's Note</span><br>
-      <span style="font-family:var(--mono);font-size:11px;color:var(--type-3);letter-spacing:0.1em">For the operator, by the analyst · Sumo Analytics · April 2026</span>
-    </p>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ======================== SCOREBOARD 6 KPI ======================== -->
-<section id="scoreboard" class="tight">
-  <div class="page">
-    <div class="shead">
-      <div class="l">
-        <div class="eyebrow">II · PERFORMANCE SCOREBOARD</div>
-        <h2 class="h-1 serif">Sáu con số định nghĩa <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">tháng tư</em></h2>
-        <p class="body-text">Sáu chỉ số đọc trong 30 giây — kể câu chuyện của tháng.</p>
-      </div>
-      <div class="r">6 KPI · 30 GIÂY ĐỌC<br>Glance overview</div>
-    </div>
-    <div class="score-grid tnum">
-      <div class="score-cell">
-        <div><div class="top"><span class="lbl">DT Hệ Thống</span><span class="chip">━ 99,1% HV</span></div><div class="v" style="margin-top:8px">44.612<small>k</small></div></div>
-        <div class="d">cần 45.034k để vượt HV tháng (28d × 1.608k)</div>
-      </div>
-      <div class="score-cell">
-        <div><div class="top"><span class="lbl">Cash P&amp;L</span><span class="chip neg">▼ −9,7%</span></div><div class="v" style="color:var(--neg);margin-top:8px">−4.436<small>k</small></div></div>
-        <div class="d">Margin âm · sửa được bằng SOP tiêu hao</div>
-      </div>
-      <div class="score-cell">
-        <div><div class="top"><span class="lbl">Lãi gộp SKU</span><span class="chip">▲ Solid</span></div><div class="v" style="color:var(--pos);margin-top:8px">66,7<small>%</small></div></div>
-        <div class="d">Healthy economics · không phải vấn đề DT</div>
-      </div>
-      <div class="score-cell">
-        <div><div class="top"><span class="lbl">CP Tiêu Hao</span><span class="chip warn">▼ Vượt trần</span></div><div class="v" style="color:var(--warn);margin-top:8px">10.179<small>k</small></div></div>
-        <div class="d">22,3% DT · trần 15% · single biggest lever</div>
-      </div>
-      <div class="score-cell">
-        <div><div class="top"><span class="lbl">Vạn Kiếp · 2 ngày</span><span class="chip gold">★ ▲</span></div><div class="v" style="color:var(--vk-2);margin-top:8px">2.433<small>k</small></div></div>
-        <div class="d">DS 1,81 (+19% so BDT) · Trà 10,7%</div>
-      </div>
-      <div class="score-cell">
-        <div><div class="top"><span class="lbl">Tồn kho cuối kỳ</span><span class="chip gold">━ 3 nhóm</span></div><div class="v" style="color:var(--gold);margin-top:8px">10.444<small>k</small></div></div>
-        <div class="d">NLC 3,46M + Tiêu hao 6,98M + TBDC 88 cái</div>
-      </div>
+    <div class="letter-sig">
+      <span class="em">— Editor's Note</span>
+      <span class="who-meta">For the operator, by the analyst · Sumo Analytics · April 2026</span>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="rule-fancy"></div>
 
-<!-- ======================== INTERACTIVE DAILY DASHBOARD ======================== -->
-<section id="daily">
+<!-- ========================== II · THE NUMBERS ========================== -->
+<section id="numbers">
   <div class="page">
     <div class="shead">
       <div class="l">
-        <div class="eyebrow">III · DAILY · INTERACTIVE</div>
-        <h2 class="h-1 serif">Cả tháng trong <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">một biểu đồ</em></h2>
-        <p class="body-text">Line chart đa chế độ · click tab để chuyển góc nhìn · daily / cumulative / so sánh BDT vs VK / growth rate / variance.</p>
+        <span class="eyebrow">No. II · The Numbers · Page 06</span>
+        <h2 class="h-1">Sáu con số định nghĩa <em style="color:var(--gold);font-style:normal;font-weight:600">tháng tư</em>.</h2>
+        <p class="sub-title">Đọc trong 30 giây — kể câu chuyện của tháng.</p>
       </div>
-      <div class="r">5 GÓC NHÌN · CHART.JS<br>Interactive · Hover tooltip</div>
+      <div class="r"><span class="folio">Folio · 06</span><br>6 hero metrics · glance overview</div>
+    </div>
+
+    <div class="numbers-grid tnum">
+      <div class="num-cell">
+        <span class="num-status">━ 99,1% HV</span>
+        <div class="num-big">44,6<small>tr</small></div>
+        <div>
+          <div class="num-label">Doanh thu hệ thống</div>
+          <div class="num-cap">Hợp nhất 2 cửa hàng · cần <strong>45,034 triệu</strong> để vượt HV (28d × 1.608k)</div>
+        </div>
+      </div>
+      <div class="num-cell neg">
+        <span class="num-status neg">▼ −9,7%</span>
+        <div class="num-big">−4,4<small>tr</small></div>
+        <div>
+          <div class="num-label">LN dòng tiền</div>
+          <div class="num-cap">Margin âm · sửa được bằng <strong>SOP tiêu hao</strong></div>
+        </div>
+      </div>
+      <div class="num-cell pos">
+        <span class="num-status">▲ Solid</span>
+        <div class="num-big">66,7<small>%</small></div>
+        <div>
+          <div class="num-label">Lãi gộp SKU</div>
+          <div class="num-cap">Healthy economics · không phải vấn đề doanh thu</div>
+        </div>
+      </div>
+      <div class="num-cell warn">
+        <span class="num-status warn">▼ Vượt trần</span>
+        <div class="num-big">22,3<small>%</small></div>
+        <div>
+          <div class="num-label">CP Tiêu hao</div>
+          <div class="num-cap">10.179k · trần 15% · <strong>single biggest lever</strong></div>
+        </div>
+      </div>
+      <div class="num-cell vk">
+        <span class="num-status gold">★ ▲</span>
+        <div class="num-big">2,4<small>tr</small></div>
+        <div>
+          <div class="num-label">Vạn Kiếp · 2 ngày</div>
+          <div class="num-cap">DS 1,81 (+19% so BDT) · <strong>Trà 10,7%</strong></div>
+        </div>
+      </div>
+      <div class="num-cell gold">
+        <span class="num-status gold">━ 3 nhóm</span>
+        <div class="num-big">10,4<small>tr</small></div>
+        <div>
+          <div class="num-label">Tồn kho cuối kỳ</div>
+          <div class="num-cap">NLC 3,46M + Tiêu hao 6,98M + TBDC 88 cái</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule-fancy"></div>
+
+<!-- ========================== III · THE MONTH IN ONE CHART ========================== -->
+<section id="month" class="tight">
+  <div class="page">
+    <div class="shead">
+      <div class="l">
+        <span class="eyebrow">No. III · The Month · Page 07</span>
+        <h2 class="h-1">Cả tháng trong <em style="color:var(--gold);font-weight:600">một biểu đồ</em>.</h2>
+        <p class="sub-title">Line chart đa chế độ · 5 góc nhìn · click tab để chuyển.</p>
+      </div>
+      <div class="r">5 chế độ tương tác · Chart.js<br>Annotations cho outliers</div>
     </div>
 
     <div class="seg" id="dailySeg">
-      <button class="on" data-pane="combo">Tổng hợp · daily + cumulative + HV</button>
-      <button data-pane="trend">Xu hướng theo ngày</button>
+      <button class="on" data-pane="combo">Tổng hợp</button>
+      <button data-pane="trend">Xu hướng</button>
       <button data-pane="cumul">Lũy tiến vs HV</button>
       <button data-pane="growth">Tăng/giảm theo ngày</button>
       <button data-pane="variance">Lệch trung bình</button>
     </div>
 
     <div class="card">
-      <div class="chead">
-        <h3 id="dailyTitle">Tổng hợp · doanh thu daily + lũy tiến + hòa vốn</h3>
-        <div class="meta" id="dailyMeta">2 trục · 3 chuỗi · annotations</div>
-      </div>
+      <div class="chead"><h3 id="dailyTitle">Tổng hợp · daily + lũy tiến + hòa vốn</h3><div class="meta" id="dailyMeta">2 trục · 3 chuỗi · annotations</div></div>
       <div class="cbody">
         <div class="dash-pane on" data-pane="combo"><div class="chart-wrap tall"><canvas id="dailyCombo"></canvas></div></div>
         <div class="dash-pane" data-pane="trend"><div class="chart-wrap tall"><canvas id="dailyTrend"></canvas></div></div>
@@ -808,88 +829,95 @@ section > .page{position:relative;z-index:1}
         <div class="dash-pane" data-pane="growth"><div class="chart-wrap tall"><canvas id="dailyGrowth"></canvas></div></div>
         <div class="dash-pane" data-pane="variance"><div class="chart-wrap tall"><canvas id="dailyVariance"></canvas></div></div>
 
-        <div class="insight pos">
-          <strong>Insight:</strong> Đường lũy tiến (vàng) tiệm cận đường HV cộng dồn (xanh đứt) tại ngày 28/04 — chỉ thiếu ~422k để vượt. Đỉnh ngày <strong>28/04 (2.747k)</strong> nhờ Shopee push + Vạn Kiếp khai trương. <strong>04/04 Rằm 14/3 âm</strong> mất 548k vì thiếu chay. <strong>18/04 ⚠ outlier 914k</strong> — Thứ Bảy thấp nhất tháng, cần audit.
-        </div>
+        <div class="insight pos"><strong>Insight:</strong> Đường lũy tiến tiệm cận đường HV cộng dồn tại 28/04 — chỉ thiếu ~422k để vượt. Đỉnh ngày <strong>28/04 (2.747k)</strong> nhờ Shopee push + VK khai trương Day 2. <strong>04/04 Rằm</strong> mất 548k vì thiếu chay. <strong>18/04 outlier 914k</strong> — Thứ Bảy thấp nhất tháng, cần audit.</div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="rule-fancy"></div>
 
-<!-- ======================== BÙI ĐÌNH TÚY ======================== -->
+<!-- ========================== IV · PORTFOLIO No.I — Bùi Đình Túy ========================== -->
 <section id="bdt">
   <div class="page">
-    <div class="shead">
-      <div class="l">
-        <div class="eyebrow bdt">IV · CỬA HÀNG GỐC · FLAGSHIP</div>
-        <h2 class="h-1 serif">Bùi Đình Túy · 28 ngày · 42,18 triệu</h2>
-        <p class="body-text">Cửa hàng gốc tại 141 Bùi Đình Túy, Bình Thạnh · trụ cột doanh thu chiếm <strong style="color:var(--bdt-2)">94,5%</strong> hệ thống tháng 4 · đã ổn định.</p>
+    <div class="portfolio-head">
+      <div class="portfolio-num">I.<small>Portfolio · Flagship</small></div>
+      <div class="ti">
+        <span class="eyebrow bdt">Page 09 · Case Study</span>
+        <h2 class="h-1" style="margin-top:8px">Bùi Đình Túy <em style="color:var(--bdt-2);font-weight:600">at 28 days</em>.</h2>
+        <p class="sub">Cửa hàng gốc tại 141 Bùi Đình Túy, Bình Thạnh · trụ cột doanh thu 94,5% hệ thống · đã ổn định.</p>
+      </div>
+      <div class="portfolio-meta">
+        <b>Period</b>01–28/04/2026<br>
+        <b>Capital</b>35.888.000đ<br>
+        <b>Depreciation</b>2.991k/mo (12mo)<br>
+        <b>Operator</b>Quản lý BDT<br>
+        <b>Mode</b>Flagship · steady
       </div>
     </div>
 
-    <div class="ob bdt">
-      <div class="dot-big">B</div>
-      <div class="titles"><h3>Bùi Đình Túy · 141 BDT, Bình Thạnh</h3><div class="meta">FLAGSHIP · 28 ngày · 01-28/04 · Vốn 35.888k · KH 12mo = 2.991k/mo</div></div>
-      <div class="stats"><div><div class="l">DT Net</div><div class="v">42.179k</div></div><div><div class="l">Đơn</div><div class="v">1.601</div></div><div><div class="l">DS</div><div class="v">1,52</div></div><div><div class="l">% HV</div><div class="v">93,7%</div></div></div>
+    <div class="portfolio-stats bdt tnum">
+      <div class="portfolio-stat"><div class="l">DT Net</div><div class="v">42.179<small>k</small></div><div class="d">TB 1.506k/ngày · 1.601 đơn</div></div>
+      <div class="portfolio-stat"><div class="l">Drop Size</div><div class="v">1,52</div><div class="d">2.436 items · ổn định</div></div>
+      <div class="portfolio-stat"><div class="l">% Hoà vốn</div><div class="v">93,7<small>%</small></div><div class="d">Gap −2,855k để vượt HV</div></div>
+      <div class="portfolio-stat"><div class="l">Shopee %</div><div class="v">12,4<small>%</small></div><div class="d">5.231k · ×12 vs T1</div></div>
     </div>
 
-    <div class="outlet-kpis bdt tnum">
-      <div class="outlet-kpi"><div class="l">DT Net</div><div class="v">42.179<small>k</small></div><div class="d">TB 1.506k/ngày</div></div>
-      <div class="outlet-kpi"><div class="l">Số đơn</div><div class="v">1.601</div><div class="d">TB 57,2 đơn/ngày</div></div>
-      <div class="outlet-kpi"><div class="l">Drop Size</div><div class="v">1,52</div><div class="d">2.436 items</div></div>
-      <div class="outlet-kpi"><div class="l">Shopee %</div><div class="v">12,4<small>%</small></div><div class="d">5.231k · 113 đơn</div></div>
-    </div>
-
-    <div class="g-3" style="margin-top:18px">
+    <div class="g-3">
       <div class="card">
-        <div class="chead"><h3>Top SKU · 75,8% DT</h3><div class="meta">horizontal bar</div></div>
+        <div class="chead"><h3>Top SKU · 75,8% DT</h3><div class="meta">10 mặt hàng</div></div>
         <div class="cbody"><div class="chart-wrap" style="height:380px"><canvas id="bdtSku"></canvas></div></div>
       </div>
       <div class="card">
         <div class="chead"><h3>Kênh bán</h3><div class="meta">Direct vs Online</div></div>
         <div class="cbody"><div class="chart-wrap"><canvas id="bdtChannel"></canvas></div>
-          <div class="insight warn"><strong>Shopee 12,4%</strong> · phí 35,2% · ngày 28/04 đẩy lên 49% — không thay thế POS, nhân peak hour.</div>
+          <p class="caption" style="margin-top:8px"><strong>Caption:</strong> Shopee 12,4% chỉ là tỉ lệ tháng — riêng 28/04 đạt 49% doanh thu ngày, chứng minh không thay thế POS mà <em style="color:var(--gold);font-weight:600">nhân peak hour</em>.</p>
         </div>
       </div>
       <div class="card">
         <div class="chead"><h3>Phân bố giờ</h3><div class="meta">10h-21h · curved area</div></div>
         <div class="cbody"><div class="chart-wrap"><canvas id="bdtHours"></canvas></div>
-          <div class="insight"><strong>2 peak:</strong> 17h (tan tầm) + 15h (tan ca chiều).</div>
+          <p class="caption" style="margin-top:8px"><strong>2 peak rõ:</strong> 17h (tan tầm) + 15h (tan ca chiều). Khung 11-13h tốt nhưng đơn nhỏ.</p>
         </div>
       </div>
+    </div>
+
+    <div class="g-2" style="margin-top:18px">
+      <div class="insight"><strong>Khách quen ổn định:</strong> Top 100 khách quen quay lại TB <em>2,3 lần/tháng</em> · đóng góp ~38% đơn.</div>
+      <div class="insight warn"><strong>Outlier 18/4:</strong> 914k Net trên 36 đơn — thấp nhất tháng. Cần audit POS log + lịch nhân viên + thời tiết.</div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="rule-fancy"></div>
 
-<!-- ======================== VẠN KIẾP ======================== -->
+<!-- ========================== V · PORTFOLIO No.II — Vạn Kiếp ========================== -->
 <section id="vk">
   <div class="page">
-    <div class="shead">
-      <div class="l">
-        <div class="eyebrow vk">V · CỬA HÀNG MỚI · KHAI TRƯƠNG 27/04</div>
-        <h2 class="h-1 serif">Vạn Kiếp · 2 ngày · 2,43 triệu</h2>
-        <p class="body-text">Cửa hàng thứ 2 · DS <strong style="color:var(--vk-2)">1,81 cao hơn BDT (+19%)</strong> · dòng <strong style="color:var(--gold)">Trà chiếm 10,7%</strong> — tín hiệu thị trường để launch Trà ở BDT T05.</p>
+    <div class="portfolio-head">
+      <div class="portfolio-num" style="color:var(--vk-2)">II.<small>Portfolio · New Opening</small></div>
+      <div class="ti">
+        <span class="eyebrow vk">Page 13 · Case Study</span>
+        <h2 class="h-1" style="margin-top:8px">Vạn Kiếp · <em style="color:var(--vk-2);font-weight:600">what we know</em>.</h2>
+        <p class="sub">Cửa hàng thứ 2 · DS <strong style="color:var(--vk-2)">1,81 cao hơn BDT (+19%)</strong> · dòng <strong style="color:var(--gold)">Trà chiếm 10,7%</strong>.</p>
+      </div>
+      <div class="portfolio-meta">
+        <b>Opened</b>27/04/2026 (Thứ Hai)<br>
+        <b>Capital</b>75.973.000đ<br>
+        <b>Depreciation</b>6.331k/mo (12mo)<br>
+        <b>Operator</b>Quản lý VK<br>
+        <b>Mode</b>NEW · ramp-up
       </div>
     </div>
 
-    <div class="ob vk">
-      <div class="dot-big">V</div>
-      <div class="titles"><h3>Vạn Kiếp · Bình Thạnh, opened 27.04</h3><div class="meta">NEW · 2 ngày · D1 (27/04 T2) + D2 (28/04 T3) · Vốn 75.973k · KH 12mo = 6.331k/mo</div></div>
-      <div class="stats"><div><div class="l">DT Net</div><div class="v">2.433k</div></div><div><div class="l">Đơn</div><div class="v">78</div></div><div><div class="l">DS ★</div><div class="v">1,81</div></div><div><div class="l">Trà</div><div class="v">10,7%</div></div></div>
+    <div class="portfolio-stats vk tnum">
+      <div class="portfolio-stat"><div class="l">DT Net 2 ngày</div><div class="v">2.433<small>k</small></div><div class="d">TB 1.217k/ngày · 78 đơn</div></div>
+      <div class="portfolio-stat"><div class="l">Drop Size ★</div><div class="v">1,81</div><div class="d">+19% vs BDT 1,52</div></div>
+      <div class="portfolio-stat"><div class="l">D1 vs BDT avg</div><div class="v">102<small>%</small></div><div class="d">Day 1 đã vượt average BDT</div></div>
+      <div class="portfolio-stat"><div class="l">Trà chiếm</div><div class="v" style="color:var(--gold) !important">10,7<small>%</small></div><div class="d">★ 3 dòng Trà mới</div></div>
     </div>
 
-    <div class="outlet-kpis vk tnum">
-      <div class="outlet-kpi"><div class="l">DT Net 2 ngày</div><div class="v">2.433<small>k</small></div><div class="d">TB 1.217k/ngày</div></div>
-      <div class="outlet-kpi"><div class="l">Số đơn</div><div class="v">78</div><div class="d">TB 39 đơn/ngày</div></div>
-      <div class="outlet-kpi"><div class="l">Drop Size ★</div><div class="v">1,81</div><div class="d">+19% vs BDT 1,52</div></div>
-      <div class="outlet-kpi"><div class="l">Trà chiếm</div><div class="v" style="color:var(--gold) !important">10,7<small>%</small></div><div class="d">3 dòng Trà mới</div></div>
-    </div>
-
-    <div class="g-2" style="margin-top:18px">
+    <div class="g-2" style="margin-top:14px">
       <div class="card">
         <div class="chead"><h3>Top SKU · Vạn Kiếp</h3><div class="meta">10 SKU · gold = Trà</div></div>
         <div class="cbody"><div class="chart-wrap" style="height:400px"><canvas id="vkSku"></canvas></div></div>
@@ -897,32 +925,71 @@ section > .page{position:relative;z-index:1}
       <div class="card">
         <div class="chead"><h3>Day 1 vs Day 2 · Decompose</h3><div class="meta">Decline 42% — confirm pattern T05</div></div>
         <div class="cbody"><div class="chart-wrap"><canvas id="vkD1D2"></canvas></div>
-          <div class="insight vk"><strong>D2 tụt 42% vs D1.</strong> 2 khả năng: <em>(a) hiệu ứng khai trương đã hết</em> · <em>(b) Thứ Hai vốn yếu</em> (BDT T2 TB ~1.251k). Nếu T2 tuần sau VK đạt ~1.000k → confirm pattern.</div>
+          <div class="insight vk" style="margin-top:14px"><strong>Hypothesis:</strong> D2 tụt 42%. Hai khả năng: (a) hiệu ứng khai trương đã hết · (b) Thứ Hai vốn yếu (BDT T2 TB ~1.251k). Nếu T2 tuần sau VK đạt ~1.000k → confirm pattern.</div>
         </div>
       </div>
     </div>
+
+    <div class="letter-pull" style="margin-top:32px"><em>The tea line</em> — VK có dòng Trà BDT chưa có. <em>Cơ hội giao thoa rõ ràng.</em></div>
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="rule-fancy"></div>
 
-<!-- ======================== TỒN KHO + VÒNG QUAY ======================== -->
-<section id="tonkho">
+<!-- ========================== VI · CROSS-REFERENCE ========================== -->
+<section id="cross" class="tight">
   <div class="page">
     <div class="shead">
       <div class="l">
-        <div class="eyebrow gold">VI · TỒN KHO + VÒNG QUAY · DATA THỰC TỪ SUMO_V34</div>
-        <h2 class="h-1 serif">Tồn kho cuối kỳ · <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">10,4 triệu đồng</em></h2>
-        <p class="body-text">Báo cáo Nhập / Xuất / Tồn toàn bộ vật tư & nguyên liệu T04Y26 · 3 nhóm: NLC · VTTH · TBDC · <strong style="color:var(--neg)">CẢNH BÁO: Dầu Ăn tồn 0 + Bọc 2 ly hết — nhập gấp trước Lễ.</strong></p>
+        <span class="eyebrow">No. VI · Cross-Reference · Page 16</span>
+        <h2 class="h-1">Two outlets, <em style="color:var(--gold);font-weight:600">one menu opportunity</em>.</h2>
+        <p class="sub-title">SKU heatmap so sánh và 2×2 portfolio matrix — câu trả lời cho câu hỏi "BDT có nên thử dòng Trà của VK?"</p>
       </div>
     </div>
 
-    <h3 class="h-3" style="margin-bottom:12px;font-family:var(--sans)">Nhóm 1 · Nguyên Liệu Chính · 6 mã · 3,46 triệu giá trị tồn</h3>
+    <div class="card">
+      <div class="cbody nopad" style="overflow:auto">
+        <table class="tbl" style="font-size:12.5px">
+          <thead><tr><th>SKU</th><th class="r">BDT %</th><th class="r">VK %</th><th class="r">Gap</th><th>Phân loại</th><th>Hành động</th></tr></thead>
+          <tbody>
+            <tr><td class="name">Chuối Chiên</td><td class="num">25,2</td><td class="num">35,8</td><td class="num pos">+10,6 pp</td><td><span class="inv-badge high">HERO 2 OUTLET</span></td><td>Bảo vệ supply chain</td></tr>
+            <tr><td class="name">Khoai Mỡ · M</td><td class="num">12,1</td><td class="num">13,4</td><td class="num pos">+1,3 pp</td><td><span class="inv-badge ok">EVEN</span></td><td>Maintain</td></tr>
+            <tr><td class="name">Sa Kê · M</td><td class="num">3,1</td><td class="num">9,2</td><td class="num pos">+6,1 pp</td><td><span class="inv-badge" style="background:rgba(124,58,237,0.20);color:var(--vk-2)">VK MẠNH</span></td><td>Test push tại BDT</td></tr>
+            <tr class="tea"><td class="name">★ Trà SUMO</td><td class="num">0,0</td><td class="num">5,8</td><td class="num pos">+5,8 pp</td><td><span class="inv-badge high">VK UNIQUE</span></td><td>Test launch BDT 02/05</td></tr>
+            <tr class="tea"><td class="name">★ Trà Vải / Mơ Đào</td><td class="num">0,0</td><td class="num">5,0</td><td class="num pos">+5,0 pp</td><td><span class="inv-badge high">VK UNIQUE</span></td><td>Bổ sung BDT cùng đợt</td></tr>
+            <tr><td class="name">Combo đầy đủ</td><td class="num">7,6</td><td class="num">11,5</td><td class="num pos">+3,9 pp</td><td><span class="inv-badge" style="background:rgba(124,58,237,0.20);color:var(--vk-2)">VK MẠNH</span></td><td>Train cross-sell BDT</td></tr>
+            <tr><td class="name">Khoai Tây · M</td><td class="num">6,7</td><td class="num">4,1</td><td class="num neg">−2,6 pp</td><td><span class="inv-badge" style="background:rgba(232,130,30,0.20);color:var(--bdt-2)">BDT MẠNH</span></td><td>Push tại VK</td></tr>
+            <tr><td class="name">Khoai Lang · M</td><td class="num">6,5</td><td class="num">3,1</td><td class="num neg">−3,4 pp</td><td><span class="inv-badge" style="background:rgba(232,130,30,0.20);color:var(--bdt-2)">BDT MẠNH</span></td><td>Push tại VK</td></tr>
+            <tr><td class="name">Chuối Mè Đen-cốt dừa</td><td class="num">4,2</td><td class="num">0,0</td><td class="num neg">−4,2 pp</td><td><span class="inv-badge" style="background:rgba(232,130,30,0.20);color:var(--bdt-2)">BDT UNIQUE</span></td><td>Bổ sung VK 02/05</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="letter-pull" style="margin-top:24px">The cross-pollination thesis · <em>+8-12% DT BDT, +15-20% DT VK</em> trong 30 ngày · Cost: 0đ.</div>
+  </div>
+</section>
+
+<div class="rule-fancy"></div>
+
+<!-- ========================== VII · INVENTORY BRIEF ========================== -->
+<section id="inv">
+  <div class="page">
+    <div class="shead">
+      <div class="l">
+        <span class="eyebrow gold">No. VII · Inventory Brief · Page 17</span>
+        <h2 class="h-1">Tồn kho cuối kỳ · <em style="color:var(--gold);font-weight:600">10,4 triệu đồng</em>.</h2>
+        <p class="sub-title">Báo cáo Nhập / Xuất / Tồn · 3 nhóm NVL · <strong style="color:var(--neg)">Dầu Ăn tồn 0</strong> + Bọc 2 ly hết — nhập gấp trước Lễ.</p>
+      </div>
+      <div class="r">Source · Sumo_v34 · sheet Ton.NVL<br>Period 01-28/04/2026</div>
+    </div>
+
+    <h3 class="h-3" style="margin-bottom:12px;font-family:var(--sans);color:var(--gold)">Nhóm 1 · Nguyên Liệu Chính · 6 mã · 3,46 triệu giá trị tồn</h3>
     <div class="g-32">
       <div class="card">
         <div class="cbody nopad" style="overflow:auto">
-          <table class="tbl tnum">
-            <thead><tr><th>Mã</th><th>NVL</th><th class="r">Nhập</th><th class="r">Xuất bán</th><th class="r">Hao hụt</th><th class="r">Tồn</th><th class="r">Đơn giá</th><th class="r">Giá trị</th><th>Vòng quay</th></tr></thead>
+          <table class="tbl">
+            <thead><tr><th>Mã</th><th>NVL</th><th class="r">Nhập</th><th class="r">Xuất bán</th><th class="r">Hao</th><th class="r">Tồn</th><th class="r">Đơn giá</th><th class="r">Giá trị</th><th>Vòng quay</th></tr></thead>
             <tbody>
               <tr><td>K01</td><td class="name">CHUỐI</td><td class="num">175.000</td><td class="num pos">129.980</td><td class="num neg">720</td><td class="num">44.300</td><td class="num">9k/KG</td><td class="num">399k</td><td><span class="inv-badge high">2,9× HERO</span></td></tr>
               <tr><td>K02</td><td class="name">KHOAI LANG</td><td class="num">90.000</td><td class="num pos">53.130</td><td class="num neg">620</td><td class="num">36.250</td><td class="num">10/g</td><td class="num">363k</td><td><span class="inv-badge ok">1,5× STAR</span></td></tr>
@@ -936,15 +1003,15 @@ section > .page{position:relative;z-index:1}
         </div>
       </div>
       <div class="card">
-        <div class="chead"><h3>Vòng quay NLC</h3><div class="meta">Turnover ratio</div></div>
+        <div class="chead"><h3>Vòng quay NLC</h3><div class="meta">turnover ratio</div></div>
         <div class="cbody"><div class="chart-wrap" style="height:340px"><canvas id="invTurnover"></canvas></div></div>
       </div>
     </div>
 
-    <h3 class="h-3" style="margin-bottom:12px;margin-top:24px;font-family:var(--sans)">Nhóm 2 · Vật Tư Tiêu Hao · 17 mã · 6,98 triệu giá trị tồn</h3>
+    <h3 class="h-3" style="margin-bottom:12px;margin-top:24px;font-family:var(--sans);color:var(--gold)">Nhóm 2 · Vật Tư Tiêu Hao · 17 mã · 6,98 triệu giá trị tồn</h3>
     <div class="card" style="margin-bottom:18px">
       <div class="cbody nopad" style="overflow:auto">
-        <table class="tbl tnum">
+        <table class="tbl">
           <thead><tr><th>Mã</th><th>Vật tư</th><th>ĐVT</th><th class="r">Nhập</th><th class="r">Xuất</th><th class="r">Tồn</th><th class="r">Đơn giá</th><th class="r">Giá trị</th><th>Trạng thái</th></tr></thead>
           <tbody>
             <tr class="danger"><td>CP45</td><td class="name">DẦU ĂN</td><td>thùng</td><td class="num">20</td><td class="num">20</td><td class="num"><strong style="color:var(--neg)">0</strong></td><td class="num">190k</td><td class="num">0</td><td><span class="inv-badge danger">⚠ HẾT · NHẬP GẤP</span></td></tr>
@@ -965,162 +1032,139 @@ section > .page{position:relative;z-index:1}
             <tr class="warn"><td>CP65</td><td class="name">QUE GHIM</td><td>bịch</td><td class="num">3</td><td class="num">2</td><td class="num">1</td><td class="num">25k</td><td class="num">25k</td><td><span class="inv-badge warn">SẮP HẾT</span></td></tr>
             <tr class="warn"><td>CP66</td><td class="name">GAS</td><td>bình</td><td class="num">7</td><td class="num">6</td><td class="num">1</td><td class="num">520k</td><td class="num">520k</td><td><span class="inv-badge warn">SẮP HẾT</span></td></tr>
           </tbody>
-          <tfoot><tr><td colspan="3">Tổng VTTH</td><td class="num">3.678</td><td class="num">2.044</td><td class="num">1.634</td><td></td><td class="num pos">6.983k</td><td>2 hết · 4 sắp hết · 1 tồn nhiều</td></tr></tfoot>
+          <tfoot><tr><td colspan="3">Tổng VTTH</td><td class="num">3.678</td><td class="num">2.044</td><td class="num">1.634</td><td></td><td class="num pos">6.983k</td><td>2 hết · 4 sắp hết</td></tr></tfoot>
         </table>
       </div>
     </div>
 
     <div class="g-2">
-      <div class="insight neg"><strong>⚠ CẢNH BÁO TỒN KHO:</strong> <strong>2 mã hết hàng</strong> (Dầu Ăn · Bọc 2 ly) — phải nhập trước 30/04. <strong>4 mã sắp hết</strong> (Phomai · Sốt Trứng Muối · Que Ghim · Gas) — chỉ đủ 2-5 ngày. <strong>Bột tồn 120 KG (3,6M)</strong> quá nhiều — review định mức.</div>
-      <div style="padding:18px 22px;background:linear-gradient(180deg,var(--glass-2),rgba(13,19,31,0.85));border:1px solid var(--gold);border-radius:var(--rad-lg);display:flex;justify-content:space-between;align-items:center">
-        <div><div class="eyebrow gold" style="margin-bottom:4px">★ TỔNG TỒN KHO CUỐI T04Y26</div><div style="font-size:11px;color:var(--type-3)">Hợp nhất 3 nhóm</div></div>
-        <div style="font-family:var(--serif);font-size:36px;font-weight:700;color:var(--gold);letter-spacing:-0.022em">10.444<small style="font-size:13px;color:var(--type-3);font-family:var(--sans)">k</small></div>
+      <div class="insight neg"><strong>⚠ CẢNH BÁO TỒN KHO:</strong> 2 mã hết hàng (Dầu Ăn · Bọc 2 ly) phải nhập trước 30/04. 4 mã sắp hết (Phomai · Sốt Trứng Muối · Que Ghim · Gas) — chỉ đủ 2-5 ngày. <em>Bột tồn 120 KG (3,6M)</em> quá nhiều — review định mức.</div>
+      <div style="padding:18px 22px;background:var(--bg-2);border:1px solid var(--gold);border-radius:var(--rad-lg);display:flex;justify-content:space-between;align-items:center">
+        <div><div class="eyebrow gold" style="margin-bottom:4px">★ TỔNG TỒN KHO CUỐI T04Y26</div><div class="caption">Hợp nhất 3 nhóm</div></div>
+        <div style="font-family:var(--serif);font-size:36px;font-weight:600;color:var(--gold);letter-spacing:-0.022em">10.444<small style="font-size:13px;color:var(--type-3);font-family:var(--sans)">k</small></div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="rule-fancy"></div>
 
-<!-- ======================== PARETO NVL ======================== -->
+<!-- ========================== VIII · PARETO ========================== -->
 <section id="pareto" class="tight">
   <div class="page">
     <div class="shead">
       <div class="l">
-        <div class="eyebrow gold">VII · TOP NVL USAGE · PARETO 80/20</div>
-        <h2 class="h-1 serif">Các loại NVL <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">thường xuyên sử dụng nhất</em></h2>
-        <p class="body-text">Phân tích Pareto NVL theo lượng xuất bán T04Y26 · top 3 chiếm ~70% xuất bán. Đây là các SKU phải đảm bảo supply chain bằng mọi giá.</p>
+        <span class="eyebrow gold">No. VIII · Pareto · Page 21</span>
+        <h2 class="h-1">Top NVL <em style="color:var(--gold);font-weight:600">thường xuyên sử dụng</em>.</h2>
+        <p class="sub-title">Phân tích Pareto NVL theo lượng xuất bán T04Y26 · top 3 chiếm ~70% xuất bán.</p>
       </div>
     </div>
     <div class="card">
       <div class="chead"><h3>Pareto NVL · Combo Bar + Cumulative Line</h3><div class="meta">đơn vị GR · sắp giảm · cumulative %</div></div>
       <div class="cbody">
         <div class="chart-wrap" style="height:380px"><canvas id="pareto"></canvas></div>
-        <div class="insight gold"><strong>Insight Pareto:</strong> <em>3 NVL hàng đầu (Chuối · Khoai Tây · Khoai Lang) chiếm 70% xuất bán</em>. Riêng Chuối là <strong>38% (129.980 GR)</strong> — single point of failure. Nếu hết Chuối 1 ngày = mất 25% doanh thu. Cần backup supplier + min stock 80kg + daily check 9h sáng.</div>
+        <div class="insight gold"><strong>Insight:</strong> 3 NVL hàng đầu (Chuối · Khoai Tây · Khoai Lang) chiếm <em>70% xuất bán</em>. Riêng <strong>Chuối là 38% (129.980 GR)</strong> — single point of failure. Hết Chuối 1 ngày = mất 25% doanh thu. Backup supplier + min 80kg + daily check 9h.</div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="rule-fancy"></div>
 
-<!-- ======================== TRAFFIC + CR ======================== -->
+<!-- ========================== IX · TRAFFIC & CR ========================== -->
 <section id="traffic">
   <div class="page">
     <div class="shead">
       <div class="l">
-        <div class="eyebrow">VIII · TRAFFIC + CONVERSION RATE · CHỈ SỐ CỨNG</div>
-        <h2 class="h-1 serif">9.800 lượt qua · <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">57 đơn vào</em></h2>
-        <p class="body-text">CR Bùi Đình Túy = <strong style="color:var(--gold)">0,58%</strong> — trên benchmark street food chưa thương hiệu (0,1-0,3%) nhưng dưới quán quen có nhận diện (1-2%). Cách rút ngắn khoảng cách.</p>
+        <span class="eyebrow">No. IX · Traffic & Conversion · Page 22</span>
+        <h2 class="h-1">9.800 lượt qua · <em style="color:var(--gold);font-weight:600">57 đơn vào</em>.</h2>
+        <p class="sub-title">CR Bùi Đình Túy = <strong style="color:var(--gold)">0,58%</strong> — trên benchmark street food chưa thương hiệu (0,1-0,3%).</p>
       </div>
-      <div class="r">SOURCE · Sở GTVT TP.HCM 2023<br>Wikipedia Bình Thạnh 2024</div>
+      <div class="r">Source · Sở GTVT TP.HCM 2023<br>Wikipedia Bình Thạnh 2024</div>
     </div>
 
     <div class="g-2">
       <div class="card">
-        <div class="chead"><h3>Funnel BDT theo khung giờ</h3><div class="meta">28 ngày · stacked horizontal</div></div>
+        <div class="chead"><h3>Funnel BDT theo khung giờ</h3><div class="meta">28 ngày · estimated</div></div>
         <div class="cbody"><div class="chart-wrap"><canvas id="funnelChart"></canvas></div></div>
       </div>
       <div class="card">
-        <div class="chead"><h3>CR Benchmark Vietnam street food</h3><div class="meta">where Sumo BDT sits</div></div>
+        <div class="chead"><h3>CR Benchmark</h3><div class="meta">where Sumo BDT sits</div></div>
         <div class="cbody"><div class="chart-wrap"><canvas id="crBench"></canvas></div>
-          <div class="insight gold"><strong>★ Gap to break-even:</strong> Cần CR <strong>0,66%</strong> = +0,08pp = <strong>+8 đơn/ngày</strong>. Cách: bảng hiệu lớn hơn (+3 đơn) · LED tối 19-22h (+3 đơn) · mùi chiên ra phía đường (+2 đơn).</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:18px">
-      <div class="chead"><h3>Vạn Kiếp · Plan đếm pedestrian sau Lễ</h3><div class="meta">02-04/05/2026 · baseline mới</div></div>
-      <div class="cbody">
-        <div class="g-2">
-          <div>
-            <p class="body-text" style="font-size:13px;margin-bottom:11px">Vạn Kiếp <strong>chưa có baseline</strong> traffic. Cần đếm thủ công ngay sau khi mở cửa lại 02/05:</p>
-            <ul style="list-style:none;font-size:12.5px;color:var(--type-2);line-height:1.9">
-              <li>› <strong style="color:var(--type)">02/05 (T7):</strong> Đếm 15h + 17h · 15 phút mỗi peak</li>
-              <li>› <strong style="color:var(--type)">03/05 (CN):</strong> Tương tự · weekend pattern</li>
-              <li>› <strong style="color:var(--type)">04/05 (T2):</strong> Tương tự · weekday pattern</li>
-              <li>› <strong style="color:var(--type)">05/05:</strong> Tổng hợp · so sánh BDT 47/15'</li>
-            </ul>
-          </div>
-          <div>
-            <p class="body-text" style="font-size:13px;margin-bottom:11px"><strong>Hypothesis:</strong></p>
-            <div style="padding:16px;background:var(--bg-3);border-radius:var(--rad);font-size:12.5px;color:var(--type-2);line-height:1.6">
-              VK ở khu dân cư · pedestrian dự kiến <strong style="color:var(--vk-2)">~30-40/15'</strong>. CR mục tiêu <strong style="color:var(--vk-2)">≥10%</strong>.<br><br>CR &lt;5% → vấn đề <em>visibility</em> (bảng hiệu, mùi). CR &gt;15% → có thể scale invest mạnh.
-            </div>
-          </div>
+          <div class="insight gold"><strong>Gap to break-even:</strong> CR 0,66% = <em>+0,08pp</em> = +8 đơn/ngày. Bảng hiệu lớn hơn (+3) · LED tối (+3) · mùi chiên ra đường (+2).</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="rule-fancy"></div>
 
-<!-- ======================== COHORT HEATMAP ======================== -->
-<section class="tight">
+<!-- ========================== X · COHORT ========================== -->
+<section id="cohort" class="tight">
   <div class="page">
     <div class="shead">
       <div class="l">
-        <div class="eyebrow">IX · COHORT · DAY × HOUR HEATMAP</div>
-        <h2 class="h-1 serif">Thứ Ba là <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">vàng</em></h2>
-        <p class="body-text">Cohort theo Thứ × Giờ · 4 tuần lặp · phát hiện vàng và khoảng tối · hover ô để xem chi tiết.</p>
+        <span class="eyebrow">No. X · The Cohort · Page 23</span>
+        <h2 class="h-1">Thứ Ba là <em style="color:var(--gold);font-weight:600">vàng</em>.</h2>
+        <p class="sub-title">Cohort theo Thứ × Giờ · 4 tuần lặp · Phát hiện vàng và khoảng tối.</p>
       </div>
     </div>
     <div class="card">
-      <div class="chead"><h3>Bùi Đình Túy · Order density · Day × Hour</h3><div class="meta">đơn TB/ngày · 6-stop gradient · interactive</div></div>
+      <div class="chead"><h3>Bùi Đình Túy · Order density · Day × Hour</h3><div class="meta">đơn TB/ngày · gradient · interactive</div></div>
       <div class="cbody">
         <table class="cohort">
           <thead><tr><th>Giờ</th><th>T2</th><th>T3</th><th>T4</th><th>T5</th><th>T6</th><th>T7</th><th>CN</th></tr></thead>
           <tbody id="cohortBody"></tbody>
         </table>
-        <div class="heat-leg"><span>Thấp</span><div class="scale"></div><span>Cao</span><span style="margin-left:auto">★ 17h-T3 = peak 12,5 đơn/ngày</span></div>
-        <div class="g-2" style="margin-top:18px">
-          <div class="insight gold"><strong>★ VÀNG · Thứ Ba 17h-18h:</strong> 12,5 đơn/ngày — đậm nhất bảng. <em>Đảm bảo nhân viên + Chuối + Combo + Khoai Mỡ phải sẵn 100%.</em></div>
-          <div class="insight neg"><strong>⚠ TỐI · Chủ Nhật 12-13h + 20-22h:</strong> 0,9 đơn/ngày — nhạt nhất. Có thể giảm 1 nhân viên · tiết kiệm 200-300k/tháng.</div>
-        </div>
+        <div class="heat-leg"><span>Thấp</span><div class="scale"></div><span>Cao</span><span style="margin-left:auto">★ T3 17h-18h = peak 12,5 đơn/ngày</span></div>
       </div>
+    </div>
+    <div class="g-2" style="margin-top:18px">
+      <div class="insight gold"><strong>★ VÀNG · Thứ Ba 17h-18h:</strong> 12,5 đơn/ngày — đậm nhất. Đảm bảo nhân viên + Chuối + Combo + Khoai Mỡ phải sẵn 100%.</div>
+      <div class="insight neg"><strong>⚠ TỐI · Chủ Nhật 12-13h + 20-22h:</strong> 0,9 đơn/ngày — nhạt nhất. Có thể giảm 1 nhân viên · tiết kiệm 200-300k/tháng.</div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="rule-fancy"></div>
 
-<!-- ======================== 4-WEEK SCORECARD ======================== -->
-<section id="scorecard" class="tight">
+<!-- ========================== XI · QUARTERLY PERFORMANCE ========================== -->
+<section id="qp" class="tight">
   <div class="page">
     <div class="shead">
       <div class="l">
-        <div class="eyebrow gold">X · 4-WEEK SCORECARD · END-OF-MONTH</div>
-        <h2 class="h-1 serif">Bốn tuần · <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">một xu hướng</em></h2>
-        <p class="body-text">Bắt buộc cho báo cáo cuối tháng · Drop Size tăng đều, Shopee tăng ×20.</p>
+        <span class="eyebrow gold">No. XI · Quarterly Performance · Page 24</span>
+        <h2 class="h-1">Bốn tuần · <em style="color:var(--gold);font-weight:600">một xu hướng</em>.</h2>
+        <p class="sub-title">4-Week Scorecard · Drop Size tăng đều, Shopee tăng ×20.</p>
       </div>
     </div>
     <div class="card">
-      <div class="chead"><h3>4 tuần T04Y26 · multi-line trend</h3><div class="meta">DT + DS + Shopee + % HV</div></div>
+      <div class="chead"><h3>4 tuần T04Y26 · multi-line trend</h3><div class="meta">DT + DS + Shopee</div></div>
       <div class="cbody"><div class="chart-wrap tall"><canvas id="scoreboard4w"></canvas></div></div>
     </div>
     <div class="g-2" style="margin-top:18px">
-      <div class="insight pos"><strong>★ THE WIN · Drop Size + Shopee:</strong> DS T4 đạt 1,62 (cao nhất 4 tuần) · Shopee từ 138k → 2.747k <em>(×20)</em>. Hai đòn bẩy độc lập cùng góp phần.</div>
-      <div class="insight warn"><strong>⚠ THE LESSON · Tuần 2 dip:</strong> DS lao 1,34 (4 ngày liên tiếp 1,14-1,26) — không phải con người (14/04 vẫn 1,70). <em>Bài toán hệ thống: SOP cross-sell bắt buộc.</em></div>
+      <div class="insight pos"><strong>★ THE WIN · Drop Size + Shopee:</strong> DS T4 đạt 1,62 · Shopee từ 138k → 2.747k (×20).</div>
+      <div class="insight warn"><strong>⚠ THE LESSON · Tuần 2 dip:</strong> DS lao 1,34 · Bài toán hệ thống — SOP cross-sell bắt buộc.</div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="rule-fancy"></div>
 
-<!-- ======================== FORECAST + SENSITIVITY ======================== -->
-<section id="forecast">
+<!-- ========================== XII · FORWARD LOOK ========================== -->
+<section id="fwd">
   <div class="page">
     <div class="shead">
       <div class="l">
-        <div class="eyebrow">XI · FORECAST · DỰ BÁO T05Y26</div>
-        <h2 class="h-1 serif">Bốn kịch bản · <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">một quyết định</em></h2>
-        <p class="body-text">T05Y26 · 30 ngày bán (02-31/05) · 4 kịch bản với cách thực hiện cụ thể + sensitivity matrix 5×5.</p>
+        <span class="eyebrow">No. XII · Forward Look · Page 25</span>
+        <h2 class="h-1">Bốn kịch bản · <em style="color:var(--gold);font-weight:600">một quyết định</em>.</h2>
+        <p class="sub-title">T05Y26 · 30 ngày bán (02-31/05) · 4 kịch bản với cách thực hiện cụ thể + sensitivity 5×5.</p>
       </div>
     </div>
 
     <div class="card" style="margin-bottom:18px">
-      <div class="chead"><h3>Multi-scenario forecast · 30 ngày</h3><div class="meta">4 scenarios · projected line</div></div>
+      <div class="chead"><h3>Multi-scenario forecast · 30 ngày</h3><div class="meta">4 scenarios · projected</div></div>
       <div class="cbody"><div class="chart-wrap tall"><canvas id="forecastMulti"></canvas></div></div>
     </div>
 
@@ -1132,61 +1176,52 @@ section > .page{position:relative;z-index:1}
     </div>
 
     <h3 class="h-3" style="margin-top:24px;margin-bottom:8px;font-family:var(--sans)">Sensitivity matrix · DT/ngày × % CP Tiêu hao</h3>
-    <p class="body-text" style="margin-bottom:10px;font-size:12.5px;color:var(--type-3)">Lãi/lỗ tháng (k) · cell xanh đậm = lãi · tìm "góc xanh"</p>
+    <p class="caption" style="margin-bottom:10px">Lãi/lỗ tháng (k) · cell xanh đậm = lãi · tìm "góc xanh"</p>
     <table class="sens" id="sensMatrix"></table>
 
     <div class="insight gold" style="margin-top:14px"><strong>★ Path of least resistance:</strong> Cell <strong>1.650k × 18% tiêu hao = +408k</strong>. Yêu cầu: tăng DT 9,5% + giảm tiêu hao 4,3pp. <em>Cả hai đều khả thi T05.</em></div>
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="rule-fancy"></div>
 
-<!-- ======================== STRATEGY + RISK ======================== -->
-<section>
+<!-- ========================== XIII · STRATEGY MAP ========================== -->
+<section id="strat">
   <div class="page">
     <div class="shead">
       <div class="l">
-        <div class="eyebrow">XII · STRATEGY + RISK REGISTER</div>
-        <h2 class="h-1 serif">3-Horizon plan · <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">top 5 risks</em></h2>
-        <p class="body-text">Defend tuần này · Grow tháng này · Build quý sau · Top 5 rủi ro với mitigation cụ thể.</p>
+        <span class="eyebrow">No. XIII · Strategy Map · Page 27</span>
+        <h2 class="h-1">3-Horizon plan · <em style="color:var(--gold);font-weight:600">top 5 risks</em>.</h2>
+        <p class="sub-title">Defend tuần này · Grow tháng này · Build quý sau · Top 5 rủi ro với mitigation.</p>
       </div>
     </div>
     <div class="h3-grid">
-      <div class="h3-col h1">
-        <h4>Horizon 1 · Defend</h4>
-        <div class="when">29/04 → 05/05 · Tuần này</div>
+      <div class="h3-col h1"><h4>Horizon 1 · Defend</h4><div class="when">29/04 → 05/05 · Tuần này</div>
         <ul>
           <li>Đóng sổ kế toán T04 hôm nay (29/04)</li>
           <li>Setup Shopee Vạn Kiếp · live trước 30/04</li>
           <li>SOP tiêu hao 15% · daily check 22h</li>
           <li><strong>NHẬP GẤP Dầu Ăn + Bọc 2 ly</strong></li>
-          <li>Kiểm kê NVL trước 30/4 + 1/5 đóng cửa</li>
-        </ul>
-      </div>
-      <div class="h3-col h2">
-        <h4>Horizon 2 · Grow</h4>
-        <div class="when">06/05 → 31/05 · Tháng này</div>
+          <li>Kiểm kê NVL trước Lễ 30/4 + 1/5</li>
+        </ul></div>
+      <div class="h3-col h2"><h4>Horizon 2 · Grow</h4><div class="when">06/05 → 31/05 · Tháng này</div>
         <ul>
           <li>Shopee push 50% off ship weekend</li>
           <li>VK ramp 25 → 50 đơn/ngày qua 4 tuần</li>
           <li>Test Trà tại BDT 7 ngày · scale nếu +5% DS</li>
           <li>Loyalty card top 100 khách quen</li>
           <li>Bổ sung 3 SKU từ BDT vào VK</li>
-        </ul>
-      </div>
-      <div class="h3-col h3">
-        <h4>Horizon 3 · Build</h4>
-        <div class="when">06-12/2026 · Quarterly Review</div>
+        </ul></div>
+      <div class="h3-col h3"><h4>Horizon 3 · Build</h4><div class="when">06-12/2026 · Quarterly Review</div>
         <ul>
           <li>Cửa hàng thứ 3 (sau VK break-even)</li>
           <li>Central kitchen (≥3 cửa hàng)</li>
           <li>Auto-reporting daily Kiot Viet</li>
           <li>LTV (Giá trị vòng đời khách hàng)</li>
-        </ul>
-      </div>
+        </ul></div>
     </div>
 
-    <h3 class="h-3" style="margin-top:24px;margin-bottom:8px;font-family:var(--sans)">Risk register · Top 5 (Severity × Likelihood)</h3>
+    <h3 class="h-3" style="margin-top:24px;margin-bottom:8px;font-family:var(--sans)">Risk Register · Top 5</h3>
     <table class="risk-tbl">
       <thead><tr><th>#</th><th>Rủi ro</th><th>Sev</th><th>Lik</th><th>Mitigation</th></tr></thead>
       <tbody>
@@ -1200,16 +1235,16 @@ section > .page{position:relative;z-index:1}
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="rule-fancy"></div>
 
-<!-- ======================== PLAN T05 ======================== -->
+<!-- ========================== XIV · PLAN T05 + ACTIVATION ========================== -->
 <section id="plan">
   <div class="page">
     <div class="shead">
       <div class="l">
-        <div class="eyebrow">XIII · PLAN T05Y26 · TUẦN 1 + ACTIVATION</div>
-        <h2 class="h-1 serif">Bảy ngày · <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">bốn động thái</em></h2>
-        <p class="body-text">29/04 → 05/05 · Plan từng ngày · <strong style="color:var(--warn)">30/4 + 1/5 đóng cửa</strong>.</p>
+        <span class="eyebrow">No. XIV · Plan & Activation · Page 29</span>
+        <h2 class="h-1">Bảy ngày · <em style="color:var(--gold);font-weight:600">bốn động thái</em>.</h2>
+        <p class="sub-title">29/04 → 05/05 · Plan từng ngày · Owner · Target · <strong style="color:var(--warn)">30/4 + 1/5 đóng cửa</strong>.</p>
       </div>
     </div>
 
@@ -1217,10 +1252,10 @@ section > .page{position:relative;z-index:1}
     <table class="plan-tbl">
       <thead><tr><th>Khi</th><th>Việc</th><th class="r">Target</th></tr></thead>
       <tbody>
-        <tr><td class="when">29/04 T4 <small>Hôm nay</small></td><td class="what">Đóng sổ T04 · NHẬP gấp Dầu Ăn + Bọc 2 ly · SOP tiêu hao 15% · Kiểm kê · Banner Lễ</td><td class="target">1.550k</td></tr>
-        <tr class="holiday"><td class="when">30/04 T5 <small>LỄ ĐÓNG CỬA</small></td><td class="what">Giải phóng miền Nam · Đóng cửa · Deep clean / sửa chữa</td><td class="target">—</td></tr>
-        <tr class="holiday"><td class="when">01/05 T6 <small>LỄ + RẰM</small></td><td class="what">Quốc tế Lao động (trùng Rằm 15/4 âm) · Đóng cửa · Deep clean tiếp</td><td class="target">—</td></tr>
-        <tr><td class="when">02/05 T7 <small>Mở lại</small></td><td class="what">Cuối tuần · Shopee 50% off ship · Push 3 SKU top · LAUNCH dòng Trà BDT</td><td class="target">1.900k</td></tr>
+        <tr><td class="when">29/04 T4 <small>Hôm nay</small></td><td class="what">Đóng sổ T04 · NHẬP gấp Dầu Ăn + Bọc 2 ly · SOP tiêu hao 15% · Kiểm kê</td><td class="target">1.550k</td></tr>
+        <tr class="holiday"><td class="when">30/04 T5 <small>LỄ ĐÓNG CỬA</small></td><td class="what">Giải phóng miền Nam · Đóng cửa · Deep clean</td><td class="target">—</td></tr>
+        <tr class="holiday"><td class="when">01/05 T6 <small>LỄ + RẰM</small></td><td class="what">Quốc tế Lao động · Đóng cửa · Deep clean tiếp</td><td class="target">—</td></tr>
+        <tr><td class="when">02/05 T7 <small>Mở lại</small></td><td class="what">Cuối tuần · Shopee 50% off ship · LAUNCH dòng Trà BDT</td><td class="target">1.900k</td></tr>
         <tr><td class="when">03/05 CN</td><td class="what">Cuối tuần · Free taste Trà cho khách quen</td><td class="target">1.900k</td></tr>
         <tr><td class="when">04/05 T2</td><td class="what">Loyalty card launch · Top 100 khách quen</td><td class="target">1.250k</td></tr>
         <tr><td class="when">05/05 T3</td><td class="what">Review T1 · Decision scale Trà</td><td class="target">1.400k</td></tr>
@@ -1232,60 +1267,61 @@ section > .page{position:relative;z-index:1}
     <table class="plan-tbl">
       <thead><tr><th>Khi</th><th>Việc</th><th class="r">Target</th></tr></thead>
       <tbody>
-        <tr><td class="when">29/04 T4 <small>Hôm nay</small></td><td class="what">Setup Shopee VK live · Bảng hiệu lớn + Flyer 500 tờ 2km · Banner Lễ · Kiểm kê</td><td class="target">1.000k</td></tr>
+        <tr><td class="when">29/04 T4 <small>Hôm nay</small></td><td class="what">Setup Shopee VK · Bảng hiệu lớn + Flyer 500 tờ 2km · Banner Lễ</td><td class="target">1.000k</td></tr>
         <tr class="holiday"><td class="when">30/04 T5 <small>LỄ ĐÓNG CỬA</small></td><td class="what">Giải phóng miền Nam · Đóng cửa · Deep clean</td><td class="target">—</td></tr>
-        <tr class="holiday"><td class="when">01/05 T6 <small>LỄ + RẰM</small></td><td class="what">Quốc tế Lao động · Đóng cửa · Deep clean tiếp</td><td class="target">—</td></tr>
-        <tr><td class="when">02/05 T7 <small>Mở lại</small></td><td class="what">Cuối tuần · Shopee đơn đầu trong 48h · ĐẾM pedestrian 15' × 2 peak</td><td class="target">1.400k</td></tr>
-        <tr><td class="when">03/05 CN</td><td class="what">Push Trà weekend · Đếm pedestrian tiếp · Calibrate CR</td><td class="target">1.400k</td></tr>
+        <tr class="holiday"><td class="when">01/05 T6 <small>LỄ + RẰM</small></td><td class="what">Quốc tế Lao động · Đóng cửa</td><td class="target">—</td></tr>
+        <tr><td class="when">02/05 T7 <small>Mở lại</small></td><td class="what">Shopee đơn đầu trong 48h · ĐẾM pedestrian 15' × 2 peak</td><td class="target">1.400k</td></tr>
+        <tr><td class="when">03/05 CN</td><td class="what">Push Trà weekend · Đếm pedestrian tiếp</td><td class="target">1.400k</td></tr>
         <tr><td class="when">04/05 T2</td><td class="what">Loyalty launch VK · Bổ sung 3 SKU từ BDT</td><td class="target">900k</td></tr>
-        <tr><td class="when">05/05 T3</td><td class="what">Review T1 VK · Target T2: 50 đơn/ngày · Đo CR thực</td><td class="target">1.000k</td></tr>
+        <tr><td class="when">05/05 T3</td><td class="what">Review T1 VK · Target T2: 50 đơn/ngày</td><td class="target">1.000k</td></tr>
       </tbody>
       <tfoot><tr><td colspan="2"><strong>Tổng tuần 1 VK (5 ngày bán)</strong></td><td class="target"><strong>5.700k · TB 1.140k/ngày</strong></td></tr></tfoot>
     </table>
 
     <h3 class="h-3" style="margin-bottom:8px;margin-top:18px;font-family:var(--sans)">Activation calendar · Tháng 5</h3>
-    <p class="body-text" style="margin-bottom:11px;font-size:12.5px;color:var(--type-3)">4 moment lớn · LƯU Ý <strong style="color:var(--warn)">01/05 đóng cửa, không activation Rằm</strong></p>
+    <p class="caption" style="margin-bottom:11px">4 moment lớn · LƯU Ý <strong style="color:var(--warn)">01/05 đóng cửa, không activation Rằm</strong></p>
 
     <div class="act-grid">
       <div class="act-card">
         <h4>30/04 + 01/05 · Lễ <span class="pin warn">ĐÓNG CỬA</span></h4>
         <div class="when">2 ngày Lễ — KHÔNG hoạt động bán</div>
-        <p class="desc">2 cửa hàng đều đóng · 01/05 trùng <strong>Rằm 15/4 âm</strong> nhưng không khai thác. Trong 2 ngày: deep clean quầy chiên, tủ lạnh, biển hiệu · Sửa chữa nhỏ · Nhân viên nghỉ.</p>
+        <p class="desc">2 cửa hàng đều đóng · 01/05 trùng Rằm 15/4 âm nhưng không khai thác. Trong 2 ngày: deep clean quầy chiên, tủ lạnh, biển hiệu · Sửa chữa nhỏ · Nhân viên nghỉ.</p>
       </div>
       <div class="act-card">
         <h4>02/05 (T7) · Mở lại <span class="pin pos">ACTIVATION</span></h4>
         <div class="when">Khởi động Tuần 1 tháng 5</div>
-        <p class="desc"><strong>BDT:</strong> Launch Trà · free taste khách quen.<br><strong>VK:</strong> Shopee Food live · voucher 50% off ship · combo Sumo 40k → 32k.<br><strong>Cả 2:</strong> Push 11h + 16h · banner "Mở cửa lại sau Lễ".</p>
+        <p class="desc"><strong>BDT:</strong> Launch Trà · free taste khách quen.<br><strong>VK:</strong> Shopee Food live · voucher 50% off ship · combo 40k → 32k.<br><strong>Cả 2:</strong> Push 11h + 16h.</p>
       </div>
       <div class="act-card">
         <h4>04/05 (T2) · Loyalty Card <span class="pin gold">LAUNCH</span></h4>
         <div class="when">Top 100 khách quen</div>
-        <p class="desc"><strong>Cơ chế:</strong> 10 lần mua = 1 combo · track qua SĐT.<br><strong>Cost:</strong> ~550k/tháng · uplift retention 5-10%.<br><strong>T05 target:</strong> 100 join · 30 hoàn thành 5 lần.</p>
+        <p class="desc"><strong>Cơ chế:</strong> 10 lần mua = 1 combo · track qua SĐT. <strong>Cost:</strong> ~550k/tháng. <strong>Target T05:</strong> 100 join · 30 hoàn thành 5 lần.</p>
       </div>
       <div class="act-card">
         <h4>Cuối tuần T05 · Shopee Push <span class="pin">RECURRING</span></h4>
         <div class="when">Mỗi T7 + CN tháng 5</div>
-        <p class="desc"><strong>Voucher 50% off ship · Combo Sumo 40k → 32k</strong> · Push 11h + 16h.<br><strong>Target/weekend:</strong> BDT +20 đơn Shopee · VK 5-10 đơn Shopee/ngày.</p>
+        <p class="desc"><strong>Voucher 50% off ship · Combo 40k → 32k</strong> · Push 11h + 16h. <strong>Target/weekend:</strong> BDT +20 đơn · VK 5-10 đơn/ngày.</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="rule-fancy"></div>
 
-<!-- ======================== BOARD ONE-PAGER ======================== -->
+<!-- ========================== XV · BOARD BRIEF ========================== -->
 <section id="board" class="tight">
   <div class="page">
     <div class="shead">
       <div class="l">
-        <div class="eyebrow gold">XIV · BOARD ONE-PAGER · 60 GIÂY</div>
-        <h2 class="h-1 serif">Một trang · <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">mọi thứ</em></h2>
+        <span class="eyebrow gold">No. XV · Board Brief · Page 31</span>
+        <h2 class="h-1">Một trang · <em style="color:var(--gold);font-weight:600">mọi thứ</em>.</h2>
+        <p class="sub-title">60 giây stakeholder summary.</p>
       </div>
     </div>
 
     <div class="board-card">
       <div class="board-head">
-        <div class="l"><h3>Board One-Pager · April 2026</h3><p>Sumo Snack — Multi-Location Operating Review</p></div>
+        <div class="l"><h3>Board Brief · April 2026</h3><p>Sumo Snack — Multi-Location Operating Review</p></div>
         <div class="r"><b>29 April 2026</b>BDT 28d + VK 2d · 1.679 orders · 44,6M VND</div>
       </div>
       <div class="board-3">
@@ -1294,8 +1330,8 @@ section > .page{position:relative;z-index:1}
         <div class="board-cell b3"><div class="l">Action</div><div class="v">SOP Tiêu hao<small>+3M/mo if 22% → 15%</small></div></div>
       </div>
       <div class="board-narrative">
-        <p><strong>Tình hình:</strong> Tháng đầu vận hành multi-location · Bùi Đình Túy đạt 93,7% HV · Vạn Kiếp Day 1 vượt 102% BDT avg · Tea line VK chiếm <em>10,7% DT</em> · Shopee scale ×12.</p>
-        <p><strong>Vấn đề:</strong> CP Tiêu hao 22,3% (vượt 15%) · Concentration Top 10 = 75,8% · <strong style="color:var(--neg);font-style:normal;font-family:var(--serif)">Dầu Ăn tồn 0 cần nhập gấp</strong> · VK chưa Shopee.</p>
+        <p><strong>Tình hình:</strong> Tháng đầu vận hành multi-location · BDT đạt 93,7% HV · VK Day 1 vượt 102% BDT avg · Tea line VK chiếm <em>10,7% DT</em> · Shopee scale ×12.</p>
+        <p><strong>Vấn đề:</strong> CP Tiêu hao 22,3% (vượt 15%) · Concentration Top 10 = 75,8% · <strong style="color:var(--neg)">Dầu Ăn tồn 0 cần nhập gấp</strong> · VK chưa Shopee.</p>
         <p><strong>Giải pháp 30 ngày:</strong> (1) SOP tiêu hao trần 15% <em>+3M</em> · (2) Setup Shopee VK <em>+20% DT</em> · (3) Test Trà BDT <em>+8-12% DT</em> · (4) Nhập Dầu/Bọc 2 ly trước Lễ · (5) Lễ 30/4 + 1/5 đóng cửa accept opportunity cost.</p>
         <p><strong>Forecast T05:</strong> Trung bình 51,2M (+2,9M) · Tích cực 56,4M (+8,1M) · <em>Khả năng break-even lần đầu trong multi-location</em>.</p>
       </div>
@@ -1303,26 +1339,30 @@ section > .page{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ======================== FOOTER ======================== -->
-<footer class="foot">
-  <div class="foot-in">
-    <div class="foot-grid">
-      <div><h5>Đơn vị phát hành</h5><p><strong>Sumo Snack</strong></p><p>141 Bùi Đình Túy</p><p>Vạn Kiếp · Bình Thạnh</p><p>TP. Hồ Chí Minh</p></div>
-      <div><h5>Kỳ báo cáo</h5><p>Closing T04Y26</p><p>28 ngày bán</p><p>2 cửa hàng</p><p>Đóng kỳ 29/04</p></div>
+<!-- ========================== COLOPHON ========================== -->
+<footer class="colophon" id="colophon">
+  <div class="colophon-in">
+    <div class="colophon-head">
+      <div class="ti">Sumo <em>Quarterly</em> · Colophon</div>
+      <div class="meta">Vol I · Issue IV · April 2026 · Page 32</div>
+    </div>
+    <div class="colophon-grid">
+      <div><h5>Đơn vị phát hành</h5><p><strong>Sumo Snack</strong></p><p>141 Bùi Đình Túy</p><p>88 Vạn Kiếp</p><p>Bình Thạnh · TP.HCM</p></div>
+      <div><h5>Kỳ báo cáo</h5><p>Closing T04Y26</p><p>28 ngày bán + 1 lễ</p><p>2 cửa hàng</p><p>Đóng kỳ 29/04</p></div>
       <div><h5>Phương pháp</h5><p>Source: Sumo_v34.xlsx</p><p>Sheet Ton.NVL · Data.Sales</p><p>Phí Shopee 35,2% exact</p><p>BDT/VK by Người tạo</p></div>
       <div><h5>Báo cáo tiếp</h5><p><strong>Tuần 1 T05Y26</strong></p><p>Phát hành 06/05/2026</p><p>Carry-over A1→D5</p><p>Plan chi tiết T05</p></div>
     </div>
-    <div class="foot-bot">
+    <div class="colophon-bot">
       <img src="img/logo.png" alt="Sumo" />
-      <div>SUMO SNACK · CLOSING T04Y26 · v5 INTERNATIONAL EDITION · 29/04/2026</div>
-      <div>© 2026 · in-house</div>
+      <div>SUMO QUARTERLY · VOL I · ISSUE IV · APRIL 2026 · v6 MAGAZINE × PORTFOLIO · 29/04/2026</div>
+      <div>© 2026 · in-house · Internal use</div>
     </div>
   </div>
 </footer>
 
 <script>
-const HV = 1608;
-const days = [
+const HV=1608;
+const days=[
   {d:'01/04',w:'T4',n:1275},{d:'02/04',w:'T5',n:1600},{d:'03/04',w:'T6',n:1690},
   {d:'04/04',w:'T7 Rằm',n:1060},{d:'05/04',w:'CN',n:1570},{d:'06/04',w:'T2',n:1510},{d:'07/04',w:'T3 ★',n:2127},
   {d:'08/04',w:'T4',n:1588},{d:'09/04',w:'T5',n:1618},{d:'10/04',w:'T6',n:1281},{d:'11/04',w:'T7',n:1581},
@@ -1332,110 +1372,91 @@ const days = [
   {d:'22/04',w:'T4',n:1616},{d:'23/04',w:'T5',n:1267},{d:'24/04',w:'T6',n:1635},{d:'25/04',w:'T7',n:1117},
   {d:'26/04',w:'CN',n:945},{d:'27/04',w:'T2 VK★',n:1191},{d:'28/04',w:'T3 ★★',n:2747}
 ];
-
-Chart.defaults.font.family='"Inter",system-ui,sans-serif';
+Chart.defaults.font.family='"IBM Plex Sans",system-ui,sans-serif';
 Chart.defaults.font.size=11;
-Chart.defaults.color='#8B93A0';
+Chart.defaults.color='#8A91A0';
 Chart.defaults.borderColor='rgba(255,255,255,0.06)';
+const tip={backgroundColor:'rgba(8,12,20,0.96)',borderColor:'rgba(255,255,255,0.12)',borderWidth:1,titleColor:'#fff',bodyColor:'#C5CAD3',titleFont:{size:11,weight:700},bodyFont:{size:11},padding:10,cornerRadius:6,displayColors:true,boxWidth:8,boxHeight:8,usePointStyle:true};
+const grad=(c,a,c1,c2)=>{const g=c.createLinearGradient(0,a.top,0,a.bottom);g.addColorStop(0,c1);g.addColorStop(1,c2);return g};
 
-const tooltipStyle = {
-  backgroundColor:'rgba(7,11,20,0.96)',borderColor:'rgba(255,255,255,0.12)',borderWidth:1,
-  titleColor:'#fff',bodyColor:'#C8CDD7',titleFont:{size:11,weight:700},bodyFont:{size:11},
-  padding:10,cornerRadius:6,displayColors:true,boxWidth:8,boxHeight:8,usePointStyle:true
-};
-const grad = (c,area,c1,c2)=>{const g=c.createLinearGradient(0,area.top,0,area.bottom);g.addColorStop(0,c1);g.addColorStop(1,c2);return g};
+const labels=days.map(d=>d.d);const dailyN=days.map(d=>d.n);
+let cum=0;const cumN=dailyN.map(v=>{cum+=v;return cum});
+const cumHV=labels.map((_,i)=>HV*(i+1));
+const mean=dailyN.reduce((a,b)=>a+b,0)/dailyN.length;
+const variance=dailyN.map(v=>v-mean);
+const growth=dailyN.map((v,i)=>i===0?0:((v-dailyN[i-1])/dailyN[i-1]*100));
 
-/* ============= DAILY CHARTS · 5 modes ============= */
-const labels = days.map(d=>d.d);
-const dailyN = days.map(d=>d.n);
-let cum=0; const cumN=dailyN.map(v=>{cum+=v;return cum});
-const cumHV = labels.map((_,i)=>HV*(i+1));
-const mean = dailyN.reduce((a,b)=>a+b,0)/dailyN.length;
-const variance = dailyN.map(v=>v-mean);
-const growth = dailyN.map((v,i)=>i===0?0:((v-dailyN[i-1])/dailyN[i-1]*100));
-
-/* MODE 1: Combo (default) */
+/* DAILY combo */
 (function(){
-  const ctx=document.getElementById('dailyCombo').getContext('2d');
-  new Chart(ctx,{type:'line',
-    data:{labels,datasets:[
-      {label:'Lũy tiến (k)',data:cumN,borderColor:'#E5B763',borderWidth:3,fill:true,
-        backgroundColor:c=>{const a=c.chart.chartArea;if(!a)return 'rgba(229,183,99,0.1)';return grad(ctx,a,'rgba(229,183,99,0.32)','rgba(229,183,99,0)')},
-        tension:0.35,pointRadius:0,pointHoverRadius:5,yAxisID:'y2',order:3},
-      {label:'HV cộng dồn',data:cumHV,borderColor:'#22C57F',borderWidth:1.5,borderDash:[6,5],fill:false,tension:0,pointRadius:0,yAxisID:'y2',order:2},
-      {label:'DT Net ngày (k)',data:dailyN,borderColor:'#E8821E',borderWidth:2.5,fill:false,tension:0.4,
-        pointRadius:days.map(d=>d.n>=2000?6:(d.n<=1100?5:0)),
-        pointBackgroundColor:days.map(d=>d.n>=2000?'#22C57F':(d.n<=1100?'#EF5664':'#E8821E')),
-        pointBorderColor:'#fff',pointBorderWidth:1.5,pointHoverRadius:7,yAxisID:'y',order:1}
-    ]},
-    options:{responsive:true,maintainAspectRatio:false,interaction:{intersect:false,mode:'index'},
-      plugins:{legend:{position:'top',align:'end',labels:{boxWidth:8,boxHeight:8,font:{size:11,weight:600},color:'#C8CDD7',padding:14,usePointStyle:true}},tooltip:tooltipStyle,
-        annotation:{annotations:{
-          hvDay:{type:'line',yMin:HV,yMax:HV,yScaleID:'y',borderColor:'rgba(34,197,127,0.55)',borderWidth:1.5,borderDash:[4,4],
-            label:{display:true,content:'HV ngày 1.608k',position:'start',backgroundColor:'rgba(2,72,52,0.92)',color:'#88E8BF',font:{size:9.5,weight:700},padding:5,borderRadius:4}},
-          ramAnno:{type:'point',xValue:3,yValue:dailyN[3],yScaleID:'y',radius:8,backgroundColor:'rgba(242,163,58,0.7)',borderColor:'#fff',borderWidth:2},
-          ramLabel:{type:'label',xValue:3,yValue:dailyN[3]-150,yScaleID:'y',content:'Rằm thiếu chay',color:'#F2A33A',font:{size:9.5,weight:700},backgroundColor:'rgba(0,0,0,0.7)',padding:4,borderRadius:3},
-          peakAnno:{type:'point',xValue:27,yValue:dailyN[27],yScaleID:'y',radius:9,backgroundColor:'rgba(34,197,127,0.8)',borderColor:'#fff',borderWidth:2},
-          peakLabel:{type:'label',xValue:27,yValue:dailyN[27]+280,yScaleID:'y',content:'★ Peak 28/4 · 2.747k',color:'#22C57F',font:{size:10,weight:700},backgroundColor:'rgba(0,0,0,0.8)',padding:5,borderRadius:4}
-        }}},
-      scales:{x:{grid:{display:false},ticks:{color:'#5A6173',font:{size:10},maxRotation:45,minRotation:0}},
-        y:{position:'left',grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#E8821E',font:{size:10,weight:600},callback:v=>v.toLocaleString('vi-VN')+'k'},title:{display:true,text:'DT Net ngày',color:'#E8821E'}},
-        y2:{position:'right',grid:{display:false},ticks:{color:'#E5B763',font:{size:10,weight:600},callback:v=>(v/1000).toFixed(1)+'M'},title:{display:true,text:'Lũy tiến',color:'#E5B763'}}}}
-  });
+  const c=document.getElementById('dailyCombo').getContext('2d');
+  new Chart(c,{type:'line',data:{labels,datasets:[
+    {label:'Lũy tiến (k)',data:cumN,borderColor:'#D4A24A',borderWidth:3,fill:true,
+      backgroundColor:ctx=>{const a=ctx.chart.chartArea;if(!a)return 'rgba(212,162,74,0.1)';return grad(c,a,'rgba(212,162,74,0.32)','rgba(212,162,74,0)')},
+      tension:0.35,pointRadius:0,pointHoverRadius:5,yAxisID:'y2',order:3},
+    {label:'HV cộng dồn',data:cumHV,borderColor:'#22C57F',borderWidth:1.5,borderDash:[6,5],fill:false,tension:0,pointRadius:0,yAxisID:'y2',order:2},
+    {label:'DT Net ngày (k)',data:dailyN,borderColor:'#E8821E',borderWidth:2.5,fill:false,tension:0.4,
+      pointRadius:days.map(d=>d.n>=2000?6:(d.n<=1100?5:0)),
+      pointBackgroundColor:days.map(d=>d.n>=2000?'#22C57F':(d.n<=1100?'#EF5664':'#E8821E')),
+      pointBorderColor:'#fff',pointBorderWidth:1.5,pointHoverRadius:7,yAxisID:'y',order:1}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,interaction:{intersect:false,mode:'index'},
+    plugins:{legend:{position:'top',align:'end',labels:{boxWidth:8,boxHeight:8,font:{size:11,weight:600},color:'#C5CAD3',padding:14,usePointStyle:true}},tooltip:tip,
+      annotation:{annotations:{
+        hvDay:{type:'line',yMin:HV,yMax:HV,yScaleID:'y',borderColor:'rgba(34,197,127,0.55)',borderWidth:1.5,borderDash:[4,4],
+          label:{display:true,content:'HV ngày 1.608k',position:'start',backgroundColor:'rgba(2,72,52,0.92)',color:'#88E8BF',font:{size:9.5,weight:700},padding:5,borderRadius:4}},
+        ramAnno:{type:'point',xValue:3,yValue:dailyN[3],yScaleID:'y',radius:8,backgroundColor:'rgba(242,163,58,0.7)',borderColor:'#fff',borderWidth:2},
+        ramLabel:{type:'label',xValue:3,yValue:dailyN[3]-150,yScaleID:'y',content:'Rằm thiếu chay',color:'#F2A33A',font:{size:9.5,weight:700},backgroundColor:'rgba(0,0,0,0.7)',padding:4,borderRadius:3},
+        peakAnno:{type:'point',xValue:27,yValue:dailyN[27],yScaleID:'y',radius:9,backgroundColor:'rgba(34,197,127,0.8)',borderColor:'#fff',borderWidth:2},
+        peakLabel:{type:'label',xValue:27,yValue:dailyN[27]+280,yScaleID:'y',content:'★ Peak 28/4 · 2.747k',color:'#22C57F',font:{size:10,weight:700},backgroundColor:'rgba(0,0,0,0.8)',padding:5,borderRadius:4}
+      }}},
+    scales:{x:{grid:{display:false},ticks:{color:'#5A6173',font:{size:10},maxRotation:45}},
+      y:{position:'left',grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#E8821E',font:{size:10,weight:600},callback:v=>v.toLocaleString('vi-VN')+'k'},title:{display:true,text:'DT Net ngày',color:'#E8821E'}},
+      y2:{position:'right',grid:{display:false},ticks:{color:'#D4A24A',font:{size:10,weight:600},callback:v=>(v/1000).toFixed(1)+'M'},title:{display:true,text:'Lũy tiến',color:'#D4A24A'}}}}});
 })();
 
-/* MODE 2: Trend only */
-(function(){
-  const ctx=document.getElementById('dailyTrend').getContext('2d');
-  new Chart(ctx,{type:'line',
-    data:{labels,datasets:[{label:'DT Net ngày',data:dailyN,borderColor:'#E8821E',borderWidth:3,fill:true,
-      backgroundColor:c=>{const a=c.chart.chartArea;if(!a)return 'rgba(232,130,30,0.18)';return grad(ctx,a,'rgba(232,130,30,0.30)','rgba(232,130,30,0)')},
-      tension:0.4,pointRadius:3,pointBackgroundColor:'#E8821E',pointHoverRadius:7}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:tooltipStyle,
-      annotation:{annotations:{hv:{type:'line',yMin:HV,yMax:HV,borderColor:'rgba(34,197,127,0.55)',borderWidth:1.5,borderDash:[5,4],
-        label:{display:true,content:'HV ngày 1.608k',position:'end',backgroundColor:'rgba(2,72,52,0.92)',color:'#88E8BF',font:{size:9.5,weight:700},padding:4,borderRadius:4}}}}},
-      scales:{x:{grid:{display:false},ticks:{color:'#8B93A0'}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8B93A0',callback:v=>v+'k'}}}}});
+/* DAILY trend */
+(function(){const c=document.getElementById('dailyTrend').getContext('2d');
+  new Chart(c,{type:'line',data:{labels,datasets:[{label:'DT Net ngày',data:dailyN,borderColor:'#E8821E',borderWidth:3,fill:true,
+    backgroundColor:ctx=>{const a=ctx.chart.chartArea;if(!a)return 'rgba(232,130,30,0.18)';return grad(c,a,'rgba(232,130,30,0.30)','rgba(232,130,30,0)')},
+    tension:0.4,pointRadius:3,pointBackgroundColor:'#E8821E',pointHoverRadius:7}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:tip,
+    annotation:{annotations:{hv:{type:'line',yMin:HV,yMax:HV,borderColor:'rgba(34,197,127,0.55)',borderWidth:1.5,borderDash:[5,4],
+      label:{display:true,content:'HV ngày 1.608k',position:'end',backgroundColor:'rgba(2,72,52,0.92)',color:'#88E8BF',font:{size:9.5,weight:700},padding:4,borderRadius:4}}}}},
+    scales:{x:{grid:{display:false},ticks:{color:'#8A91A0'}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8A91A0',callback:v=>v+'k'}}}}});
 })();
 
-/* MODE 3: Cumul */
-(function(){
-  const ctx=document.getElementById('dailyCumul').getContext('2d');
-  new Chart(ctx,{type:'line',
-    data:{labels,datasets:[
-      {label:'Lũy tiến',data:cumN,borderColor:'#E5B763',borderWidth:3,fill:true,
-        backgroundColor:c=>{const a=c.chart.chartArea;if(!a)return 'rgba(229,183,99,0.2)';return grad(ctx,a,'rgba(229,183,99,0.4)','rgba(229,183,99,0)')},
-        tension:0.35,pointRadius:0,pointHoverRadius:5},
-      {label:'HV cộng dồn (target 45M)',data:cumHV,borderColor:'#22C57F',borderWidth:2,borderDash:[6,5],fill:false,tension:0,pointRadius:0}
-    ]},
-    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index'},plugins:{legend:{position:'top',align:'end',labels:{color:'#C8CDD7',usePointStyle:true,boxWidth:8}},tooltip:tooltipStyle},
-      scales:{x:{grid:{display:false},ticks:{color:'#8B93A0'}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#E5B763',callback:v=>(v/1000).toFixed(1)+'M'}}}}});
+/* DAILY cumul */
+(function(){const c=document.getElementById('dailyCumul').getContext('2d');
+  new Chart(c,{type:'line',data:{labels,datasets:[
+    {label:'Lũy tiến',data:cumN,borderColor:'#D4A24A',borderWidth:3,fill:true,
+      backgroundColor:ctx=>{const a=ctx.chart.chartArea;if(!a)return 'rgba(212,162,74,0.2)';return grad(c,a,'rgba(212,162,74,0.4)','rgba(212,162,74,0)')},
+      tension:0.35,pointRadius:0,pointHoverRadius:5},
+    {label:'HV cộng dồn (target 45M)',data:cumHV,borderColor:'#22C57F',borderWidth:2,borderDash:[6,5],fill:false,tension:0,pointRadius:0}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index'},plugins:{legend:{position:'top',align:'end',labels:{color:'#C5CAD3',usePointStyle:true,boxWidth:8}},tooltip:tip},
+    scales:{x:{grid:{display:false},ticks:{color:'#8A91A0'}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#D4A24A',callback:v=>(v/1000).toFixed(1)+'M'}}}}});
 })();
 
-/* MODE 4: Growth */
-(function(){
-  const ctx=document.getElementById('dailyGrowth').getContext('2d');
-  new Chart(ctx,{type:'bar',
-    data:{labels,datasets:[{label:'% so ngày trước',data:growth,
-      backgroundColor:growth.map(v=>v>=0?'rgba(34,197,127,0.78)':'rgba(239,86,100,0.78)'),
-      borderRadius:4,borderSkipped:false}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:tooltipStyle},
-      scales:{x:{grid:{display:false},ticks:{color:'#8B93A0'}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8B93A0',callback:v=>v.toFixed(1)+'%'}}}}});
+/* DAILY growth */
+(function(){const c=document.getElementById('dailyGrowth').getContext('2d');
+  new Chart(c,{type:'bar',data:{labels,datasets:[{label:'% so ngày trước',data:growth,
+    backgroundColor:growth.map(v=>v>=0?'rgba(34,197,127,0.78)':'rgba(239,86,100,0.78)'),
+    borderRadius:4,borderSkipped:false}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:tip},
+    scales:{x:{grid:{display:false},ticks:{color:'#8A91A0'}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8A91A0',callback:v=>v.toFixed(1)+'%'}}}}});
 })();
 
-/* MODE 5: Variance */
-(function(){
-  const ctx=document.getElementById('dailyVariance').getContext('2d');
-  new Chart(ctx,{type:'bar',
-    data:{labels,datasets:[{label:'Lệch TB '+Math.round(mean)+'k',data:variance,
-      backgroundColor:variance.map(v=>v>=0?'rgba(34,197,127,0.72)':'rgba(242,163,58,0.72)'),
-      borderRadius:4,borderSkipped:false}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:tooltipStyle},
-      scales:{x:{grid:{display:false},ticks:{color:'#8B93A0'}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8B93A0',callback:v=>v+'k'}}}}});
+/* DAILY variance */
+(function(){const c=document.getElementById('dailyVariance').getContext('2d');
+  new Chart(c,{type:'bar',data:{labels,datasets:[{label:'Lệch TB '+Math.round(mean)+'k',data:variance,
+    backgroundColor:variance.map(v=>v>=0?'rgba(34,197,127,0.72)':'rgba(242,163,58,0.72)'),
+    borderRadius:4,borderSkipped:false}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:tip},
+    scales:{x:{grid:{display:false},ticks:{color:'#8A91A0'}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8A91A0',callback:v=>v+'k'}}}}});
 })();
 
-/* Tab switching */
 const titles={
-  combo:['Tổng hợp · doanh thu daily + lũy tiến + hòa vốn','2 trục · 3 chuỗi · annotations'],
+  combo:['Tổng hợp · daily + lũy tiến + hòa vốn','2 trục · 3 chuỗi · annotations'],
   trend:['Xu hướng doanh thu theo ngày','Đường mượt · với tham chiếu HV ngày'],
   cumul:['Doanh thu lũy tiến vs HV cộng dồn','Khoảng cách rút ngắn dần đến 28/04'],
   growth:['Tăng/giảm so với ngày trước','% delta day-over-day'],
@@ -1450,111 +1471,72 @@ document.querySelectorAll('#dailySeg button').forEach(b=>b.addEventListener('cli
   document.getElementById('dailyMeta').textContent=titles[p][1];
 }));
 
-/* ============= BDT SKU horizontal bar ============= */
-(function(){
-  const ctx=document.getElementById('bdtSku').getContext('2d');
-  const data=[
-    {n:'Chuối Chiên',v:10640},{n:'Khoai Mỡ Chiên · M',v:5100},
-    {n:'Combo đầy đủ 300g',v:3220},{n:'Khoai Tây Chiên · M',v:2825},
-    {n:'Khoai Lang Chiên · M',v:2750},{n:'Khoai Tây Chiên · L',v:1960},
-    {n:'Chuối Mè Đen-cốt dừa',v:1752},{n:'Sa Kê Chiên 300g',v:1440},
-    {n:'Sa Kê · M',v:1325},{n:'Khoai Mỡ Chiên · L',v:945}
-  ];
-  new Chart(ctx,{type:'bar',
-    data:{labels:data.map(d=>d.n),datasets:[{label:'DT (k)',data:data.map(d=>d.v),
-      backgroundColor:c=>{const a=c.chart.chartArea;if(!a)return '#E8821E';return grad(ctx,a,'#FFA94D','#7B4112')},
-      borderRadius:4,borderSkipped:false}]},
-    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
-      plugins:{legend:{display:false},tooltip:tooltipStyle},
-      scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8B93A0',callback:v=>(v/1000).toFixed(1)+'M'}},
-        y:{grid:{display:false},ticks:{color:'#C8CDD7',font:{size:10.5}}}}}});
+/* BDT SKU horizontal */
+(function(){const ctx=document.getElementById('bdtSku').getContext('2d');
+  const data=[{n:'Chuối Chiên',v:10640},{n:'Khoai Mỡ · M',v:5100},{n:'Combo đầy đủ',v:3220},{n:'Khoai Tây · M',v:2825},{n:'Khoai Lang · M',v:2750},{n:'Khoai Tây · L',v:1960},{n:'Chuối Mè',v:1752},{n:'Sa Kê 300g',v:1440},{n:'Sa Kê · M',v:1325},{n:'Khoai Mỡ · L',v:945}];
+  new Chart(ctx,{type:'bar',data:{labels:data.map(d=>d.n),datasets:[{label:'DT (k)',data:data.map(d=>d.v),
+    backgroundColor:c=>{const a=c.chart.chartArea;if(!a)return '#E8821E';return grad(ctx,a,'#FFA94D','#7B4112')},
+    borderRadius:4,borderSkipped:false}]},
+  options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:tip},
+    scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8A91A0',callback:v=>(v/1000).toFixed(1)+'M'}},y:{grid:{display:false},ticks:{color:'#C5CAD3',font:{size:10.5}}}}}});
 })();
 
-/* BDT Channel doughnut */
-(function(){
-  const ctx=document.getElementById('bdtChannel').getContext('2d');
-  new Chart(ctx,{type:'doughnut',
-    data:{labels:['Tại quầy','Shopee'],datasets:[{data:[87.6,12.4],backgroundColor:['#E8821E','#FFA94D'],borderColor:'#0D131F',borderWidth:3,hoverOffset:8}]},
-    options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'bottom',labels:{color:'#C8CDD7',font:{size:10.5},padding:10,usePointStyle:true,boxWidth:9}},tooltip:tooltipStyle}}});
+/* BDT Channel */
+(function(){const ctx=document.getElementById('bdtChannel').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Tại quầy','Shopee'],datasets:[{data:[87.6,12.4],backgroundColor:['#E8821E','#FFA94D'],borderColor:'#0E141F',borderWidth:3,hoverOffset:8}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'bottom',labels:{color:'#C5CAD3',font:{size:10.5},padding:10,usePointStyle:true,boxWidth:9}},tooltip:tip}}});
 })();
 
-/* BDT Hours area */
-(function(){
-  const ctx=document.getElementById('bdtHours').getContext('2d');
-  const hours=['10','11','12','13','14','15','16','17','18','19','20','21'];
-  const v=[12,28,32,18,22,82,65,100,76,52,38,24];
-  new Chart(ctx,{type:'line',
-    data:{labels:hours,datasets:[{label:'% peak',data:v,borderColor:'#E8821E',borderWidth:2.5,fill:true,
-      backgroundColor:c=>{const a=c.chart.chartArea;if(!a)return 'rgba(232,130,30,0.2)';return grad(ctx,a,'rgba(232,130,30,0.4)','rgba(232,130,30,0)')},
-      tension:0.4,pointRadius:v.map(x=>x>=80?5:0),pointBackgroundColor:'#fff',pointBorderColor:'#E8821E',pointBorderWidth:2}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:tooltipStyle},
-      scales:{x:{grid:{display:false},ticks:{color:'#8B93A0'}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8B93A0',callback:v=>v+'%'}}}}});
+/* BDT Hours */
+(function(){const ctx=document.getElementById('bdtHours').getContext('2d');
+  const hours=['10','11','12','13','14','15','16','17','18','19','20','21'];const v=[12,28,32,18,22,82,65,100,76,52,38,24];
+  new Chart(ctx,{type:'line',data:{labels:hours,datasets:[{label:'% peak',data:v,borderColor:'#E8821E',borderWidth:2.5,fill:true,
+    backgroundColor:c=>{const a=c.chart.chartArea;if(!a)return 'rgba(232,130,30,0.2)';return grad(ctx,a,'rgba(232,130,30,0.4)','rgba(232,130,30,0)')},
+    tension:0.4,pointRadius:v.map(x=>x>=80?5:0),pointBackgroundColor:'#fff',pointBorderColor:'#E8821E',pointBorderWidth:2}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:tip},
+    scales:{x:{grid:{display:false},ticks:{color:'#8A91A0'}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8A91A0',callback:v=>v+'%'}}}}});
 })();
 
-/* VK SKU horizontal */
-(function(){
-  const ctx=document.getElementById('vkSku').getContext('2d');
-  const data=[
-    {n:'Chuối Chiên',v:870,t:0},{n:'Khoai Mỡ · M',v:325,t:0},
-    {n:'Combo đầy đủ',v:280,t:0},{n:'Sa Kê · M',v:225,t:0},
-    {n:'★ Trà SUMO',v:140,t:1},{n:'Khoai Tây · M',v:100,t:0},
-    {n:'Khoai Lang · M',v:75,t:0},{n:'Sa Kê · L',v:70,t:0},
-    {n:'★ Trà Vải Hoa Hồng',v:60,t:1},{n:'★ Trà Mơ Đào',v:60,t:1}
-  ];
-  new Chart(ctx,{type:'bar',
-    data:{labels:data.map(d=>d.n),datasets:[{label:'DT (k)',data:data.map(d=>d.v),
-      backgroundColor:data.map(d=>d.t?'rgba(229,183,99,0.85)':'rgba(124,58,237,0.85)'),
-      borderRadius:4,borderSkipped:false}]},
-    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
-      plugins:{legend:{display:false},tooltip:tooltipStyle},
-      scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8B93A0'}},y:{grid:{display:false},ticks:{color:'#C8CDD7',font:{size:10.5}}}}}});
+/* VK SKU */
+(function(){const ctx=document.getElementById('vkSku').getContext('2d');
+  const data=[{n:'Chuối Chiên',v:870,t:0},{n:'Khoai Mỡ · M',v:325,t:0},{n:'Combo đầy đủ',v:280,t:0},{n:'Sa Kê · M',v:225,t:0},{n:'★ Trà SUMO',v:140,t:1},{n:'Khoai Tây · M',v:100,t:0},{n:'Khoai Lang · M',v:75,t:0},{n:'Sa Kê · L',v:70,t:0},{n:'★ Trà Vải',v:60,t:1},{n:'★ Trà Mơ Đào',v:60,t:1}];
+  new Chart(ctx,{type:'bar',data:{labels:data.map(d=>d.n),datasets:[{label:'DT (k)',data:data.map(d=>d.v),
+    backgroundColor:data.map(d=>d.t?'rgba(212,162,74,0.85)':'rgba(124,58,237,0.85)'),
+    borderRadius:4,borderSkipped:false}]},
+  options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:tip},
+    scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8A91A0'}},y:{grid:{display:false},ticks:{color:'#C5CAD3',font:{size:10.5}}}}}});
 })();
 
-/* VK D1 vs D2 */
-(function(){
-  const ctx=document.getElementById('vkD1D2').getContext('2d');
-  new Chart(ctx,{type:'bar',
-    data:{labels:['D1 (27/04 T2)','D2 (28/04 T3)'],datasets:[
-      {label:'DT Net (k)',data:[1543,890],backgroundColor:['#9C6DFC','#7C3AED'],borderRadius:6,borderSkipped:false},
-      {label:'Số đơn',data:[47,31],backgroundColor:['#BB97FE','#9C6DFC'],borderRadius:6,borderSkipped:false,yAxisID:'y2'}
-    ]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',align:'end',labels:{color:'#C8CDD7',usePointStyle:true,boxWidth:8}},tooltip:tooltipStyle},
-      scales:{x:{grid:{display:false},ticks:{color:'#8B93A0'}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#9C6DFC',callback:v=>v+'k'},title:{display:true,text:'DT Net',color:'#9C6DFC'}},
-        y2:{position:'right',grid:{display:false},ticks:{color:'#BB97FE'},title:{display:true,text:'Đơn',color:'#BB97FE'}}}}});
+/* VK D1 D2 */
+(function(){const ctx=document.getElementById('vkD1D2').getContext('2d');
+  new Chart(ctx,{type:'bar',data:{labels:['D1 (27/04 T2)','D2 (28/04 T3)'],datasets:[
+    {label:'DT Net (k)',data:[1543,890],backgroundColor:['#9C6DFC','#7C3AED'],borderRadius:6,borderSkipped:false},
+    {label:'Số đơn',data:[47,31],backgroundColor:['#BB97FE','#9C6DFC'],borderRadius:6,borderSkipped:false,yAxisID:'y2'}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',align:'end',labels:{color:'#C5CAD3',usePointStyle:true,boxWidth:8}},tooltip:tip},
+    scales:{x:{grid:{display:false},ticks:{color:'#8A91A0'}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#9C6DFC',callback:v=>v+'k'},title:{display:true,text:'DT Net',color:'#9C6DFC'}},
+      y2:{position:'right',grid:{display:false},ticks:{color:'#BB97FE'},title:{display:true,text:'Đơn',color:'#BB97FE'}}}}});
 })();
 
 /* Inventory turnover */
-(function(){
-  const ctx=document.getElementById('invTurnover').getContext('2d');
-  const data=[{n:'Chuối',v:2.9,c:'#22C57F'},{n:'Khoai Tây',v:1.5,c:'#E8821E'},{n:'Khoai Lang',v:1.5,c:'#E8821E'},
-    {n:'Khoai Mỡ tươi',v:1.1,c:'#F2A33A'},{n:'Bột Khoai Mỡ',v:0.9,c:'#EF5664'},{n:'Sa Kê',v:0.9,c:'#EF5664'}];
-  new Chart(ctx,{type:'bar',
-    data:{labels:data.map(d=>d.n),datasets:[{label:'Vòng quay',data:data.map(d=>d.v),
-      backgroundColor:data.map(d=>d.c),borderRadius:4,borderSkipped:false}]},
-    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:tooltipStyle,
-      annotation:{annotations:{ideal:{type:'line',xMin:1.5,xMax:1.5,borderColor:'rgba(34,197,127,0.6)',borderWidth:1.5,borderDash:[4,4],
-        label:{display:true,content:'Lý tưởng 1.5×',position:'end',backgroundColor:'rgba(2,72,52,0.92)',color:'#88E8BF',font:{size:9},padding:4,borderRadius:3}}}}},
-      scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8B93A0',callback:v=>v+'×'}},y:{grid:{display:false},ticks:{color:'#C8CDD7'}}}}});
+(function(){const ctx=document.getElementById('invTurnover').getContext('2d');
+  const data=[{n:'Chuối',v:2.9,c:'#22C57F'},{n:'Khoai Tây',v:1.5,c:'#E8821E'},{n:'Khoai Lang',v:1.5,c:'#E8821E'},{n:'Khoai Mỡ tươi',v:1.1,c:'#F2A33A'},{n:'Bột Khoai Mỡ',v:0.9,c:'#EF5664'},{n:'Sa Kê',v:0.9,c:'#EF5664'}];
+  new Chart(ctx,{type:'bar',data:{labels:data.map(d=>d.n),datasets:[{label:'Vòng quay',data:data.map(d=>d.v),
+    backgroundColor:data.map(d=>d.c),borderRadius:4,borderSkipped:false}]},
+  options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:tip,
+    annotation:{annotations:{ideal:{type:'line',xMin:1.5,xMax:1.5,borderColor:'rgba(34,197,127,0.6)',borderWidth:1.5,borderDash:[4,4],
+      label:{display:true,content:'Lý tưởng 1.5×',position:'end',backgroundColor:'rgba(2,72,52,0.92)',color:'#88E8BF',font:{size:9},padding:4,borderRadius:3}}}}},
+    scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8A91A0',callback:v=>v+'×'}},y:{grid:{display:false},ticks:{color:'#C5CAD3'}}}}});
 })();
 
 /* Cohort */
-const cohortData=[
-  {h:'12-13h',l:'Trưa',v:[1.2,2.1,2.5,1.8,2.0,1.5,0.9]},
-  {h:'13-14h',l:'Trưa',v:[1.8,3.5,3.8,2.6,2.9,2.4,1.8]},
-  {h:'15-16h',l:'Chiều',v:[2.4,7.2,7.0,5.5,6.8,5.1,2.7]},
-  {h:'16-17h',l:'★ Peak',v:[5.0,11.0,9.4,8.2,8.8,5.7,3.9]},
-  {h:'17-18h',l:'★★ Peak',v:[6.8,12.5,11.8,10.2,9.6,7.1,4.2]},
-  {h:'18-19h',l:'Tối sớm',v:[5.4,8.1,7.8,7.5,5.9,5.0,3.1]},
-  {h:'19-20h',l:'Tối',v:[4.9,5.7,5.5,5.2,5.0,3.4,2.0]},
-  {h:'20-22h',l:'Đêm',v:[2.5,2.8,2.6,2.4,2.7,1.6,0.9]}
-];
-(function(){
-  const tb=document.getElementById('cohortBody');const max=12.5;
+const cohortData=[{h:'12-13h',l:'Trưa',v:[1.2,2.1,2.5,1.8,2.0,1.5,0.9]},{h:'13-14h',l:'Trưa',v:[1.8,3.5,3.8,2.6,2.9,2.4,1.8]},{h:'15-16h',l:'Chiều',v:[2.4,7.2,7.0,5.5,6.8,5.1,2.7]},{h:'16-17h',l:'★ Peak',v:[5.0,11.0,9.4,8.2,8.8,5.7,3.9]},{h:'17-18h',l:'★★ Peak',v:[6.8,12.5,11.8,10.2,9.6,7.1,4.2]},{h:'18-19h',l:'Tối sớm',v:[5.4,8.1,7.8,7.5,5.9,5.0,3.1]},{h:'19-20h',l:'Tối',v:[4.9,5.7,5.5,5.2,5.0,3.4,2.0]},{h:'20-22h',l:'Đêm',v:[2.5,2.8,2.6,2.4,2.7,1.6,0.9]}];
+(function(){const tb=document.getElementById('cohortBody');const max=12.5;
   cohortData.forEach(row=>{
     const tr=document.createElement('tr');
     tr.innerHTML=`<td>${row.h}<small>${row.l}</small></td>`+row.v.map(v=>{
       const i=v/max;let bg;
-      if(i<0.18)bg=`linear-gradient(135deg,rgba(27,34,53,${0.4+i*2}),rgba(91,146,245,${i*1.5}))`;
+      if(i<0.18)bg=`linear-gradient(135deg,rgba(27,35,53,${0.4+i*2}),rgba(91,146,245,${i*1.5}))`;
       else if(i<0.38)bg=`linear-gradient(135deg,rgba(91,146,245,${0.4+i}),rgba(94,234,212,${i*1.2}))`;
       else if(i<0.58)bg=`linear-gradient(135deg,rgba(94,234,212,${0.4+i*0.8}),rgba(252,211,77,${i*1.1}))`;
       else if(i<0.78)bg=`linear-gradient(135deg,rgba(252,211,77,${0.5+i*0.6}),rgba(251,146,60,${i*1.1}))`;
@@ -1567,114 +1549,85 @@ const cohortData=[
 })();
 
 /* Pareto */
-(function(){
-  const ctx=document.getElementById('pareto').getContext('2d');
-  const data=[
-    {n:'Chuối',v:129980},{n:'Khoai Tây',v:55080},{n:'Khoai Lang',v:53130},
-    {n:'Khoai Mỡ tươi',v:35990},{n:'Bột Khoai Mỡ',v:35990},{n:'Sa Kê',v:31430}
-  ];
-  const total=data.reduce((s,x)=>s+x.v,0);
-  let cum=0; const cumPct=data.map(d=>{cum+=d.v;return Math.round(cum/total*100)});
-
-  new Chart(ctx,{
-    data:{labels:data.map(d=>d.n),datasets:[
-      {type:'bar',label:'Xuất bán (GR)',data:data.map(d=>d.v),
-        backgroundColor:data.map((_,i)=>i<3?'#E8821E':(i<5?'#FFA94D':'#FFC780')),
-        borderRadius:6,borderSkipped:false,yAxisID:'y'},
-      {type:'line',label:'Lũy tiến (%)',data:cumPct,borderColor:'#E5B763',backgroundColor:'rgba(229,183,99,0.12)',
-        borderWidth:3,tension:0.3,pointRadius:5,pointBackgroundColor:'#E5B763',pointBorderColor:'#fff',pointBorderWidth:2,yAxisID:'y2'}
-    ]},
-    options:{responsive:true,maintainAspectRatio:false,interaction:{intersect:false,mode:'index'},
-      plugins:{legend:{position:'top',align:'end',labels:{color:'#C8CDD7',font:{size:11,weight:600},padding:14,usePointStyle:true,boxWidth:8}},tooltip:tooltipStyle,
-        annotation:{annotations:{p80:{type:'line',yMin:80,yMax:80,yScaleID:'y2',borderColor:'rgba(229,183,99,0.55)',borderWidth:1.5,borderDash:[4,4],
-          label:{display:true,content:'80/20 line',position:'end',backgroundColor:'rgba(140,106,31,0.92)',color:'#E5B763',font:{size:9.5,weight:700},padding:4,borderRadius:3}}}}},
-      scales:{x:{grid:{display:false},ticks:{color:'#8B93A0'}},
-        y:{position:'left',ticks:{color:'#E8821E',callback:v=>(v/1000).toFixed(0)+'k GR'},grid:{color:'rgba(255,255,255,0.04)'},title:{display:true,text:'Xuất bán',color:'#E8821E'}},
-        y2:{position:'right',grid:{display:false},ticks:{color:'#E5B763',callback:v=>v+'%'},min:0,max:105,title:{display:true,text:'Cumulative %',color:'#E5B763'}}}}
-  });
+(function(){const ctx=document.getElementById('pareto').getContext('2d');
+  const data=[{n:'Chuối',v:129980},{n:'Khoai Tây',v:55080},{n:'Khoai Lang',v:53130},{n:'Khoai Mỡ tươi',v:35990},{n:'Bột Khoai Mỡ',v:35990},{n:'Sa Kê',v:31430}];
+  const total=data.reduce((s,x)=>s+x.v,0);let cum=0;const cumPct=data.map(d=>{cum+=d.v;return Math.round(cum/total*100)});
+  new Chart(ctx,{data:{labels:data.map(d=>d.n),datasets:[
+    {type:'bar',label:'Xuất bán (GR)',data:data.map(d=>d.v),
+      backgroundColor:data.map((_,i)=>i<3?'#E8821E':(i<5?'#FFA94D':'#FFC780')),borderRadius:6,borderSkipped:false,yAxisID:'y'},
+    {type:'line',label:'Lũy tiến (%)',data:cumPct,borderColor:'#D4A24A',backgroundColor:'rgba(212,162,74,0.12)',borderWidth:3,tension:0.3,pointRadius:5,pointBackgroundColor:'#D4A24A',pointBorderColor:'#fff',pointBorderWidth:2,yAxisID:'y2'}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,interaction:{intersect:false,mode:'index'},
+    plugins:{legend:{position:'top',align:'end',labels:{color:'#C5CAD3',font:{size:11,weight:600},padding:14,usePointStyle:true,boxWidth:8}},tooltip:tip,
+      annotation:{annotations:{p80:{type:'line',yMin:80,yMax:80,yScaleID:'y2',borderColor:'rgba(212,162,74,0.55)',borderWidth:1.5,borderDash:[4,4],
+        label:{display:true,content:'80/20 line',position:'end',backgroundColor:'rgba(128,96,32,0.92)',color:'#D4A24A',font:{size:9.5,weight:700},padding:4,borderRadius:3}}}}},
+    scales:{x:{grid:{display:false},ticks:{color:'#8A91A0'}},
+      y:{position:'left',ticks:{color:'#E8821E',callback:v=>(v/1000).toFixed(0)+'k GR'},grid:{color:'rgba(255,255,255,0.04)'}},
+      y2:{position:'right',grid:{display:false},ticks:{color:'#D4A24A',callback:v=>v+'%'},min:0,max:105}}}});
 })();
 
-/* Funnel CR by hour */
-(function(){
-  const ctx=document.getElementById('funnelChart').getContext('2d');
-  new Chart(ctx,{type:'bar',
-    data:{labels:['13-16h\nThấp điểm','16-19h\nCao điểm','19-22h\nTối'],
-      datasets:[
-        {label:'Traffic est (lượt/h)',data:[1000,2500,1250],backgroundColor:'rgba(91,146,245,0.42)',borderColor:'#5B92F5',borderWidth:1.5,borderRadius:6,borderSkipped:false,yAxisID:'y'},
-        {label:'Đơn TB/ngày',data:[3.7,8.3,5.5],backgroundColor:'rgba(232,130,30,0.85)',borderRadius:6,borderSkipped:false,yAxisID:'y2'},
-        {type:'line',label:'CR %',data:[0.31,0.28,0.35],borderColor:'#E5B763',borderWidth:3,tension:0.3,pointRadius:5,pointBackgroundColor:'#E5B763',yAxisID:'y3'}
-      ]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',align:'end',labels:{color:'#C8CDD7',usePointStyle:true,boxWidth:8,font:{size:10.5}}},tooltip:tooltipStyle},
-      scales:{x:{grid:{display:false},ticks:{color:'#C8CDD7',font:{size:10.5}}},
-        y:{position:'left',grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#5B92F5',callback:v=>v+'/h'},title:{display:true,text:'Traffic',color:'#5B92F5'}},
-        y2:{position:'right',grid:{display:false},ticks:{color:'#E8821E'},title:{display:true,text:'Đơn',color:'#E8821E'}},
-        y3:{display:false}}}});
+/* Funnel */
+(function(){const ctx=document.getElementById('funnelChart').getContext('2d');
+  new Chart(ctx,{type:'bar',data:{labels:['13-16h\nThấp','16-19h\nCao','19-22h\nTối'],datasets:[
+    {label:'Traffic est (lượt/h)',data:[1000,2500,1250],backgroundColor:'rgba(91,146,245,0.42)',borderColor:'#5B92F5',borderWidth:1.5,borderRadius:6,borderSkipped:false,yAxisID:'y'},
+    {label:'Đơn TB/ngày',data:[3.7,8.3,5.5],backgroundColor:'rgba(232,130,30,0.85)',borderRadius:6,borderSkipped:false,yAxisID:'y2'},
+    {type:'line',label:'CR %',data:[0.31,0.28,0.35],borderColor:'#D4A24A',borderWidth:3,tension:0.3,pointRadius:5,pointBackgroundColor:'#D4A24A',yAxisID:'y3'}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',align:'end',labels:{color:'#C5CAD3',usePointStyle:true,boxWidth:8,font:{size:10.5}}},tooltip:tip},
+    scales:{x:{grid:{display:false},ticks:{color:'#C5CAD3',font:{size:10.5}}},
+      y:{position:'left',grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#5B92F5',callback:v=>v+'/h'},title:{display:true,text:'Traffic',color:'#5B92F5'}},
+      y2:{position:'right',grid:{display:false},ticks:{color:'#E8821E'},title:{display:true,text:'Đơn',color:'#E8821E'}},
+      y3:{display:false}}}});
 })();
 
-/* CR Bench bar */
-(function(){
-  const ctx=document.getElementById('crBench').getContext('2d');
-  new Chart(ctx,{type:'bar',indexAxis:'y',
-    data:{labels:['Street food chưa brand','★ Sumo BDT (now)','Street food có nhận diện','Quán quen (50%+ retention)'],
-      datasets:[{label:'CR %',data:[0.2,0.58,0.75,1.5],
-        backgroundColor:['rgba(91,146,245,0.6)','rgba(229,183,99,0.95)','rgba(34,197,127,0.6)','rgba(34,197,127,0.85)'],
-        borderRadius:6,borderSkipped:false}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:tooltipStyle,
-      annotation:{annotations:{be:{type:'line',xMin:0.66,xMax:0.66,borderColor:'rgba(229,183,99,0.7)',borderWidth:2,borderDash:[5,4],
-        label:{display:true,content:'BE 0,66% (target)',position:'end',backgroundColor:'rgba(140,106,31,0.92)',color:'#E5B763',font:{size:10,weight:700},padding:5,borderRadius:4}}}}},
-      scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8B93A0',callback:v=>v+'%'}},y:{grid:{display:false},ticks:{color:'#C8CDD7',font:{size:10.5}}}}}});
+/* CR Bench */
+(function(){const ctx=document.getElementById('crBench').getContext('2d');
+  new Chart(ctx,{type:'bar',indexAxis:'y',data:{labels:['Street food chưa brand','★ Sumo BDT (now)','Street food có nhận diện','Quán quen 50%+'],datasets:[{label:'CR %',data:[0.2,0.58,0.75,1.5],
+    backgroundColor:['rgba(91,146,245,0.6)','rgba(212,162,74,0.95)','rgba(34,197,127,0.6)','rgba(34,197,127,0.85)'],
+    borderRadius:6,borderSkipped:false}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:tip,
+    annotation:{annotations:{be:{type:'line',xMin:0.66,xMax:0.66,borderColor:'rgba(212,162,74,0.7)',borderWidth:2,borderDash:[5,4],
+      label:{display:true,content:'BE 0,66% (target)',position:'end',backgroundColor:'rgba(128,96,32,0.92)',color:'#D4A24A',font:{size:10,weight:700},padding:5,borderRadius:4}}}}},
+    scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8A91A0',callback:v=>v+'%'}},y:{grid:{display:false},ticks:{color:'#C5CAD3',font:{size:10.5}}}}}});
 })();
 
-/* Scoreboard 4-week */
-(function(){
-  const ctx=document.getElementById('scoreboard4w').getContext('2d');
+/* Scoreboard 4w */
+(function(){const ctx=document.getElementById('scoreboard4w').getContext('2d');
   const wks=['T1 · 01-07','T2 · 08-14','T3 · 15-21','T4 · 22-28'];
-  new Chart(ctx,{type:'bar',
-    data:{labels:wks,datasets:[
-      {label:'DT Net /tuần (k)',data:[10816,10294,10584,10485],backgroundColor:'rgba(232,130,30,0.85)',borderRadius:6,borderSkipped:false,yAxisID:'y',order:3},
-      {type:'line',label:'Drop Size',data:[1.41,1.34,1.52,1.62],borderColor:'#22C57F',borderWidth:3,tension:0.3,pointRadius:5,pointBackgroundColor:'#22C57F',yAxisID:'y2',order:1},
-      {type:'line',label:'Shopee /tuần (k)',data:[138,813,1533,2747],borderColor:'#E5B763',borderWidth:3,tension:0.3,pointRadius:5,pointBackgroundColor:'#E5B763',yAxisID:'y',order:2,fill:false}
-    ]},
-    options:{responsive:true,maintainAspectRatio:false,interaction:{intersect:false,mode:'index'},
-      plugins:{legend:{position:'top',align:'end',labels:{color:'#C8CDD7',usePointStyle:true,boxWidth:8,font:{size:10.5}}},tooltip:tooltipStyle},
-      scales:{x:{grid:{display:false},ticks:{color:'#C8CDD7'}},
-        y:{position:'left',grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#E8821E',callback:v=>(v/1000).toFixed(1)+'M'},title:{display:true,text:'DT (M)',color:'#E8821E'}},
-        y2:{position:'right',grid:{display:false},ticks:{color:'#22C57F'},min:1,max:1.8,title:{display:true,text:'DS',color:'#22C57F'}}}}});
+  new Chart(ctx,{type:'bar',data:{labels:wks,datasets:[
+    {label:'DT Net /tuần (k)',data:[10816,10294,10584,10485],backgroundColor:'rgba(232,130,30,0.85)',borderRadius:6,borderSkipped:false,yAxisID:'y',order:3},
+    {type:'line',label:'Drop Size',data:[1.41,1.34,1.52,1.62],borderColor:'#22C57F',borderWidth:3,tension:0.3,pointRadius:5,pointBackgroundColor:'#22C57F',yAxisID:'y2',order:1},
+    {type:'line',label:'Shopee /tuần (k)',data:[138,813,1533,2747],borderColor:'#D4A24A',borderWidth:3,tension:0.3,pointRadius:5,pointBackgroundColor:'#D4A24A',yAxisID:'y',order:2,fill:false}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,interaction:{intersect:false,mode:'index'},
+    plugins:{legend:{position:'top',align:'end',labels:{color:'#C5CAD3',usePointStyle:true,boxWidth:8,font:{size:10.5}}},tooltip:tip},
+    scales:{x:{grid:{display:false},ticks:{color:'#C5CAD3'}},
+      y:{position:'left',grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#E8821E',callback:v=>(v/1000).toFixed(1)+'M'},title:{display:true,text:'DT (M)',color:'#E8821E'}},
+      y2:{position:'right',grid:{display:false},ticks:{color:'#22C57F'},min:1,max:1.8,title:{display:true,text:'DS',color:'#22C57F'}}}}});
 })();
 
-/* Forecast Multi-scenario */
-(function(){
-  const ctx=document.getElementById('forecastMulti').getContext('2d');
+/* Forecast multi */
+(function(){const ctx=document.getElementById('forecastMulti').getContext('2d');
   const labels=Array.from({length:30},(_,i)=>`${String(i+2).padStart(2,'0')}/05`);
   const f=i=>{const bdt=1500+(i*4);const vk=Math.min(50,30+i*0.7)*30;let weekend=0;const dow=(i+5)%7;if(dow===0||dow===1)weekend=180;return bdt+vk+weekend};
   const lik=labels.map((_,i)=>Math.round(f(i)));
-  const opt=lik.map(v=>Math.round(v*1.15));
-  const con=lik.map(v=>Math.round(v*0.88));
-  const moon=lik.map(v=>Math.round(v*1.21));
-  new Chart(ctx,{type:'line',
-    data:{labels,datasets:[
-      {label:'Đột phá +21%',data:moon,borderColor:'#E5B763',borderWidth:2,borderDash:[3,3],fill:false,tension:0.35,pointRadius:0},
-      {label:'Tích cực +15%',data:opt,borderColor:'#22C57F',borderWidth:2,borderDash:[5,4],fill:false,tension:0.35,pointRadius:0},
-      {label:'Dự kiến (base)',data:lik,borderColor:'#E8821E',borderWidth:3,fill:true,backgroundColor:c=>{const a=c.chart.chartArea;if(!a)return 'rgba(232,130,30,0.18)';return grad(ctx,a,'rgba(232,130,30,0.32)','rgba(232,130,30,0)')},tension:0.35,pointRadius:0,pointHoverRadius:5},
-      {label:'Bảo thủ −12%',data:con,borderColor:'#EF5664',borderWidth:2,borderDash:[5,4],fill:false,tension:0.35,pointRadius:0}
-    ]},
-    options:{responsive:true,maintainAspectRatio:false,interaction:{intersect:false,mode:'index'},
-      plugins:{legend:{position:'top',align:'end',labels:{color:'#C8CDD7',usePointStyle:true,boxWidth:8,font:{size:10.5}}},tooltip:tooltipStyle,
-        annotation:{annotations:{hv:{type:'line',yMin:HV,yMax:HV,borderColor:'rgba(34,197,127,0.55)',borderWidth:1.5,borderDash:[4,4],
-          label:{display:true,content:'HV ngày 1.608k',position:'end',backgroundColor:'rgba(2,72,52,0.92)',color:'#88E8BF',font:{size:9.5,weight:700},padding:4,borderRadius:3}}}}},
-      scales:{x:{grid:{display:false},ticks:{color:'#8B93A0',font:{size:9.5}}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8B93A0',callback:v=>v+'k'}}}}});
+  const opt=lik.map(v=>Math.round(v*1.15));const con=lik.map(v=>Math.round(v*0.88));const moon=lik.map(v=>Math.round(v*1.21));
+  new Chart(ctx,{type:'line',data:{labels,datasets:[
+    {label:'Đột phá +21%',data:moon,borderColor:'#D4A24A',borderWidth:2,borderDash:[3,3],fill:false,tension:0.35,pointRadius:0},
+    {label:'Tích cực +15%',data:opt,borderColor:'#22C57F',borderWidth:2,borderDash:[5,4],fill:false,tension:0.35,pointRadius:0},
+    {label:'Dự kiến (base)',data:lik,borderColor:'#E8821E',borderWidth:3,fill:true,backgroundColor:c=>{const a=c.chart.chartArea;if(!a)return 'rgba(232,130,30,0.18)';return grad(ctx,a,'rgba(232,130,30,0.32)','rgba(232,130,30,0)')},tension:0.35,pointRadius:0,pointHoverRadius:5},
+    {label:'Bảo thủ −12%',data:con,borderColor:'#EF5664',borderWidth:2,borderDash:[5,4],fill:false,tension:0.35,pointRadius:0}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,interaction:{intersect:false,mode:'index'},
+    plugins:{legend:{position:'top',align:'end',labels:{color:'#C5CAD3',usePointStyle:true,boxWidth:8,font:{size:10.5}}},tooltip:tip,
+      annotation:{annotations:{hv:{type:'line',yMin:HV,yMax:HV,borderColor:'rgba(34,197,127,0.55)',borderWidth:1.5,borderDash:[4,4],
+        label:{display:true,content:'HV ngày 1.608k',position:'end',backgroundColor:'rgba(2,72,52,0.92)',color:'#88E8BF',font:{size:9.5,weight:700},padding:4,borderRadius:3}}}}},
+    scales:{x:{grid:{display:false},ticks:{color:'#8A91A0',font:{size:9.5}}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#8A91A0',callback:v=>v+'k'}}}}});
 })();
 
-/* Sensitivity matrix */
-(function(){
-  const tbl=document.getElementById('sensMatrix');
-  const data=[
-    {dt:'1.400k',lab:'(bear)',v:[-7940,-6880,-5920,-4420,-2920]},
-    {dt:'1.506k',lab:'(current)',v:[-4436,-3376,-2416,-916,584]},
-    {dt:'1.650k',lab:'(target)',v:[-1612,-552,408,1908,3408]},
-    {dt:'1.820k',lab:'(stretch)',v:[2332,3392,4352,5852,7352]},
-    {dt:'2.000k',lab:'(breakthrough)',v:[6532,7592,8552,10052,11552]}
-  ];
+/* Sensitivity */
+(function(){const tbl=document.getElementById('sensMatrix');
+  const data=[{dt:'1.400k',lab:'(bear)',v:[-7940,-6880,-5920,-4420,-2920]},{dt:'1.506k',lab:'(current)',v:[-4436,-3376,-2416,-916,584]},{dt:'1.650k',lab:'(target)',v:[-1612,-552,408,1908,3408]},{dt:'1.820k',lab:'(stretch)',v:[2332,3392,4352,5852,7352]},{dt:'2.000k',lab:'(breakthrough)',v:[6532,7592,8552,10052,11552]}];
   const cols=['22,3% (now)','20%','18%','15%','12%'];
   let h='<thead><tr><th>DT/ngày ↓ · CP Tiêu hao →</th>'+cols.map(c=>`<th>${c}</th>`).join('')+'</tr></thead><tbody>';
   data.forEach(r=>{
@@ -1686,34 +1639,14 @@ const cohortData=[
       return `<td style="background:${bg};color:${color}">${(v>0?'+':'')+v.toLocaleString('vi-VN')}</td>`;
     }).join('')+'</tr>';
   });
-  h+='</tbody>';
-  tbl.innerHTML=h;
+  h+='</tbody>';tbl.innerHTML=h;
 })();
 
-/* Theme toggle */
 document.getElementById('themeTog').addEventListener('click',()=>{
   const cur=document.body.dataset.theme;
   const next=cur==='dark'?'light':'dark';
   document.body.dataset.theme=next;
   document.getElementById('themeTog').textContent=next.toUpperCase();
-});
-
-/* Reading progress bar */
-window.addEventListener('scroll',()=>{
-  const h=document.documentElement;
-  const pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
-  document.getElementById('readProgress').style.width=pct+'%';
-});
-
-/* Scroll spy nav */
-const navLinks=document.querySelectorAll('#topNav a');
-const sections=Array.from(navLinks).map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-window.addEventListener('scroll',()=>{
-  const y=window.scrollY+200;
-  let active=sections[0];
-  sections.forEach(s=>{if(s&&s.offsetTop<=y)active=s});
-  navLinks.forEach(l=>l.classList.remove('active'));
-  if(active){const link=document.querySelector(`#topNav a[href="#${active.id}"]`);if(link)link.classList.add('active')}
 });
 </script>
 </body>
