@@ -6,7 +6,7 @@
 <title>Sumo Snack · Closing T04Y26 · International Edition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Inter:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
 <style>
@@ -25,11 +25,11 @@
   --pos:#22C57F;--pos-2:#16A865;--neg:#EF5664;--neg-2:#C5374A;--warn:#F2A33A;--warn-2:#D88720;--info:#5B92F5;
   /* Glass */
   --glass:rgba(13,19,31,0.55);--glass-2:rgba(19,25,42,0.7);--glass-border:rgba(255,255,255,0.08);
-  /* Typography */
-  --serif:"Playfair Display","Cormorant Garamond",Georgia,serif;
-  --serif-it:"Cormorant Garamond","Playfair Display",Georgia,serif;
-  --sans:"Inter",-apple-system,system-ui,sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  /* Typography — IBM Plex stack (corporate grade · Bloomberg/Linear/IBM) */
+  --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+  --serif-it:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",-apple-system,"Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,"SF Mono",monospace;
   --rad:8px;--rad-lg:14px;--rad-xl:22px;
 }
 [data-theme="light"]{
@@ -69,13 +69,13 @@ body::after{
   mix-blend-mode:overlay;
 }
 
-h1,h2,h3,h4{font-family:var(--serif);letter-spacing:-0.022em;line-height:1.08;font-weight:700;color:var(--type)}
-.h-mega{font-size:clamp(48px,7.5vw,108px);font-weight:700;letter-spacing:-0.04em;line-height:0.96}
-.h-hero{font-size:clamp(36px,5vw,72px);font-weight:600;letter-spacing:-0.025em;line-height:1.04}
-.h-1{font-size:clamp(28px,3.4vw,48px);font-weight:700;letter-spacing:-0.022em;line-height:1.08}
-.h-2{font-size:clamp(22px,2.6vw,34px);font-weight:600;letter-spacing:-0.018em;line-height:1.12}
-.h-3{font-size:18px;font-weight:600;letter-spacing:-0.012em}
-.h-4{font-size:14.5px;font-weight:600}
+h1,h2,h3,h4{font-family:var(--serif);letter-spacing:-0.018em;line-height:1.1;font-weight:600;color:var(--type)}
+.h-mega{font-size:clamp(44px,6.5vw,88px);font-weight:600;letter-spacing:-0.03em;line-height:1}
+.h-hero{font-size:clamp(32px,4.4vw,60px);font-weight:600;letter-spacing:-0.022em;line-height:1.08}
+.h-1{font-size:clamp(26px,3vw,40px);font-weight:600;letter-spacing:-0.018em;line-height:1.12}
+.h-2{font-size:clamp(20px,2.4vw,30px);font-weight:600;letter-spacing:-0.014em;line-height:1.18}
+.h-3{font-size:17px;font-weight:600;letter-spacing:-0.008em}
+.h-4{font-size:14px;font-weight:600}
 
 .eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
 .eyebrow.mute{color:var(--type-3)}
@@ -85,10 +85,10 @@ h1,h2,h3,h4{font-family:var(--serif);letter-spacing:-0.022em;line-height:1.08;fo
 .eyebrow.neg{color:var(--neg)}
 .eyebrow.warn{color:var(--warn)}
 
-.lead{font-family:var(--serif-it);font-size:21px;line-height:1.5;color:var(--type-2);font-style:italic;letter-spacing:-0.005em;font-weight:400}
-.body-text{font-size:14.5px;color:var(--type-2);line-height:1.7}
+.lead{font-family:var(--serif);font-size:19px;line-height:1.55;color:var(--type-2);letter-spacing:-0.005em;font-weight:400}
+.body-text{font-size:14px;color:var(--type-2);line-height:1.7}
 .body-text strong{color:var(--type);font-weight:600}
-.body-text em{color:var(--gold);font-style:italic;font-family:var(--serif-it)}
+.body-text em{color:var(--gold);font-style:normal;font-weight:600}
 
 .page{max-width:1320px;margin:0 auto;padding:0 36px;position:relative}
 .page-narrow{max-width:920px;margin:0 auto;padding:0 36px}
@@ -176,8 +176,8 @@ section > .page{position:relative;z-index:1}
 .hero-watermark{position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:600px;opacity:0.05;z-index:0;pointer-events:none}
 .hero-in{position:relative;z-index:2;width:100%}
 .hero-meta-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:64px;padding-bottom:24px;border-bottom:1px solid var(--line-2);flex-wrap:wrap;gap:20px}
-.hero-meta-top .vol{font-family:var(--serif-it);font-size:18px;color:var(--gold);font-style:italic}
-.hero-meta-top .vol b{color:var(--type);font-weight:700;font-style:normal;font-family:var(--serif)}
+.hero-meta-top .vol{font-family:var(--serif);font-size:17px;color:var(--gold);font-weight:500;letter-spacing:-0.005em}
+.hero-meta-top .vol b{color:var(--type);font-weight:700;font-family:var(--serif)}
 .hero-meta-top .pub{font-family:var(--mono);font-size:10.5px;color:var(--type-3);letter-spacing:0.14em;text-align:right;line-height:1.7}
 .hero-meta-top .pub b{color:var(--type);font-weight:700;display:block}
 
@@ -187,8 +187,8 @@ section > .page{position:relative;z-index:1}
 .hero-title-block .eyebrow{margin-bottom:16px;display:block}
 .hero-title-block h1{margin-bottom:20px}
 .hero-title-block h1 em{font-family:var(--serif-it);font-style:italic;background:linear-gradient(135deg,var(--bdt) 0%,var(--gold) 50%,var(--vk) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
-.hero-lead{max-width:780px;font-size:22px;font-family:var(--serif-it);font-style:italic;color:var(--type-2);line-height:1.5}
-.hero-lead strong{color:var(--type);font-weight:600;font-style:normal;font-family:var(--serif)}
+.hero-lead{max-width:780px;font-size:20px;font-family:var(--serif);color:var(--type-2);line-height:1.55;font-weight:400;letter-spacing:-0.008em}
+.hero-lead strong{color:var(--type);font-weight:600}
 
 /* 4 hero KPI cards · glass morphism */
 .hero-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
@@ -255,18 +255,18 @@ section > .page{position:relative;z-index:1}
 .insight.warn{border-left-color:var(--warn)}
 .insight.neg{border-left-color:var(--neg)}
 .insight strong{color:var(--type);font-weight:700}
-.insight em{color:var(--gold);font-style:italic;font-family:var(--serif-it)}
+.insight em{color:var(--gold);font-style:normal;font-family:var(--serif);font-weight:600}
 
 /* Pull quote (editorial) */
 .pull-quote{
-  margin:32px 0;padding:24px 32px;text-align:center;
-  font-family:var(--serif-it);font-style:italic;
-  font-size:clamp(20px,2.4vw,28px);line-height:1.4;color:var(--type);
+  margin:32px 0;padding:28px 32px;text-align:center;
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(19px,2.2vw,26px);line-height:1.45;color:var(--type);letter-spacing:-0.012em;
   border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);
   position:relative;
 }
-.pull-quote::before{content:'"';position:absolute;left:50%;top:-22px;transform:translateX(-50%);background:var(--bg);padding:0 18px;color:var(--gold);font-size:48px;font-family:var(--serif);font-style:normal;line-height:1}
-.pull-quote em{color:var(--gold);font-style:italic;font-weight:500}
+.pull-quote::before{content:'"';position:absolute;left:50%;top:-22px;transform:translateX(-50%);background:var(--bg);padding:0 18px;color:var(--gold);font-size:42px;font-family:var(--serif);line-height:1;font-weight:600}
+.pull-quote em{color:var(--gold);font-style:normal;font-weight:600}
 
 /* ============================================================
    S-C-R box
@@ -296,8 +296,8 @@ section > .page{position:relative;z-index:1}
 }
 .sumbox::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--bdt),var(--gold),var(--vk))}
 .sumbox h3{font-family:var(--serif);font-size:20px;font-weight:600;margin-bottom:16px;color:var(--type)}
-.sumbox p{font-size:14.5px;color:var(--type-2);line-height:1.75;margin-bottom:12px;font-family:var(--serif-it);font-style:italic}
-.sumbox p strong{color:var(--type);font-weight:700;font-style:normal;font-family:var(--serif)}
+.sumbox p{font-size:14.5px;color:var(--type-2);line-height:1.75;margin-bottom:12px;font-family:var(--sans)}
+.sumbox p strong{color:var(--type);font-weight:600}
 .sumbox p:last-child{margin-bottom:0}
 
 /* ============================================================
@@ -563,9 +563,9 @@ section > .page{position:relative;z-index:1}
 .board-cell.b1 .v{color:var(--neg)}
 .board-cell.b2 .v{color:var(--type)}
 .board-cell.b3 .v{color:var(--gold)}
-.board-narrative p{margin-bottom:12px;font-size:14px;line-height:1.75;color:var(--type-2);font-family:var(--serif-it);font-style:italic}
-.board-narrative p strong{color:var(--type);font-weight:700;font-style:normal;font-family:var(--serif)}
-.board-narrative em{color:var(--gold);font-style:italic;font-weight:500}
+.board-narrative p{margin-bottom:12px;font-size:14px;line-height:1.75;color:var(--type-2);font-family:var(--sans)}
+.board-narrative p strong{color:var(--type);font-weight:600}
+.board-narrative em{color:var(--gold);font-style:normal;font-weight:600}
 
 /* Footer */
 .foot{padding:64px 0 36px;border-top:1px solid var(--line);position:relative}
@@ -700,8 +700,8 @@ section > .page{position:relative;z-index:1}
     <div class="shead">
       <div class="l">
         <div class="eyebrow gold">I · LETTER FROM THE OPERATOR</div>
-        <h2 class="h-1 serif">The month, told <em style="font-family:var(--serif-it);font-style:italic;color:var(--gold);font-weight:500">plainly</em>.</h2>
-        <p class="body-text" style="font-style:italic;font-family:var(--serif-it);font-size:15px;color:var(--type-3);margin-top:8px">Một bức thư từ chính người vận hành. Năm đoạn. Không slide. Không bullet.</p>
+        <h2 class="h-1 serif">The month, told <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">plainly</em>.</h2>
+        <p class="body-text" style="font-style:normal;font-family:var(--serif);font-weight:600;font-size:15px;color:var(--type-3);margin-top:8px">Một bức thư từ chính người vận hành. Năm đoạn. Không slide. Không bullet.</p>
       </div>
     </div>
 
@@ -740,7 +740,7 @@ section > .page{position:relative;z-index:1}
     <div class="shead">
       <div class="l">
         <div class="eyebrow">II · PERFORMANCE SCOREBOARD</div>
-        <h2 class="h-1 serif">Sáu con số định nghĩa <em style="font-family:var(--serif-it);font-style:italic;color:var(--gold)">tháng tư</em></h2>
+        <h2 class="h-1 serif">Sáu con số định nghĩa <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">tháng tư</em></h2>
         <p class="body-text">Sáu chỉ số đọc trong 30 giây — kể câu chuyện của tháng.</p>
       </div>
       <div class="r">6 KPI · 30 GIÂY ĐỌC<br>Glance overview</div>
@@ -782,7 +782,7 @@ section > .page{position:relative;z-index:1}
     <div class="shead">
       <div class="l">
         <div class="eyebrow">III · DAILY · INTERACTIVE</div>
-        <h2 class="h-1 serif">Cả tháng trong <em style="font-family:var(--serif-it);font-style:italic;color:var(--gold)">một biểu đồ</em></h2>
+        <h2 class="h-1 serif">Cả tháng trong <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">một biểu đồ</em></h2>
         <p class="body-text">Line chart đa chế độ · click tab để chuyển góc nhìn · daily / cumulative / so sánh BDT vs VK / growth rate / variance.</p>
       </div>
       <div class="r">5 GÓC NHÌN · CHART.JS<br>Interactive · Hover tooltip</div>
@@ -912,7 +912,7 @@ section > .page{position:relative;z-index:1}
     <div class="shead">
       <div class="l">
         <div class="eyebrow gold">VI · TỒN KHO + VÒNG QUAY · DATA THỰC TỪ SUMO_V34</div>
-        <h2 class="h-1 serif">Tồn kho cuối kỳ · <em style="font-family:var(--serif-it);font-style:italic;color:var(--gold)">10,4 triệu đồng</em></h2>
+        <h2 class="h-1 serif">Tồn kho cuối kỳ · <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">10,4 triệu đồng</em></h2>
         <p class="body-text">Báo cáo Nhập / Xuất / Tồn toàn bộ vật tư & nguyên liệu T04Y26 · 3 nhóm: NLC · VTTH · TBDC · <strong style="color:var(--neg)">CẢNH BÁO: Dầu Ăn tồn 0 + Bọc 2 ly hết — nhập gấp trước Lễ.</strong></p>
       </div>
     </div>
@@ -988,7 +988,7 @@ section > .page{position:relative;z-index:1}
     <div class="shead">
       <div class="l">
         <div class="eyebrow gold">VII · TOP NVL USAGE · PARETO 80/20</div>
-        <h2 class="h-1 serif">Các loại NVL <em style="font-family:var(--serif-it);font-style:italic;color:var(--gold)">thường xuyên sử dụng nhất</em></h2>
+        <h2 class="h-1 serif">Các loại NVL <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">thường xuyên sử dụng nhất</em></h2>
         <p class="body-text">Phân tích Pareto NVL theo lượng xuất bán T04Y26 · top 3 chiếm ~70% xuất bán. Đây là các SKU phải đảm bảo supply chain bằng mọi giá.</p>
       </div>
     </div>
@@ -1010,7 +1010,7 @@ section > .page{position:relative;z-index:1}
     <div class="shead">
       <div class="l">
         <div class="eyebrow">VIII · TRAFFIC + CONVERSION RATE · CHỈ SỐ CỨNG</div>
-        <h2 class="h-1 serif">9.800 lượt qua · <em style="font-family:var(--serif-it);font-style:italic;color:var(--gold)">57 đơn vào</em></h2>
+        <h2 class="h-1 serif">9.800 lượt qua · <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">57 đơn vào</em></h2>
         <p class="body-text">CR Bùi Đình Túy = <strong style="color:var(--gold)">0,58%</strong> — trên benchmark street food chưa thương hiệu (0,1-0,3%) nhưng dưới quán quen có nhận diện (1-2%). Cách rút ngắn khoảng cách.</p>
       </div>
       <div class="r">SOURCE · Sở GTVT TP.HCM 2023<br>Wikipedia Bình Thạnh 2024</div>
@@ -1062,7 +1062,7 @@ section > .page{position:relative;z-index:1}
     <div class="shead">
       <div class="l">
         <div class="eyebrow">IX · COHORT · DAY × HOUR HEATMAP</div>
-        <h2 class="h-1 serif">Thứ Ba là <em style="font-family:var(--serif-it);font-style:italic;color:var(--gold)">vàng</em></h2>
+        <h2 class="h-1 serif">Thứ Ba là <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">vàng</em></h2>
         <p class="body-text">Cohort theo Thứ × Giờ · 4 tuần lặp · phát hiện vàng và khoảng tối · hover ô để xem chi tiết.</p>
       </div>
     </div>
@@ -1091,7 +1091,7 @@ section > .page{position:relative;z-index:1}
     <div class="shead">
       <div class="l">
         <div class="eyebrow gold">X · 4-WEEK SCORECARD · END-OF-MONTH</div>
-        <h2 class="h-1 serif">Bốn tuần · <em style="font-family:var(--serif-it);font-style:italic;color:var(--gold)">một xu hướng</em></h2>
+        <h2 class="h-1 serif">Bốn tuần · <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">một xu hướng</em></h2>
         <p class="body-text">Bắt buộc cho báo cáo cuối tháng · Drop Size tăng đều, Shopee tăng ×20.</p>
       </div>
     </div>
@@ -1114,7 +1114,7 @@ section > .page{position:relative;z-index:1}
     <div class="shead">
       <div class="l">
         <div class="eyebrow">XI · FORECAST · DỰ BÁO T05Y26</div>
-        <h2 class="h-1 serif">Bốn kịch bản · <em style="font-family:var(--serif-it);font-style:italic;color:var(--gold)">một quyết định</em></h2>
+        <h2 class="h-1 serif">Bốn kịch bản · <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">một quyết định</em></h2>
         <p class="body-text">T05Y26 · 30 ngày bán (02-31/05) · 4 kịch bản với cách thực hiện cụ thể + sensitivity matrix 5×5.</p>
       </div>
     </div>
@@ -1147,7 +1147,7 @@ section > .page{position:relative;z-index:1}
     <div class="shead">
       <div class="l">
         <div class="eyebrow">XII · STRATEGY + RISK REGISTER</div>
-        <h2 class="h-1 serif">3-Horizon plan · <em style="font-family:var(--serif-it);font-style:italic;color:var(--gold)">top 5 risks</em></h2>
+        <h2 class="h-1 serif">3-Horizon plan · <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">top 5 risks</em></h2>
         <p class="body-text">Defend tuần này · Grow tháng này · Build quý sau · Top 5 rủi ro với mitigation cụ thể.</p>
       </div>
     </div>
@@ -1208,7 +1208,7 @@ section > .page{position:relative;z-index:1}
     <div class="shead">
       <div class="l">
         <div class="eyebrow">XIII · PLAN T05Y26 · TUẦN 1 + ACTIVATION</div>
-        <h2 class="h-1 serif">Bảy ngày · <em style="font-family:var(--serif-it);font-style:italic;color:var(--gold)">bốn động thái</em></h2>
+        <h2 class="h-1 serif">Bảy ngày · <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">bốn động thái</em></h2>
         <p class="body-text">29/04 → 05/05 · Plan từng ngày · <strong style="color:var(--warn)">30/4 + 1/5 đóng cửa</strong>.</p>
       </div>
     </div>
@@ -1279,7 +1279,7 @@ section > .page{position:relative;z-index:1}
     <div class="shead">
       <div class="l">
         <div class="eyebrow gold">XIV · BOARD ONE-PAGER · 60 GIÂY</div>
-        <h2 class="h-1 serif">Một trang · <em style="font-family:var(--serif-it);font-style:italic;color:var(--gold)">mọi thứ</em></h2>
+        <h2 class="h-1 serif">Một trang · <em style="font-family:var(--serif);font-style:normal;color:var(--gold);font-weight:600">mọi thứ</em></h2>
       </div>
     </div>
 
