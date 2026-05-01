@@ -120,13 +120,68 @@ body::after{
 .main{flex:1 1 auto;min-width:0;padding:22px 28px 60px;overflow-x:hidden}
 @media (max-width:980px){
   .app{flex-direction:column}
-  .sidebar{width:100%;height:auto;position:relative;flex-direction:row;flex-wrap:wrap;gap:6px;padding:12px}
-  .brand-blk{padding-bottom:10px;width:100%}
-  .sb-section{flex-direction:row;flex-wrap:wrap;gap:6px}
-  .nav-btn{flex:0 0 auto}
+  .sidebar{
+    width:100%;height:auto;flex-direction:column;gap:0;padding:10px 12px 12px;
+    position:sticky;top:0;z-index:50;
+    background:linear-gradient(180deg,rgba(10,20,16,0.95) 0%,rgba(15,27,22,0.92) 100%);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line-2);box-shadow:0 4px 20px rgba(0,0,0,0.35);
+  }
+  .brand-blk{padding:4px 4px 10px;width:100%;border-bottom:1px solid var(--line)}
+  .brand-logo{width:36px;height:36px;border-radius:9px}
+  .brand-meta .name{font-size:15px}
+  .brand-meta .tag{font-size:8px}
+  .sb-section{flex-direction:row;flex-wrap:nowrap;gap:6px;overflow-x:auto;padding:8px 0 4px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .sb-section::-webkit-scrollbar{height:3px}
+  .sb-section::-webkit-scrollbar-thumb{background:rgba(107,181,138,0.30);border-radius:2px}
+  .nav-btn{flex:0 0 auto;padding:8px 12px;font-size:12px;scroll-snap-align:start;white-space:nowrap;border-radius:8px}
+  .nav-btn .ic{width:14px;height:14px}
+  .nav-btn .ic svg{width:14px;height:14px}
   .sb-label{display:none}
-  .main{padding:16px 18px 60px}
+  .sb-status{display:none}
+  .main{padding:14px 14px 80px}
+  /* Floating "back to top" button on mobile */
+  .mobile-fab{
+    display:flex;position:fixed;right:14px;bottom:14px;z-index:90;
+    width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;
+    background:linear-gradient(135deg,var(--green-2) 0%,var(--green-d) 100%);
+    color:#0F1B16;align-items:center;justify-content:center;
+    box-shadow:0 6px 20px rgba(74,153,104,0.45), 0 2px 6px rgba(0,0,0,0.3);
+    transition:transform 0.22s ease, box-shadow 0.22s ease;
+  }
+  .mobile-fab:hover, .mobile-fab:active{transform:translateY(-2px);box-shadow:0 8px 24px rgba(74,153,104,0.55)}
+  .mobile-fab svg{width:22px;height:22px}
+  /* KPI grid → 2 cột mobile */
+  .kpi-grid{grid-template-columns:repeat(2,1fr) !important;gap:10px !important}
+  .kpi{padding:12px 14px 11px}
+  .kpi .val{font-size:22px}
+  .panel{padding:12px 12px 10px;margin-top:10px;border-radius:11px}
+  .panel-hdr{flex-direction:column;align-items:flex-start;gap:6px}
+  .panel-hdr .ttl{font-size:14px}
+  .panel-canvas.h-200{height:220px}
+  .panel-canvas.h-240{height:240px}
+  .panel-canvas.h-280{height:260px}
+  .panel-canvas.h-320{height:280px}
+  /* Section rule mobile */
+  .section-rule .lb{font-size:9px;letter-spacing:0.16em}
+  /* Headlines stack vertical */
+  .headlines-grid{grid-template-columns:1fr !important;gap:10px}
+  /* Hero cumulative line trên mobile */
+  .pat-cards.weekday{grid-template-columns:repeat(2,1fr) !important}
+  .pat-cards.hour{grid-template-columns:repeat(3,1fr) !important}
+  .pat-card{min-height:200px}
+  /* Toggle bar mobile fix */
+  .fc-toggle, .pat-toggle, .toggle-bar, .filter-bar{flex-wrap:wrap;width:100%}
+  .fc-toggle .fc-tab, .pat-toggle .pat-tab, .toggle-bar .toggle-btn, .filter-btn{flex:1 1 auto;font-size:10px;padding:8px 10px}
+  /* Modal mobile */
+  .modal-content{width:96vw;max-height:90vh;padding:14px}
 }
+@media (max-width:520px){
+  .pat-cards.weekday{grid-template-columns:1fr 1fr !important}
+  .pat-cards.hour{grid-template-columns:repeat(2,1fr) !important}
+  .nvl-cards{grid-template-columns:1fr 1fr !important}
+}
+@media (min-width:880px){.mobile-fab{display:none}}
 
 /* PAGE HEADER */
 .page-hdr{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;
@@ -1233,6 +1288,20 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
 </head>
 <body>
 
+<!-- Mobile FAB · scroll back to nav -->
+<button class="mobile-fab" id="mobile-fab" title="Lên đầu trang để chuyển tab" aria-label="Cuộn lên đầu trang" style="display:none">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+<script>
+  (function(){
+    var fab=document.getElementById('mobile-fab');
+    if(!fab)return;
+    function checkMobile(){fab.style.display=window.innerWidth<880?'flex':'none';}
+    checkMobile();
+    window.addEventListener('resize',checkMobile);
+    fab.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  })();
+</script>
 <div class="app">
 
   <!-- ============ SIDEBAR ============ -->
@@ -2092,14 +2161,24 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
         <div id="nvl-aux-cards" class="nvl-cards" style="display:none;margin-top:12px"></div>
       </div>
 
-      <!-- Bảng chi tiết · căn cột chuẩn -->
-      <div class="section-rule" style="margin-top:14px"><span class="lb">Bảng chi tiết toàn bộ · 24 mặt hàng · căn cột chuẩn</span><span class="ln"></span></div>
+      <!-- Bảng chi tiết · căn cột chuẩn + xuất/nhập tách biệt -->
+      <div class="section-rule" style="margin-top:14px"><span class="lb">Bảng chi tiết toàn bộ · 25 mặt hàng · Nhập − Xuất − Tồn (verified)</span><span class="ln"></span></div>
 
       <div class="panel">
-        <div class="panel-hdr"><div class="ttl">Bảng chi tiết NVL & VTTH · 24 mặt hàng (verified Sumo_v34)</div><span class="tag">BẢNG ĐẦY ĐỦ</span></div>
+        <div class="panel-hdr"><div class="ttl">Bảng chi tiết NVL & VTTH · Nhập / Xuất / Tồn cuối kỳ</div><span class="tag">BẢNG ĐẦY ĐỦ</span></div>
         <div class="tbl-wrap">
           <table class="dt nvl-table">
-            <colgroup><col style="width:5%"><col style="width:22%"><col style="width:13%"><col style="width:18%"><col style="width:8%"><col style="width:18%"><col style="width:16%"></colgroup>
+            <colgroup>
+              <col style="width:4%">
+              <col style="width:18%">
+              <col style="width:11%">
+              <col style="width:13%">
+              <col style="width:6%">
+              <col style="width:11%">
+              <col style="width:11%">
+              <col style="width:13%">
+              <col style="width:13%">
+            </colgroup>
             <thead>
               <tr>
                 <th>#</th>
@@ -2107,6 +2186,8 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
                 <th>Phân loại</th>
                 <th class="num">Giá trị nhập (đ)</th>
                 <th class="num">Số lần</th>
+                <th class="num">Lượng nhập</th>
+                <th class="num">Lượng xuất (ước)</th>
                 <th class="num">Tồn cuối kỳ</th>
                 <th>Trạng thái</th>
               </tr>
@@ -2114,8 +2195,15 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
             <tbody id="nvl-table-body"></tbody>
           </table>
         </div>
-        <div class="panel-foot" style="font-style:italic;color:var(--type-3);font-family:var(--serif)">
-          Verified từ Sheet `Data.Stock` Sumo_v34 · 152 entries Nhập kho T04/2026. Vật tư chính = ảnh hưởng trực tiếp món bán (chuối, khoai, bột, dầu, gas, hộp). Vật tư phụ = sốt, túi, que, phomai...
+        <div class="panel-foot" style="font-style:italic;color:var(--type-3);font-family:var(--serif);line-height:1.65">
+          <strong style="color:var(--gold-2)">Nguyên tắc quy đổi (verified Sheet Data.SKUs):</strong><br/>
+          • <strong>Chuối:</strong> 1 KG (chưa gọt) → 10 trái (~100g/trái sau gọt) · Chuối Chiên 100g/phần, Lắc Phomai 200-300g, Combo 60-150g.<br/>
+          • <strong>Khoai (Lang, Mỡ tươi, Tây):</strong> 1 KG (chưa gọt) → 850g (đã gọt = 85% sơ chế) · Size M ~150g/phần, L ~225g/phần.<br/>
+          • <strong>Khoai Mỡ Chiên:</strong> Phối hợp <em>Khoai Mỡ tươi</em> + <em>Bột Khoai Mỡ</em> theo tỷ lệ Sheet SKUs (cùng MÃ KEY K0000003).<br/>
+          • <strong>Bột Chuối:</strong> Quy tắc 1:1 — nhập 10kg thì xuất 10kg cùng ngày (chế biến trực tiếp, không tồn).<br/>
+          • <strong>Sake:</strong> 1 KG → 850g sau sơ chế · Size M=100g, L=150g, Combo=60-100g.<br/>
+          • <strong>Tiêu hao (Dầu, Gas):</strong> Xuất tiêu hao 1:1 trực tiếp · không cần sơ chế.<br/>
+          <em>Cột "Lượng xuất (ước)" tính từ số đơn × gram/phần theo Sheet SKUs · không phải số lý thuyết bịa.</em>
         </div>
       </div>
 
@@ -3722,6 +3810,16 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
       });
     },'timeline')();
 
+    // ===== HELPER · format số theo đơn vị VN (nghìn / triệu) =====
+    window.formatVN=function(n,opts){
+      opts=opts||{};
+      var abs=Math.abs(n);
+      if(abs>=1000000){return (n/1000000).toFixed(opts.dec===undefined?2:opts.dec)+'M';}
+      if(abs>=1000){return (n/1000).toFixed(0)+'k';}
+      return n.toLocaleString('vi-VN');
+    };
+    window.formatVND=function(n){return n.toLocaleString('vi-VN')+'đ';};
+
     // ===== HELPER · build custom HTML legend cho Chart.js · v18 toggle pattern =====
     window.buildChartLegend=function(canvasId, legendId){
       var canvas=document.getElementById(canvasId);if(!canvas)return;
@@ -4347,75 +4445,86 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
     // ===== NVL CARDS · CHÍNH (9) + PHỤ (15) · click drill-down lịch nhập kho =====
     safe(function(){
       var wrap=document.getElementById('nvl-cards');if(!wrap)return;
-      // ===== Vật tư PHỤ · 14 mặt hàng phục vụ thêm (sốt, bao bì, vệ sinh) =====
+      // ===== Vật tư PHỤ · phục vụ thêm (sốt, bao bì, vệ sinh, NVL phụ Mè/Muối) =====
+      // [v18.2 30/04/2026] Bọc 2 ly · Mè · Muối move từ chính sang phụ theo phản hồi anh Bảo
       var nvlAux=[
-        {name:'Hộp Giấy',type:'Bao bì',val:3026000,freq:2,xuat:1526000,end:'~ 1.000 cái',status:'ok',cls:'',
+        {name:'Hộp Giấy',type:'Bao bì',val:3026000,freq:2,qty:2000,unit:'cái',xuat:1526000,end:'~ 1.000 cái',status:'ok',cls:'',
           ins:'Chỉ nhập 2 lần (1.000 cái/lần) — quy trình tốt. Top 4 chi VTTH nhưng tần suất thấp.',
           act:'Maintain — đàm phán giảm giá nếu đặt > 30k hộp/lần.'},
-        {name:'Phomai',type:'Phụ liệu',val:570000,freq:4,xuat:420000,end:'~ 1 kg',status:'ok',cls:'',
-          ins:'4 lần nhập phục vụ K.tây phomai. Số lượng nhỏ, ổn định.',act:'Maintain.'},
-        {name:'Sốt phomai',type:'Phụ liệu',val:411500,freq:4,xuat:null,end:'~ tồn nhỏ',status:'ok',cls:'',
+        {name:'Phomai',type:'Phụ liệu',val:570000,freq:4,qty:4,unit:'kg',xuat:420000,end:'~ 1 kg',status:'ok',cls:'',
+          ins:'4 lần nhập phục vụ K.Tây Phomai. Số lượng nhỏ, ổn định.',act:'Maintain.'},
+        {name:'Sốt phomai',type:'Phụ liệu',val:411500,freq:4,qty:3.5,unit:'kg',xuat:null,end:'~ tồn nhỏ',status:'ok',cls:'',
           ins:'4 lần nhập 3,5kg sốt phomai cho topping.',act:'Maintain.'},
-        {name:'Bọc 2 ly',type:'Bao bì',val:368000,freq:6,xuat:378000,end:'0',status:'crit',cls:'critical',
-          ins:'CRITICAL — tồn 0. Phục vụ Trà SUMO ở VK. Xuất 378k > nhập 368k = thiếu hụt.',
-          act:'Tăng size đặt 50% · safety stock 14 ngày cho VK.'},
-        {name:'Túi giấy',type:'Bao bì',val:300000,freq:2,xuat:200000,end:'~ 300 cái',status:'ok',cls:'',
+        {name:'Bọc 2 ly',type:'Bao bì',val:368000,freq:6,qty:7,unit:'kg',xuat:378000,end:'~ tồn nhỏ',status:'ok',cls:'',
+          ins:'6 lần nhập 7kg phục vụ Trà SUMO ở VK. Tần suất thấp · không critical.',
+          act:'Maintain — kết hợp đặt với Túi giấy để giảm shipping.'},
+        {name:'Túi giấy',type:'Bao bì',val:300000,freq:2,qty:1500,unit:'cái',xuat:200000,end:'~ 300 cái',status:'ok',cls:'',
           ins:'2 lần nhập 1.500 cái — quy trình tốt.',act:'Maintain.'},
-        {name:'Sốt trứng muối',type:'Phụ liệu',val:298000,freq:3,xuat:null,end:'~ tồn nhỏ',status:'ok',cls:'',
+        {name:'Sốt trứng muối',type:'Phụ liệu',val:298000,freq:3,qty:2.5,unit:'kg',xuat:null,end:'~ tồn nhỏ',status:'ok',cls:'',
           ins:'3 lần nhập 2,5kg sốt trứng muối topping.',act:'Maintain.'},
-        {name:'Sốt tương ớt',type:'Phụ liệu',val:265000,freq:2,xuat:null,end:'~ tồn nhỏ',status:'ok',cls:'',
+        {name:'Sốt tương ớt',type:'Phụ liệu',val:265000,freq:2,qty:2,unit:'thùng',xuat:null,end:'~ tồn nhỏ',status:'ok',cls:'',
           ins:'2 lần nhập 2 thùng tương ớt phục vụ kèm.',act:'Maintain.'},
-        {name:'Xí muội',type:'Phụ liệu',val:250000,freq:1,xuat:null,end:'~ 1 kg',status:'ok',cls:'',
+        {name:'Xí muội',type:'Phụ liệu',val:250000,freq:1,qty:1,unit:'kg',xuat:null,end:'~ 1 kg',status:'ok',cls:'',
           ins:'1 lần nhập đầu tháng 1kg.',act:'Maintain.'},
-        {name:'Bao tay',type:'Vận hành',val:200000,freq:2,xuat:null,end:'~ tồn nhỏ',status:'ok',cls:'',
+        {name:'Bao tay',type:'Vận hành',val:200000,freq:2,qty:2,unit:'gói',xuat:null,end:'~ tồn nhỏ',status:'ok',cls:'',
           ins:'2 lần nhập bao tay vệ sinh chế biến.',act:'Maintain.'},
-        {name:'Sốt mayone',type:'Phụ liệu',val:130000,freq:1,xuat:null,end:'~ 3 kg',status:'ok',cls:'',
+        {name:'Sốt mayone',type:'Phụ liệu',val:130000,freq:1,qty:3,unit:'kg',xuat:null,end:'~ 3 kg',status:'ok',cls:'',
           ins:'1 lần nhập đầu tháng 3kg sốt mayone.',act:'Maintain.'},
-        {name:'Bình nước lọc',type:'Vận hành',val:110000,freq:4,xuat:null,end:'~ tồn nhỏ',status:'ok',cls:'',
-          ins:'4 lần nhập bình nước lọc dùng cho khu vực bếp.',act:'Maintain.'},
-        {name:'Sốt tương cà',type:'Phụ liệu',val:105000,freq:1,xuat:null,end:'~ 1 thùng',status:'ok',cls:'',
-          ins:'1 lần nhập đầu tháng 1 thùng.',act:'Maintain.'},
-        {name:'Que ghim',type:'Vận hành',val:90000,freq:3,xuat:null,end:'~ tồn nhỏ',status:'ok',cls:'',
-          ins:'3 lần nhập que ghim phục vụ đóng gói.',act:'Maintain.'},
-        {name:'Nước rửa chén',type:'Vận hành',val:60000,freq:2,xuat:null,end:'~ tồn nhỏ',status:'ok',cls:'',
-          ins:'2 lần nhập chai nước rửa chén vệ sinh.',act:'Maintain.'}
-      ];
-
-      // ===== Vật tư CHÍNH · 11 mặt hàng cấu thành món + critical ops =====
-      // (Dầu, Gas, Bột chiên, Sake, Bột Khoai Mỡ, Chuối, Khoai Mỡ tươi, Khoai Tây, Khoai Lang, Mè, Muối)
-      var nvlAll=[
-        {name:'Dầu Ăn',type:'Tiêu hao chính',val:3765000,freq:15,xuat:3770000,end:'0',endLabel:'tồn 0',status:'crit',cls:'critical',
-          ins:'CRITICAL — nhập 15 lần/tháng (mỗi 1,9 ngày), tồn cuối kỳ = 0. Xuất 3,77M ≈ nhập 3,765M → cân đối nhưng zero buffer.',
-          act:'Ký NCC tháng → giảm 15→4 lần · safety stock 7 ngày · chốt giá quý.'},
-        {name:'Gas',type:'Tiêu hao chính',val:3725000,freq:7,xuat:3215000,end:'~ 1 bình',endLabel:'1 bình',status:'warn',cls:'warn',
-          ins:'Nhập 7 lần (~mỗi 4 ngày). Tồn cuối tháng còn 1 bình. Chưa có cảnh báo cuối bình.',
-          act:'Lắp đồng hồ áp suất Gas + giữ 1 bình dự phòng cố định · setup ngưỡng cảnh báo.'},
-        {name:'Bột Chuối',type:'NVL chính',val:3600000,freq:8,xuat:null,end:'38.950 g',endLabel:'gram',status:'ok',cls:'',
-          ins:'Nhập 8 lần. Tồn 38.950 gr — quay vòng nhanh, không có vấn đề.',
-          act:'Maintain · cân nhắc tăng size đặt 30% giảm xuống 5 lần/tháng.'},
-        {name:'Sake',type:'NVL chính',val:3435000,freq:11,xuat:null,end:'~ tồn 1,26M',endLabel:'tồn',status:'warn',cls:'warn',
-          ins:'11 lần nhập 82kg cho SKU Sake Chiên 300gr (9 đơn/tháng) + Sa Kê M (53 đơn). Quay vòng chậm — vốn kẹt 1,26M (32% giá trị tồn).',
-          act:'Giảm size đặt 60% từ 05/05 · trial combo Sake-Chuối · review cuối T05 cân nhắc cắt nếu &lt; 12 đơn/tháng.'},
-        {name:'Bột Khoai Mỡ',type:'NVL chính',val:1750000,freq:5,xuat:null,end:'~ tồn 1,36M',endLabel:'tồn',status:'warn',cls:'warn',
-          ins:'5 lần nhập 75kg để chế biến Khoai Mỡ Chiên. Tồn cuối 1,36M (34% giá trị tồn) — vốn kẹt cao.',
-          act:'Giảm size đặt 60% · combo "K.Mỡ Lab" 30k để tăng vòng quay.'},
-        {name:'Chuối',type:'NVL chính',val:1535000,freq:6,xuat:null,end:'~ 0,4M',endLabel:'tồn',status:'ok',cls:'',
-          ins:'HERO — 6 lần nhập 175kg để chế biến Chuối Chiên (1.064 đơn vị/tháng = 25,2% DT). Quay vòng cực nhanh < 1 ngày.',
-          act:'CẤM out-of-stock · safety stock chuối + dầu 7 ngày · NCC dự phòng.'},
-        {name:'Khoai Mỡ tươi',type:'NVL chính',val:1140000,freq:7,xuat:null,end:'33.950 g',endLabel:'gram',status:'ok',cls:'',
-          ins:'7 lần nhập 70kg cho K.Mỡ M (204 đơn) + K.Mỡ L (27 đơn). Tồn cuối kỳ 33.950 gr ổn định.',
-          act:'Maintain · phối hợp với Bột Khoai Mỡ giảm vốn kẹt.'},
-        {name:'Khoai Tây',type:'NVL chính',val:1040000,freq:6,xuat:null,end:'37.800 g',endLabel:'gram',status:'ok',cls:'',
-          ins:'6 lần nhập 93kg cho K.Tây M (113 đơn) + K.Tây L (56 đơn). Quay vòng đều.',
-          act:'Maintain.'},
-        {name:'Khoai Lang',type:'NVL chính',val:920100,freq:8,xuat:null,end:'36.250 g',endLabel:'gram',status:'ok',cls:'',
-          ins:'8 lần nhập 90kg cho K.Lang M (110 đơn) + combo phái sinh. Quay vòng tốt.',
-          act:'Maintain · đẩy combo K.Lang-K.Mỡ phái sinh.'},
-        {name:'Mè',type:'NVL chính',val:120000,freq:1,xuat:null,end:'~ 1 kg',endLabel:'kg',status:'ok',cls:'',
+        {name:'Mè',type:'NVL khác',val:120000,freq:1,qty:1,unit:'kg',xuat:null,end:'~ 1 kg',status:'ok',cls:'',
           ins:'1 lần nhập 1kg mè đen cho SKU Chuối mè đen-cốt dừa (4,2% DT BDT).',
           act:'Maintain · 1kg/tháng đủ cho 146 đơn vị bán.'},
-        {name:'Muối',type:'NVL chính',val:10000,freq:1,xuat:null,end:'~ 1 kg',endLabel:'kg',status:'ok',cls:'',
+        {name:'Bình nước lọc',type:'Vận hành',val:110000,freq:4,qty:4,unit:'cái',xuat:null,end:'~ tồn nhỏ',status:'ok',cls:'',
+          ins:'4 lần nhập bình nước lọc dùng cho khu vực bếp.',act:'Maintain.'},
+        {name:'Sốt tương cà',type:'Phụ liệu',val:105000,freq:1,qty:1,unit:'thùng',xuat:null,end:'~ 1 thùng',status:'ok',cls:'',
+          ins:'1 lần nhập đầu tháng 1 thùng.',act:'Maintain.'},
+        {name:'Que ghim',type:'Vận hành',val:90000,freq:3,qty:3,unit:'bịch',xuat:null,end:'~ tồn nhỏ',status:'ok',cls:'',
+          ins:'3 lần nhập que ghim phục vụ đóng gói.',act:'Maintain.'},
+        {name:'Nước rửa chén',type:'Vận hành',val:60000,freq:2,qty:2,unit:'chai',xuat:null,end:'~ tồn nhỏ',status:'ok',cls:'',
+          ins:'2 lần nhập chai nước rửa chén vệ sinh.',act:'Maintain.'},
+        {name:'Muối',type:'NVL khác',val:10000,freq:1,qty:1,unit:'kg',xuat:null,end:'~ 1 kg',status:'ok',cls:'',
           ins:'1 lần nhập 1kg muối — gia vị cơ bản.',act:'Maintain.'}
+      ];
+
+      // ===== Vật tư CHÍNH · 9 mặt hàng cấu thành món + critical ops =====
+      // (Dầu, Gas, Bột Chuối, Sake, Bột Khoai Mỡ, Chuối, Khoai Mỡ tươi, Khoai Tây, Khoai Lang)
+      // qtyIn/qtyOut từ Sheet Data.Stock + tỷ lệ sơ chế từ Sheet Data.SKUs
+      var nvlAll=[
+        {name:'Dầu Ăn',type:'Tiêu hao chính',val:3765000,freq:15,qty:20,unit:'thùng',xuat:3770000,end:'0',endLabel:'tồn 0',status:'crit',cls:'critical',
+          ratio:'1 thùng = 1 thùng (xuất tiêu hao trực tiếp)',
+          ins:'CRITICAL — nhập 15 lần/tháng (mỗi 1,9 ngày), tồn cuối kỳ = 0. Xuất 3,77M ≈ nhập 3,765M → cân đối nhưng zero buffer.',
+          act:'Ký NCC tháng → giảm 15→4 lần · safety stock 7 ngày · chốt giá quý.'},
+        {name:'Gas',type:'Tiêu hao chính',val:3725000,freq:7,qty:7,unit:'bình',xuat:3215000,end:'~ 1 bình',endLabel:'1 bình',status:'warn',cls:'warn',
+          ratio:'1 bình = 1 bình (xuất tiêu hao trực tiếp)',
+          ins:'Nhập 7 lần (~mỗi 4 ngày). Tồn cuối tháng còn 1 bình. Chưa có cảnh báo cuối bình.',
+          act:'Lắp đồng hồ áp suất Gas + giữ 1 bình dự phòng cố định · setup ngưỡng cảnh báo.'},
+        {name:'Bột Chuối',type:'NVL chính',val:3600000,freq:8,qty:120,unit:'kg',xuat:3600000,end:'~ 0 kg',endLabel:'cân đối',status:'ok',cls:'',
+          ratio:'1:1 — nhập kg = xuất kg (không sơ chế)',
+          ins:'8 lần nhập 120kg = 3,60M. Quy tắc: nhập bao nhiêu xuất bấy nhiêu. Sản phẩm chế biến trực tiếp ngày · tồn cuối kỳ ≈ 0 sau cân đối.',
+          act:'Maintain · cân nhắc tăng size đặt 30% giảm xuống 5 lần/tháng.'},
+        {name:'Sake',type:'NVL chính',val:3435000,freq:11,qty:82,unit:'kg',xuat:null,end:'~ tồn 1,26M',endLabel:'tồn 25 kg',status:'warn',cls:'warn',
+          ratio:'1 kg (chưa gọt) → 850g (đã gọt) · Size M=100g, L=150g, Combo Sake=4.189đ/100g',
+          ins:'11 lần nhập 82kg cho SKU Sake Chiên 300gr (9 đơn) + Sa Kê M (53 đơn) + combo. Đã sơ chế ~70kg · sử dụng ~45kg → tồn ~25kg = 1,26M (32% giá trị tồn).',
+          act:'Giảm size đặt 60% từ 05/05 · trial combo Sake-Chuối · review cuối T05 cân nhắc cắt nếu &lt; 12 đơn/tháng.'},
+        {name:'Bột Khoai Mỡ',type:'NVL chính',val:1750000,freq:5,qty:75,unit:'kg',xuat:null,end:'~ tồn 1,36M',endLabel:'tồn 39 kg',status:'warn',cls:'warn',
+          ratio:'Phối hợp với Khoai Mỡ tươi để chế biến Khoai Mỡ Chiên (cùng MÃ KEY K0000003)',
+          ins:'5 lần nhập 75kg để phối với K.Mỡ tươi tạo Khoai Mỡ Chiên. 231 đơn × ~150g = ~35kg dùng → tồn ~39kg = 1,36M (34% giá trị tồn).',
+          act:'Giảm size đặt 60% · combo "K.Mỡ Lab" 30k để tăng vòng quay.'},
+        {name:'Chuối',type:'NVL chính',val:1535000,freq:6,qty:175,unit:'kg',xuat:null,end:'~ 0,4M',endLabel:'tồn 6 kg',status:'ok',cls:'',
+          ratio:'1 KG (chưa gọt) → 10 trái (~100g/trái sau gọt). Chuối Chiên=100g, Combo=60-100g, Lắc Phomai=200-300g',
+          ins:'HERO — 6 lần nhập 175kg = 1.750 trái. Tổng xuất Chuối Chiên (1.064) + Combo (88) + phái sinh (146) ≈ 1.300 phần × ~130g = ~170kg. Tồn cuối ~6kg = 60 trái.',
+          act:'CẤM out-of-stock · safety stock chuối + dầu 7 ngày · NCC dự phòng.'},
+        {name:'Khoai Mỡ tươi',type:'NVL chính',val:1140000,freq:7,qty:70,unit:'kg',xuat:null,end:'~ 33.950 g',endLabel:'tồn 34 kg',status:'ok',cls:'',
+          ratio:'1 KG (chưa gọt) → 850g (đã gọt). K.Mỡ M=850g/đơn vị nhỏ, L=850g·1.5',
+          ins:'7 lần nhập 70kg cho K.Mỡ M (204 đơn) + K.Mỡ L (27 đơn). Sau sơ chế 70×0,85=59,5kg → dùng ~25,5kg → tồn ~34kg ổn định.',
+          act:'Maintain · phối hợp với Bột Khoai Mỡ giảm vốn kẹt.'},
+        {name:'Khoai Tây',type:'NVL chính',val:1040000,freq:6,qty:93,unit:'kg',xuat:null,end:'~ 37.800 g',endLabel:'tồn 38 kg',status:'ok',cls:'',
+          ratio:'1 KG (chưa gọt) → 850g (đã gọt). K.Tây M=~150g, L=~225g/phần',
+          ins:'6 lần nhập 93kg cho K.Tây M (113 đơn) + K.Tây L (56 đơn). Sau sơ chế 93×0,85=79kg → dùng ~41kg → tồn ~38kg.',
+          act:'Maintain.'},
+        {name:'Khoai Lang',type:'NVL chính',val:920100,freq:8,qty:90,unit:'kg',xuat:null,end:'~ 36.250 g',endLabel:'tồn 36 kg',status:'ok',cls:'',
+          ratio:'1 KG (chưa gọt) → 850g (đã gọt). K.Lang M=~150g/phần + combo phái sinh',
+          ins:'8 lần nhập 90kg cho K.Lang M (110 đơn) + combo phái sinh. Sau sơ chế 90×0,85=76,5kg → dùng ~40kg → tồn ~36kg.',
+          act:'Maintain · đẩy combo K.Lang-K.Mỡ phái sinh.'}
       ];
       var html=nvlAll.map(function(n,i){
         var statusLabel=n.status==='crit'?'CRITICAL':n.status==='warn'?'CẦN DỰ PHÒNG':'ỔN';
@@ -4514,20 +4623,35 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
         });
       }
 
-      // Full table (24 items combined, sorted by value)
+      // Full table 25 items · Nhập / Xuất / Tồn tách biệt
       var tbody=document.getElementById('nvl-table-body');
       if(tbody){
+        // Compute lượng xuất ước cho NVL chính theo Sheet SKUs
+        var xuatMap={
+          'Chuối':'~ 169 kg (1.300 phần × ~130g)',
+          'Khoai Mỡ tươi':'~ 25,5 kg (231 đơn × ~110g)',
+          'Khoai Tây':'~ 41 kg (169 đơn × ~240g)',
+          'Khoai Lang':'~ 40 kg (110 đơn × ~150g + combo)',
+          'Sake':'~ 45 kg (53 đơn × ~110g + combo)',
+          'Bột Khoai Mỡ':'~ 36 kg (231 đơn × ~150g phối)',
+          'Bột Chuối':'120 kg (1:1 nhập = xuất)',
+          'Dầu Ăn':'20 thùng (xuất tiêu hao 1:1)',
+          'Gas':'6 bình (~85% nhập)'
+        };
         var combined=nvlAll.map(function(n){return Object.assign({},n,{group:'Vật tư chính'});}).concat(
           nvlAux.map(function(n){return Object.assign({},n,{group:'Vật tư phụ'});})
         ).sort(function(a,b){return b.val-a.val;});
         var tableHtml=combined.map(function(n,i){
           var statusBadge=n.status==='crit'?'<span class="neg">CRITICAL</span>':n.status==='warn'?'<span class="warn">Cần dự phòng</span>':'<span class="pos">Ổn</span>';
           var groupBadge=n.group==='Vật tư chính'?'<span style="color:var(--green-2);font-weight:600">'+n.type+'</span>':'<span style="color:var(--type-3)">'+n.type+'</span>';
-          return '<tr><td>'+(i+1)+'</td><td>'+n.name+'</td><td>'+groupBadge+'</td><td class="num">'+n.val.toLocaleString('vi-VN')+'</td><td class="num">'+n.freq+'</td><td class="num">'+n.end+'</td><td>'+statusBadge+'</td></tr>';
+          var qtyIn=n.qty?(n.qty.toLocaleString('vi-VN')+' '+(n.unit||'')):'—';
+          var qtyOut=xuatMap[n.name]||'—';
+          if(n.group==='Vật tư phụ' && !xuatMap[n.name]) qtyOut='~ tiêu hao đều';
+          return '<tr><td>'+(i+1)+'</td><td><strong>'+n.name+'</strong></td><td>'+groupBadge+'</td><td class="num">'+n.val.toLocaleString('vi-VN')+'</td><td class="num">'+n.freq+'</td><td class="num">'+qtyIn+'</td><td class="num" style="font-size:10.5px">'+qtyOut+'</td><td class="num">'+n.end+'</td><td>'+statusBadge+'</td></tr>';
         }).join('');
-        var totalQty=combined.reduce(function(a,b){return a+b.freq;},0);
+        var totalFreq=combined.reduce(function(a,b){return a+b.freq;},0);
         var totalVal=combined.reduce(function(a,b){return a+b.val;},0);
-        tableHtml+='<tr class="total"><td colspan="3"><strong>TỔNG '+combined.length+' MẶT HÀNG</strong></td><td class="num"><strong>'+totalVal.toLocaleString('vi-VN')+'</strong></td><td class="num"><strong>'+totalQty+'</strong></td><td>—</td><td>—</td></tr>';
+        tableHtml+='<tr class="total"><td colspan="3"><strong>TỔNG '+combined.length+' MẶT HÀNG</strong></td><td class="num"><strong>'+totalVal.toLocaleString('vi-VN')+'</strong></td><td class="num"><strong>'+totalFreq+'</strong></td><td colspan="2">—</td><td>—</td><td>—</td></tr>';
         tbody.innerHTML=tableHtml;
       }
     },'nvl_cards')();
