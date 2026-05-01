@@ -7,7 +7,7 @@
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
 <meta name="theme-color" content="#0F1B16" />
-<title>Sumo · Closing T04 · v18.5</title>
+<title>Sumo · Closing T04 · v18.7</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -262,7 +262,11 @@ body::after{
   .nvl-cards{grid-template-columns:1fr 1fr !important}
 }
 /* Default: hide mobile components on desktop */
-.mobile-fab,.mobile-topbar,.nav-backdrop,.nav-drawer{display:none}
+.mobile-fab,.mobile-topbar{display:none}
+.nav-backdrop{display:none}
+.nav-drawer{display:none}
+.nav-backdrop.open{display:block}
+.nav-drawer.open{display:block}
 
 /* ===== Mobile FIX v18.4 · NUCLEAR · disable ALL filter/backdrop-filter + opaque bg ===== */
 @media (max-width:879px){
@@ -276,23 +280,13 @@ body::after{
     -webkit-backdrop-filter:none !important;
   }
 
-  /* Watermark logo inline SVG · không dùng PNG → không có path issue */
+  /* Body watermark dùng logo.png thật · không dùng SVG fake */
   body::before{
     display:block !important;
-    content:"" !important;
-    position:fixed !important;inset:0 !important;z-index:0 !important;pointer-events:none !important;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='90' fill='none' stroke='%236BB58A' stroke-width='2'/><text x='100' y='115' text-anchor='middle' font-family='serif' font-size='60' font-weight='700' fill='%236BB58A'>S</text></svg>") !important;
-    background-position:center !important;background-repeat:no-repeat !important;
-    background-size:60vw auto !important;
     opacity:0.06 !important;filter:none !important;
   }
   body::after{display:none !important}
   body{background:#0C1812 !important}
-  /* Topbar logo · inline SVG fallback nếu PNG không load */
-  .mobile-topbar .mt-logo{
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='8' fill='%232D7A50'/><text x='20' y='27' text-anchor='middle' font-family='serif' font-size='22' font-weight='700' fill='%23EDF1ED'>S</text></svg>") !important;
-    background-size:cover !important;background-position:center !important;
-  }
   /* Solid backgrounds (không transparent) cho readability mobile */
   .panel {
     background:linear-gradient(180deg,#142621 0%,#0F1B16 100%) !important;
@@ -1478,7 +1472,7 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
   <div class="mt-divider"></div>
   <div class="mt-page" id="mt-current-page">Review tháng 4</div>
   <div class="mt-status"><span class="pulse"></span>T04</div>
-  <div class="mt-version">v18.5</div>
+  <div class="mt-version">v18.7</div>
 </header>
 
 <!-- ===== MOBILE FAB · navigation menu trigger ===== -->
@@ -1525,7 +1519,7 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
       <div class="nd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
       <div class="nd-name">Vật tư & Tồn kho</div>
     </div>
-    <div class="nd-card" data-target="pnl">
+    <div class="nd-card" data-target="cash">
       <div class="nd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
       <div class="nd-name">Dòng tiền · P&L</div>
     </div>
@@ -1564,7 +1558,7 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
     var actionClose=document.getElementById('nd-action-close');
     if(!fab||!drawer||!backdrop)return;
 
-    var pageNames={review:'Review tháng 4',summary:'Tổng quan KPI',sales:'Doanh thu',product:'Sản phẩm',ops:'Vật tư & Tồn kho',pnl:'Dòng tiền · P&L',plan:'Plan tháng 5',risk:'Rủi ro'};
+    var pageNames={review:'Review tháng 4',summary:'Tổng quan KPI',sales:'Doanh thu',product:'Sản phẩm',ops:'Vật tư & Tồn kho',cash:'Dòng tiền · P&L',plan:'Plan tháng 5',risk:'Rủi ro'};
 
     function openDrawer(){drawer.classList.add('open');backdrop.classList.add('open');fab.classList.add('open');document.body.style.overflow='hidden';}
     function closeDrawer(){drawer.classList.remove('open');backdrop.classList.remove('open');fab.classList.remove('open');document.body.style.overflow='';}
@@ -1602,11 +1596,18 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
         if(current && pageNames[page]) current.textContent=pageNames[page];
       }
     }
-    // Initial sync + listen to sidebar clicks
-    setTimeout(syncActiveState,300);
-    document.querySelectorAll('.nav-btn').forEach(function(btn){
-      btn.addEventListener('click',function(){setTimeout(syncActiveState,50);});
-    });
+    // Initial sync + listen to sidebar clicks · wait for DOM ready
+    function bindNavBtnSync(){
+      document.querySelectorAll('.nav-btn').forEach(function(btn){
+        btn.addEventListener('click',function(){setTimeout(syncActiveState,50);});
+      });
+      syncActiveState();
+    }
+    if(document.readyState==='loading'){
+      document.addEventListener('DOMContentLoaded',bindNavBtnSync);
+    } else {
+      setTimeout(bindNavBtnSync,100);
+    }
   })();
 </script>
 <div class="app">
