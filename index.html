@@ -7,7 +7,7 @@
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
 <meta name="theme-color" content="#0F1B16" />
-<title>Sumo · Closing T04 · v18.7</title>
+<title>Sumo · Closing T04 · v18.9</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -1472,7 +1472,7 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
   <div class="mt-divider"></div>
   <div class="mt-page" id="mt-current-page">Review tháng 4</div>
   <div class="mt-status"><span class="pulse"></span>T04</div>
-  <div class="mt-version">v18.7</div>
+  <div class="mt-version">v18.9</div>
 </header>
 
 <!-- ===== MOBILE FAB · navigation menu trigger ===== -->
@@ -1777,7 +1777,7 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
           </div>
           <div class="hl-tag">CRITICAL · ĐẶT TRƯỚC 02/05 · 09H</div>
           <div class="hl-val">2<span class="hl-unit">mặt hàng tồn 0</span></div>
-          <div class="hl-meta">Dầu Ăn + Bọc 2 ly · nếu thiếu 1 ngày = mất 8h vận hành</div>
+          <div class="hl-meta">Dầu Ăn (NVL chính) tồn 0 · nếu thiếu 1 ngày = đứt cung chiên</div>
           <div class="hl-narr">Dầu Ăn nhập 15 lần/tháng (mỗi 1,9 ngày) — đề xuất ký NCC tháng giảm còn 4 lần. Bọc 2 ly cho Trà SUMO VK cần safety stock 14 ngày.</div>
         </div>
       </div>
@@ -1825,7 +1825,7 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
           </div>
           <div class="ring-card" data-zoom="viz_lever4" style="cursor:zoom-in">
             <div class="ring" style="--rp:60%"><div class="pc">60%</div></div>
-            <div class="nm">Safety stock VTTH<br/>Dầu + Bọc 2 ly</div>
+            <div class="nm">Safety stock VTTH<br/>Dầu Ăn (NVL chính)</div>
             <div class="meta">Đặt trước 02/05 · 09h</div>
           </div>
         </div>
@@ -1926,7 +1926,7 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
 
       <div class="callout neg" style="margin-top:18px">
         <div class="lbl">Cảnh báo · phải xử lý trước 02/05 · 09h</div>
-        <div class="body">Hai mặt hàng <strong>tồn cuối kỳ 0</strong>: <strong>Dầu Ăn</strong> + <strong>Bọc 2 ly</strong>. Đặt và nhận trước thời điểm mở lại sau lễ — nếu thiếu, mất 8 giờ vận hành sáng 02/05.</div>
+        <div class="body">NVL chính <strong>Dầu Ăn tồn cuối kỳ 0</strong> · cần đặt và nhận trước thời điểm mở lại sau lễ. Bọc 2 ly (NVL khác) đã chuyển sang nhóm phụ — không critical.</div>
       </div>
     </section>
 
@@ -2149,7 +2149,7 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
       <!-- ===== Section 4: Critical callout ===== -->
       <div class="callout neg">
         <div class="lbl">Cảnh báo critical · phải xử lý trước 02/05 · 09h</div>
-        <div class="body">Hai mặt hàng <strong>tồn cuối kỳ 0</strong>: <strong>Dầu Ăn</strong> + <strong>Bọc 2 ly</strong>. Đặt và nhận trước thời điểm mở lại sau lễ — nếu thiếu, mất 8 giờ vận hành sáng 02/05. Bài học: thiết lập safety stock 7 ngày từ T05.</div>
+        <div class="body">NVL chính <strong>Dầu Ăn tồn cuối kỳ 0</strong> · cần đặt và nhận trước thời điểm mở lại sau lễ. Bọc 2 ly (NVL khác) đã chuyển sang nhóm phụ — không critical. Bài học: thiết lập safety stock 7 ngày từ T05.</div>
       </div>
 
       <!-- ===== Section 5: Insights — đọc số · vì sao · hành động ===== -->
@@ -2437,9 +2437,9 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
         </div>
         <div class="nvl-hero-card critical-alert">
           <div class="hh-tag">CRITICAL · TỒN 0</div>
-          <div class="hh-name">2 mặt hàng</div>
-          <div class="hh-val">Dầu + Bọc<span class="hh-unit"> 2 ly</span></div>
-          <div class="hh-sub">Phải đặt trước <strong>02/05 · 09h</strong> để tránh đứt cung 8h</div>
+          <div class="hh-name">Dầu Ăn</div>
+          <div class="hh-val">1<span class="hh-unit"> mặt hàng chính</span></div>
+          <div class="hh-sub">Phải đặt trước <strong>02/05 · 09h</strong> để tránh đứt cung vận hành chiên</div>
         </div>
       </div>
 
@@ -2517,7 +2517,7 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
 
       <div class="callout neg" style="margin-top:14px">
         <div class="lbl">Critical · phải đặt trước 02/05 · 09h</div>
-        <div class="body"><strong>Dầu Ăn tồn 0</strong> + <strong>Bọc 2 ly tồn 0</strong>. Quy trình đặt Dầu 15 lần/tháng (mỗi 1,9 ngày một lần) đang quá thường xuyên — đề xuất ký NCC tháng để giảm còn 4 lần + safety stock 7 ngày.</div>
+        <div class="body"><strong>Dầu Ăn (NVL chính) tồn 0</strong>. Quy trình đặt Dầu 15 lần/tháng (mỗi 1,9 ngày một lần) đang quá thường xuyên — đề xuất ký NCC tháng để giảm còn 4 lần + safety stock 7 ngày. Bọc 2 ly đã chuyển sang nhóm NVL khác (không critical).</div>
       </div>
 
       <div class="insight-grid">
@@ -2764,7 +2764,7 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
           <div class="num">TUẦN 1</div><div class="dates">02 – 08 / 05</div>
           <div class="tgt">11,5<span class="u">M đ</span></div>
           <div class="acts">
-            <div><strong>1.</strong> Đặt Dầu + Bọc 2 ly trước 02/05 · 09h</div>
+            <div><strong>1.</strong> Đặt Dầu Ăn (NVL chính) trước 02/05 · 09h</div>
             <div><strong>2.</strong> Lịch nhân lực 16h–21h theo bản đồ giờ</div>
             <div><strong>3.</strong> Rà soát 5 SKU đuôi dài</div>
             <div><strong>4.</strong> Zalo OA 300 KH Day 1 VK</div>
@@ -2845,16 +2845,22 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
         </div>
       </div>
 
+      <div class="callout" style="margin-bottom:14px">
+        <div class="lbl">Nguyên tắc đọc rủi ro</div>
+        <div class="body">Cột <strong>"Tác động định tính"</strong> mô tả CHIỀU HƯỚNG ảnh hưởng (giảm doanh thu / mất giờ vận hành / lỡ cơ hội), <strong>KHÔNG ước số M cụ thể</strong> vì chưa có baseline đo (rule cấm bịa). Số định lượng chỉ có ở <strong>Forecast 3 kịch bản</strong> tab Plan T05 (đã verify methodology từ baseline T04 thực).</div>
+      </div>
+
       <div class="tbl-wrap">
-        <table class="dt">
-          <thead><tr><th>#</th><th>Rủi ro</th><th>Mức</th><th>Tác động</th><th>Hành động phòng ngừa</th><th>Owner</th></tr></thead>
+        <table class="dt nvl-table">
+          <colgroup><col style="width:5%"><col style="width:25%"><col style="width:8%"><col style="width:25%"><col style="width:27%"><col style="width:10%"></colgroup>
+          <thead><tr><th>#</th><th>Rủi ro</th><th>Mức</th><th>Tác động định tính</th><th>Hành động phòng ngừa</th><th>Owner</th></tr></thead>
           <tbody>
-            <tr><td>01</td><td>Đứt Dầu Ăn / Bọc 2 ly</td><td><span class="neg">CAO</span></td><td>Mất 8 giờ vận hành 02/05</td><td>Đặt trước 02/05 · 09h · safety stock 7 ngày</td><td>Anh Bảo</td></tr>
-            <tr><td>02</td><td>VK Day 7 dưới 1.000k</td><td><span class="warn">TB</span></td><td>Cắt run-rate VK</td><td>Phát tờ rơi 500 hộ + voucher Day 1</td><td>Anh Bảo</td></tr>
-            <tr><td>03</td><td>Mưa lớn 4+ ngày T05</td><td><span class="warn">TB</span></td><td>Mất 2,0M doanh thu</td><td>Combo "Mưa nhỏ" + push Zalo OA</td><td>Trưởng ca</td></tr>
-            <tr><td>04</td><td>App live trễ sau 12/05</td><td><span class="warn">TB</span></td><td>Mất 5,3M doanh thu app</td><td>Setup tài liệu trước 08/05 · backup operator</td><td>Anh Bảo</td></tr>
-            <tr><td>05</td><td>Thiếu dòng tiền do CapEx VK</td><td><span class="warn">TB</span></td><td>Khó tăng nhân lực</td><td>Tách CapEx khỏi run-rate · giữ buffer 8M</td><td>Anh Bảo</td></tr>
-            <tr><td>06</td><td>Đối thủ mở chi nhánh ≤ 300m</td><td>THẤP</td><td>Mất 10–15% DT</td><td>Theo dõi tuần · combo phản ứng -15% trong 7 ngày</td><td>Trưởng ca</td></tr>
+            <tr><td>01</td><td>Đứt Dầu Ăn (NVL chính) sáng 02/05</td><td><span class="neg">CAO</span></td><td>Đứt cung chiên · không phục vụ được tới khi nhập bù</td><td>Đặt trước 02/05 · 09h · safety stock 7 ngày</td><td>Anh Bảo</td></tr>
+            <tr><td>02</td><td>VK Day 7 không đạt baseline kỳ vọng</td><td><span class="warn">TB</span></td><td>Run-rate VK chưa hình thành · ảnh hưởng chu kỳ thu hồi CapEx</td><td>Phát tờ rơi + voucher Day 1 · marketing Zalo OA</td><td>Anh Bảo</td></tr>
+            <tr><td>03</td><td>Mưa lớn nhiều ngày T05</td><td><span class="warn">TB</span></td><td>Giảm traffic local · doanh thu BDT giảm (mức cụ thể chưa có baseline đo)</td><td>Combo "Mưa nhỏ" + push Zalo OA + delivery app</td><td>Trưởng ca</td></tr>
+            <tr><td>04</td><td>App Shopee/Grab live trễ sau 12/05</td><td><span class="warn">TB</span></td><td>Lỡ cơ hội mở rộng kênh · ảnh hưởng kịch bản Cơ sở (xem methodology Forecast)</td><td>Setup tài liệu trước 08/05 · backup operator</td><td>Anh Bảo</td></tr>
+            <tr><td>05</td><td>Thiếu dòng tiền do CapEx VK</td><td><span class="warn">TB</span></td><td>Khó tăng nhân lực · phải hoãn đầu tư mới</td><td>Tách CapEx khỏi run-rate · giữ buffer 8M tiền mặt</td><td>Anh Bảo</td></tr>
+            <tr><td>06</td><td>Đối thủ mở chi nhánh ≤ 300m</td><td>THẤP</td><td>Cạnh tranh trực tiếp · giảm thị phần khu vực (chưa có data đo)</td><td>Theo dõi tuần · combo phản ứng nếu xuất hiện</td><td>Trưởng ca</td></tr>
           </tbody>
         </table>
       </div>
@@ -2863,7 +2869,7 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
         <div class="panel">
           <div class="panel-hdr"><div class="ttl">7 ngày · 02–08/05</div><span class="tag">SHORT</span></div>
           <div style="font-family:var(--serif);font-size:13.5px;line-height:1.7;color:var(--type-2);margin-top:8px">
-            <strong>1.</strong> Đặt VTTH critical trước 02/05 09h<br/>
+            <strong>1.</strong> Đặt Dầu Ăn trước 02/05 09h<br/>
             <strong>2.</strong> Lịch nhân lực 16h–21h<br/>
             <strong>3.</strong> Audit SKU đuôi dài<br/>
             <strong>4.</strong> Zalo OA 300 KH VK
@@ -2872,26 +2878,27 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
         <div class="panel">
           <div class="panel-hdr"><div class="ttl">30 ngày · 02–30/05</div><span class="tag gold">MEDIUM</span></div>
           <div style="font-family:var(--serif);font-size:13.5px;line-height:1.7;color:var(--type-2);margin-top:8px">
-            <strong>1.</strong> Live App 12/05 (+5,3M)<br/>
-            <strong>2.</strong> Trà chiều BDT (+1,2M)<br/>
-            <strong>3.</strong> Combo Thứ Bảy (+0,9M)<br/>
-            <strong>4.</strong> Giảm size đặt K.Mỡ + Sake
+            <strong>1.</strong> Live App Shopee + GrabFood 12/05<br/>
+            <strong>2.</strong> Trial Trà chiều BDT 14h–16h<br/>
+            <strong>3.</strong> Combo Thứ Bảy giảm 12%<br/>
+            <strong>4.</strong> Giảm size đặt Sake + Bột K.Mỡ -60%
           </div>
+          <div style="font-family:var(--mono);font-size:9.5px;color:var(--type-4);margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);font-style:italic">Tác động định lượng cụ thể: xem 3 kịch bản Forecast T05 (Plan tab)</div>
         </div>
         <div class="panel">
           <div class="panel-hdr"><div class="ttl">90 ngày · 02/05–01/08</div><span class="tag">LONG</span></div>
           <div style="font-family:var(--serif);font-size:13.5px;line-height:1.7;color:var(--type-2);margin-top:8px">
-            <strong>1.</strong> VK đạt HV ngày trong 60 ngày<br/>
-            <strong>2.</strong> Menu Trà chính BDT<br/>
-            <strong>3.</strong> Đánh giá điểm bán thứ 3<br/>
-            <strong>4.</strong> Dashboard auto T06
+            <strong>1.</strong> VK đạt HV ngày ổn định (cần baseline T05)<br/>
+            <strong>2.</strong> Menu Trà chính thức cho BDT<br/>
+            <strong>3.</strong> Đánh giá khả năng điểm bán thứ 3<br/>
+            <strong>4.</strong> Dashboard tự động T06 (Phase 2)
           </div>
         </div>
       </div>
 
       <div class="callout" style="margin-top:18px">
-        <div class="lbl">Cam kết tháng 5</div>
-        <div class="body">Hệ thống hướng đến doanh thu <strong>74,0M</strong> (kịch bản cơ sở) · chạm <strong>2.000 đơn BDT</strong> · thu hồi 1/6 CapEx VK · thiết lập kênh app như chân thứ ba.</div>
+        <div class="lbl">Cam kết tháng 5 · căn cứ Forecast methodology (Plan tab)</div>
+        <div class="body">Hệ thống hướng đến <strong>kịch bản Cơ sở 74M doanh thu cộng dồn</strong> (BDT direct 1.350k/ngày · Shopee 250k/ngày · VK 1.100k/ngày · 27 ngày active). Số 74M có căn cứ baseline T04 verified — KHÔNG bịa. Chi tiết assumption per kênh: click <em>Plan tháng 5 → Forecast → kịch bản Cơ sở</em>.</div>
       </div>
     </section>
 
@@ -4750,7 +4757,26 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
       return html;
     }
 
-    // ===== NVL CARDS · CHÍNH (9) + PHỤ (15) · click drill-down lịch nhập kho =====
+    // ===== HELPER · format đơn vị nghìn/triệu cho VND =====
+    function fmtMoney(d){
+      if(d>=1000000){return (d/1000000).toFixed(2).replace('.',',')+' M';}
+      if(d>=1000){return (d/1000).toFixed(0)+' k';}
+      return d.toLocaleString('vi-VN');
+    }
+    function fmtMoneyD(d){return fmtMoney(d)+' đ';}
+    // Format gram → kg nếu >= 1000
+    function fmtWeight(s){
+      if(typeof s!=='string')return s;
+      // Match pattern "X.XXX g" hoặc "X g"
+      var m=s.match(/([\d\.,]+)\s*g$/);
+      if(m){
+        var num=parseFloat(m[1].replace(/\./g,'').replace(',','.'));
+        if(num>=1000){return s.replace(m[0],(num/1000).toFixed(1).replace('.',',')+' kg');}
+      }
+      return s;
+    }
+
+    // ===== NVL CARDS · CHÍNH (8) + PHỤ (17) · click drill-down lịch nhập kho =====
     safe(function(){
       var wrap=document.getElementById('nvl-cards');if(!wrap)return;
       // ===== Vật tư PHỤ · phục vụ thêm (sốt, bao bì, vệ sinh, NVL phụ Mè/Muối) =====
@@ -4839,9 +4865,9 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
           '<div class="nc-rank">#'+(i+1)+'</div>'+
           '<div class="nc-type">'+n.type+'</div>'+
           '<div class="nc-name">'+n.name+'</div>'+
-          '<div class="nc-val-big">'+(n.val/1000).toFixed(0)+'<span class="nc-val-unit">k đ</span></div>'+
+          '<div class="nc-val-big">'+fmtMoney(n.val)+'<span class="nc-val-unit">đ</span></div>'+
           '<div class="nc-row"><span class="l">Số lần nhập</span><span class="v">'+n.freq+' lần</span></div>'+
-          '<div class="nc-row"><span class="l">Tồn cuối kỳ</span><span class="v">'+n.end+'</span></div>'+
+          '<div class="nc-row"><span class="l">Tồn cuối kỳ</span><span class="v">'+fmtWeight(n.end)+'</span></div>'+
           '<div class="nc-status '+n.status+'">'+statusLabel+'</div>'+
         '</div>';
       }).join('');
@@ -4861,21 +4887,21 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
           // Thêm dòng chỉ số tóm tắt nhanh phía trên bảng
           var statColor=n.status==='crit'?'var(--burg)':n.status==='warn'?'var(--gold-2)':'var(--green-2)';
           importLogHTML+='<div style="margin-top:10px;padding:10px 12px;background:rgba(15,27,22,0.6);border:1px solid var(--line);border-radius:4px;font-family:var(--mono);font-size:10.5px;color:var(--type-3);line-height:1.7">';
-          if(n.xuat){importLogHTML+='<div>• Giá trị xuất tháng: <strong style="color:var(--type)">'+n.xuat.toLocaleString('vi-VN')+' đ</strong></div>';}
-          importLogHTML+='<div>• Tồn cuối kỳ 28/4: <strong style="color:'+statColor+'">'+n.end+'</strong></div>';
+          if(n.xuat){importLogHTML+='<div>• Giá trị xuất tháng: <strong style="color:var(--type)">'+fmtMoneyD(n.xuat)+'</strong></div>';}
+          importLogHTML+='<div>• Tồn cuối kỳ 28/4: <strong style="color:'+statColor+'">'+fmtWeight(n.end)+'</strong></div>';
           importLogHTML+='</div>';
 
           window.openElementDrill({
             ttl:n.name+' · '+n.type,
-            sub:n.val.toLocaleString('vi-VN')+' đ · '+n.freq+' lần nhập · '+pctSpend+'% chi VTTH',
+            sub:fmtMoneyD(n.val)+' · '+n.freq+' lần nhập · '+pctSpend+'% chi VTTH',
             table:buildDrillTable('CHỈ SỐ '+n.name.toUpperCase()+' (verified Sumo_v34 Sheet Data.Stock)',
               ['Chỉ số','Giá trị','Đánh giá'],
               [
                 ['Loại',n.type,'—'],
-                ['Giá trị nhập tháng',n.val.toLocaleString('vi-VN')+' đ',pctSpend+'% tổng chi'],
+                ['Giá trị nhập tháng',fmtMoneyD(n.val),pctSpend+'% tổng chi'],
                 ['Số lần nhập',n.freq+' lần',n.freq>10?'<span style="color:var(--burg)">Quá nhiều · cần ký NCC tháng</span>':n.freq>5?'<span style="color:var(--gold-2)">Trung bình</span>':'<span style="color:var(--green-2)">Hợp lý</span>'],
-                ['Giá trị xuất',n.xuat?n.xuat.toLocaleString('vi-VN')+' đ':'<em style="color:var(--type-4)">Không track riêng (NVL chính quy đổi qua công thức gr/đơn)</em>','—'],
-                ['Tồn cuối kỳ',n.end,n.status==='crit'?'<span style="color:var(--burg)">⚠ CRITICAL · tồn 0</span>':n.status==='warn'?'<span style="color:var(--gold-2)">Cần dự phòng</span>':'<span style="color:var(--green-2)">Ổn</span>']
+                ['Giá trị xuất',n.xuat?fmtMoneyD(n.xuat):'<em style="color:var(--type-4)">Không track riêng (NVL chính quy đổi qua công thức gr/đơn)</em>','—'],
+                ['Tồn cuối kỳ',fmtWeight(n.end),n.status==='crit'?'<span style="color:var(--burg)">⚠ CRITICAL · tồn 0</span>':n.status==='warn'?'<span style="color:var(--gold-2)">Cần dự phòng</span>':'<span style="color:var(--green-2)">Ổn</span>']
               ]),
             body:importLogHTML+'<p style="margin-top:14px"><strong style="color:var(--green-2);font-family:var(--mono);font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase">Đọc số:</strong> '+n.ins+'</p>'+
                  '<p><strong style="color:var(--gold-2);font-family:var(--mono);font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase">Hành động:</strong> '+n.act+'</p>'
@@ -4913,7 +4939,7 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
         nvlAux.forEach(function(n){groupCounts[n.type]=(groupCounts[n.type]||0)+1;});
         var groupHtml=Object.keys(groupCounts).map(function(k){return '<span style="margin-right:14px"><strong style="color:var(--type-2)">'+groupCounts[k]+'</strong> '+k+'</span>';}).join('');
         auxSum.innerHTML='<div style="display:flex;flex-wrap:wrap;gap:18px;align-items:center;padding:12px 14px;background:rgba(15,27,22,0.5);border:1px solid var(--line);border-radius:6px;font-family:var(--mono);font-size:11px;color:var(--type-3);margin-top:6px">'+
-          '<div><span style="color:var(--type-4);letter-spacing:0.12em;text-transform:uppercase;font-size:9px">TỔNG CHI</span><br/><strong style="color:var(--type);font-size:16px">'+(totalAux/1000).toFixed(0)+'k đ</strong></div>'+
+          '<div><span style="color:var(--type-4);letter-spacing:0.12em;text-transform:uppercase;font-size:9px">TỔNG CHI</span><br/><strong style="color:var(--type);font-size:16px">'+fmtMoneyD(totalAux)+'</strong></div>'+
           '<div><span style="color:var(--type-4);letter-spacing:0.12em;text-transform:uppercase;font-size:9px">SỐ MẶT HÀNG</span><br/><strong style="color:var(--type);font-size:16px">'+nvlAux.length+'</strong></div>'+
           (critCount?'<div><span style="color:var(--type-4);letter-spacing:0.12em;text-transform:uppercase;font-size:9px">CRITICAL</span><br/><strong style="color:var(--burg);font-size:16px">'+critCount+'</strong></div>':'')+
           '<div style="flex:1;min-width:200px"><span style="color:var(--type-4);letter-spacing:0.12em;text-transform:uppercase;font-size:9px">PHÂN LOẠI</span><br/>'+groupHtml+'</div>'+
@@ -4954,11 +4980,11 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
           var qtyIn=n.qty?(n.qty.toLocaleString('vi-VN')+' '+(n.unit||'')):'—';
           var qtyOut=xuatMap[n.name]||'—';
           if(n.group==='Vật tư phụ' && !xuatMap[n.name]) qtyOut='~ tiêu hao đều';
-          return '<tr><td>'+(i+1)+'</td><td><strong>'+n.name+'</strong></td><td>'+groupBadge+'</td><td class="num">'+n.val.toLocaleString('vi-VN')+'</td><td class="num">'+n.freq+'</td><td class="num">'+qtyIn+'</td><td class="num" style="font-size:10.5px">'+qtyOut+'</td><td class="num">'+n.end+'</td><td>'+statusBadge+'</td></tr>';
+          return '<tr><td>'+(i+1)+'</td><td><strong>'+n.name+'</strong></td><td>'+groupBadge+'</td><td class="num">'+fmtMoneyD(n.val)+'</td><td class="num">'+n.freq+'</td><td class="num">'+qtyIn+'</td><td class="num" style="font-size:10.5px">'+qtyOut+'</td><td class="num">'+fmtWeight(n.end)+'</td><td>'+statusBadge+'</td></tr>';
         }).join('');
         var totalFreq=combined.reduce(function(a,b){return a+b.freq;},0);
         var totalVal=combined.reduce(function(a,b){return a+b.val;},0);
-        tableHtml+='<tr class="total"><td colspan="3"><strong>TỔNG '+combined.length+' MẶT HÀNG</strong></td><td class="num"><strong>'+totalVal.toLocaleString('vi-VN')+'</strong></td><td class="num"><strong>'+totalFreq+'</strong></td><td colspan="2">—</td><td>—</td><td>—</td></tr>';
+        tableHtml+='<tr class="total"><td colspan="3"><strong>TỔNG '+combined.length+' MẶT HÀNG</strong></td><td class="num"><strong>'+fmtMoneyD(totalVal)+'</strong></td><td class="num"><strong>'+totalFreq+'</strong></td><td colspan="2">—</td><td>—</td><td>—</td></tr>';
         tbody.innerHTML=tableHtml;
       }
     },'nvl_cards')();
