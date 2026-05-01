@@ -7,7 +7,7 @@
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
 <meta name="theme-color" content="#0F1B16" />
-<title>Sumo · Closing T04 · v18.4 mobile fix</title>
+<title>Sumo · Closing T04 · v18.5</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -276,10 +276,23 @@ body::after{
     -webkit-backdrop-filter:none !important;
   }
 
-  /* Tắt body watermark logo · drop-shadow 40px gây render heavy + có thể gây mờ */
-  body::before{display:none !important}
+  /* Watermark logo inline SVG · không dùng PNG → không có path issue */
+  body::before{
+    display:block !important;
+    content:"" !important;
+    position:fixed !important;inset:0 !important;z-index:0 !important;pointer-events:none !important;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='90' fill='none' stroke='%236BB58A' stroke-width='2'/><text x='100' y='115' text-anchor='middle' font-family='serif' font-size='60' font-weight='700' fill='%236BB58A'>S</text></svg>") !important;
+    background-position:center !important;background-repeat:no-repeat !important;
+    background-size:60vw auto !important;
+    opacity:0.06 !important;filter:none !important;
+  }
   body::after{display:none !important}
   body{background:#0C1812 !important}
+  /* Topbar logo · inline SVG fallback nếu PNG không load */
+  .mobile-topbar .mt-logo{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='8' fill='%232D7A50'/><text x='20' y='27' text-anchor='middle' font-family='serif' font-size='22' font-weight='700' fill='%23EDF1ED'>S</text></svg>") !important;
+    background-size:cover !important;background-position:center !important;
+  }
   /* Solid backgrounds (không transparent) cho readability mobile */
   .panel {
     background:linear-gradient(180deg,#142621 0%,#0F1B16 100%) !important;
@@ -1465,7 +1478,7 @@ table.dt .pos{color:var(--pos);font-weight:600}.dt .neg{color:var(--neg);font-we
   <div class="mt-divider"></div>
   <div class="mt-page" id="mt-current-page">Review tháng 4</div>
   <div class="mt-status"><span class="pulse"></span>T04</div>
-  <div class="mt-version">v18.4</div>
+  <div class="mt-version">v18.5</div>
 </header>
 
 <!-- ===== MOBILE FAB · navigation menu trigger ===== -->
