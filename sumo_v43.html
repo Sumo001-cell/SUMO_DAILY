@@ -509,6 +509,8 @@
           <div class="row"><div class="lab"><span class="di"><svg viewBox="0 0 12 12"><path d="M6 1v10M3 4h5a2 2 0 0 1 0 4H3"/></svg></span>Số tiền</div><div class="val amt" id="exAmt">—</div></div>
           <div class="row"><div class="lab"><span class="di"><svg viewBox="0 0 12 12"><rect x="1" y="1" width="4" height="4"/><rect x="7" y="1" width="4" height="4"/><rect x="1" y="7" width="4" height="4"/></svg></span>Danh mục</div><div class="val" id="exCat">—</div></div>
           <div class="row"><div class="lab"><span class="di"><svg viewBox="0 0 12 12"><path d="M10 5c0 3.5-4 6.5-4 6.5S2 8.5 2 5a4 4 0 0 1 8 0z"/><circle cx="6" cy="5" r="1.4"/></svg></span>Địa điểm</div><div class="val" id="exLoc">—</div></div>
+          <div class="row" id="rowQty" style="display:none"><div class="lab"><span class="di"><svg viewBox="0 0 12 12"><rect x="2" y="2" width="8" height="8" rx="1"/><path d="M2 5h8M5 2v8"/></svg></span>Số lượng</div><div class="val" id="exQty">—</div></div>
+          <div class="row" id="rowUnit" style="display:none"><div class="lab"><span class="di"><svg viewBox="0 0 12 12"><path d="M2 10L10 2M4 3h2v2H4zM7 7h2v2H7z"/></svg></span>Đơn giá</div><div class="val" id="exUnit">—</div></div>
           <div class="row"><div class="lab"><span class="di"><svg viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10"/><path d="M3 4h6M3 7h6M3 9h4"/></svg></span>Tên VT</div><div class="val" id="exTen">—</div></div>
           <div class="row"><div class="lab"><span class="di"><svg viewBox="0 0 12 12"><rect x="1" y="3" width="10" height="6"/><path d="M5 3v6"/></svg></span>Mã VT</div><div class="val" id="exMa">—</div></div>
           <div class="row"><div class="lab"><span class="di"><svg viewBox="0 0 12 12"><path d="M3 1h5l3 3v7H3z"/></svg></span>Ghi chú</div><div class="val" id="exNote">—</div></div>
@@ -819,7 +821,16 @@ const ASR_FIX={
   'evn':'điện','ev em':'điện','e v n':'điện'
 };
 function escapeRegex(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}
-function normalizeASR(t){let s=t;for(const w in ASR_FIX){s=s.replace(new RegExp('\\b'+escapeRegex(w)+'\\b','gi'),ASR_FIX[w])}return s}
+function normalizeASR(t){
+  let s=t;
+  // ASR thường nghe "ngàn/nghìn" → "tệ" — chỉ sửa khi đứng sau số (không dùng \b vì ệ là Unicode)
+  s=s.replace(/(\d[\d.,]*)\s*t[ệê](?![a-zA-ZÀ-ỹ])/giu,'$1 nghìn');
+  // ASR nghe "khoai lang" → "khoai lai/lan/land" — chuẩn hoá
+  s=s.replace(/khoai\s+(lai|lan|land)(?![a-zA-ZÀ-ỹ])/giu,'khoai lang');
+  // Word-level dictionary (escape regex special chars)
+  for(const w in ASR_FIX){s=s.replace(new RegExp('(^|[^\\p{L}])'+escapeRegex(w)+'($|[^\\p{L}])','giu'),'$1'+ASR_FIX[w]+'$2')}
+  return s;
+}
 
 const VI_DIGITS={'khong':0,'mot':1,'mốt':1,'hai':2,'ba':3,'bon':4,'tu':4,'nam':5,'lam':5,'sau':6,'bay':7,'tam':8,'chin':9};
 function viWordsToDigits(text){
@@ -858,11 +869,16 @@ function extractItem(text){
   let s=' '+text+' ';
   s=s.replace(/\bh[oôơ]m nay\b|\bh[oô]m qua\b|\btu[aâầ]n n[aà]y\b|\bth[aá]ng n[aà]y\b|\bs[aá]ng nay\b|\bchi[eề]u nay\b|\bt[oố]i nay\b/gi,' ');
   s=s.replace(/\bnh[aâậ]p\b|\bmua\b|\bm[uưừ]ơn\b|\bb[aá]n\b|\bnh[aậ]n\b|\bg[iử]i\b|\bg[iì]ao\b|\btr[aả]\b|\btiêu\b|\bchi\b/gi,' ');
-  s=s.replace(/\bgi[aá]\b|\bti[eề]n\b|\b[đd][oồ]ng\b|\bthanh to[aá]n\b|\bonline\b|\bti[eề]n m[aă]̣t\b|\bchuy[eể]n kho[aả]n\b|\bcash\b|\bbank\b|\bvnđ\b|\bvnd\b/gi,' ');
-  s=s.replace(/\d+(?:[.,]\d+)?\s*(kg|kilogam|gam|gr|g|l[íi]t|lit|ml|chai|hộp|hop|gói|goi|cái|cai|cuộn|cuon|hủ|hu|miếng|mieng|cây|cay|cm|bao|thùng|thung|túi|tui|kệ|ke|cuốn|cuon|b[oộ]|qu[aả]|ổ|li)\b/gi,' ');
-  s=s.replace(/\d+(?:[.,]\d+)*\s*(tr|tri[eê]u|k|nghin|nghìn)\b/gi,' ');
+  // Strip filler/money words (use Unicode-safe boundaries, NOT \b which fails on Vietnamese)
+  s=s.replace(/(^|[^\p{L}])(gi[aá]|ti[eề]n|[đd][oồ]ng|thanh to[aá]n|online|ti[eề]n m[aă]̣t|chuy[eể]n kho[aả]n|cash|bank|vnđ|vnd|t[ệê]|ng[aà]n|ngh[iìí]n|tri[ệêe]u|tr|k)(?=$|[^\p{L}])/giu,'$1 ');
+  // Strip number + qty unit
+  s=s.replace(/\d+(?:[.,]\d+)?\s*(kg|kilogam|gam|gr|g|l[íi]t|lit|ml|chai|hộp|hop|gói|goi|cái|cai|cuộn|cuon|hủ|hu|miếng|mieng|cây|cay|cm|bao|thùng|thung|túi|tui|kệ|ke|cuốn|cuon|b[oộ]|qu[aả]|ổ|li)(?=$|[^\p{L}])/giu,' ');
+  // Strip number + money word (run AFTER ASR normalize converts 'tệ'→'nghìn')
+  s=s.replace(/\d+(?:[.,]\d+)*\s*(tr|tri[ệêe]u|k|ngh[iìí]n|ng[aà]n|t[ệê])(?=$|[^\p{L}])/giu,' ');
   s=s.replace(/\d+(?:\.\d{3})+/g,' ');
   s=s.replace(/\d{4,}/g,' ');
+  // Strip standalone leftover digits (e.g., "5", "10")
+  s=s.replace(/(^|\s)\d+(\s|$)/g,'$1$2');
   s=s.replace(/\bv[aạ]n ki[eế]p\b|\bvk\b|\bb[uù]i đ[iì]nh t[uú]y\b|\bbdt\b|\bbdtuy\b|\bv[aă]n ph[oò]ng\b|\bvpo\b/gi,' ');
   s=s.replace(/\b(t[aạ]i|c[uủ]a|v[oớ]i|v[aà]|cho|thì|là|này|đó|kia|được|nay|tháng)\b/gi,' ');
   s=s.replace(/[,.]/g,' ');
@@ -984,15 +1000,23 @@ function doParse(txt){
   const t=normalizeASR(txt);
   const a=parseAmt(t),c=autoCat(t),l=autoLoc(t),q=parseQty(t);
   const itemName=extractItem(t);
+  const unitPrice=(q&&q.qty&&a)?Math.round(a/q.qty):null;
   document.getElementById('parsed').classList.add('on');
   document.getElementById('exMa').textContent='đang tra...';
   document.getElementById('exTen').textContent=itemName||'—';
   document.getElementById('exAmt').textContent=a?fmtVND(a):'—';
   document.getElementById('exCat').textContent=c||'—';
   document.getElementById('exLoc').textContent=l||'—';
+  // Số lượng + Đơn giá: chỉ hiện khi có q
+  document.getElementById('rowQty').style.display=q?'flex':'none';
+  document.getElementById('rowUnit').style.display=(q&&unitPrice)?'flex':'none';
+  if(q){
+    document.getElementById('exQty').textContent=q.qty+' '+q.unit;
+    if(unitPrice)document.getElementById('exUnit').textContent=fmtVND(unitPrice)+'/'+q.unit;
+  }
   document.getElementById('exNote').textContent=txt.length>40?txt.slice(0,40)+'…':txt;
   document.getElementById('saveBtn').disabled=!a;
-  window.__lastParse={amt:a,qty:q?q.qty:null,unit:q?q.unit:null,cat:c,loc:l,note:txt,itemName:itemName,ma:'',ten:itemName};
+  window.__lastParse={amt:a,qty:q?q.qty:null,unit:q?q.unit:null,unitPrice:unitPrice,cat:c,loc:l,note:txt,itemName:itemName,ma:'',ten:itemName};
   if(itemName)lookupWithTimeout(itemName,5000).then(r=>{
     if(r&&r.ok&&r.found){
       document.getElementById('exMa').textContent=r.ma;
