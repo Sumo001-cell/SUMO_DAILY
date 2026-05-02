@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<base target="_top">
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0608">
+<title>Sumo Snack — Nhập kho</title>
+<link rel="apple-touch-icon" href="https://sumo001-cell.github.io/SUMO_DAILY/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-deep:#0A0608;--bg-1:#120D14;--bg-2:#1A1320;--bg-3:#241B2C;
+  --gold:#E89A3C;--gold-2:#FFC982;--gold-3:#FFD89A;
+  --rose:#FF8C5A;--plum:#7B4B7E;--green:#7FB069;--red:#E5615B;
+  --text:#FAF3E6;--text-2:#C9BBA3;--text-3:#7A6F5F;--text-4:#4A4238;
+  --line:rgba(255,201,130,0.10);--line-2:rgba(255,201,130,0.22);--line-3:rgba(255,201,130,0.40);
+  --grad-gold:linear-gradient(135deg,#FFD89A 0%,#E89A3C 50%,#C9803A 100%);
+  --grad-warm:linear-gradient(135deg,#FF8C5A 0%,#E89A3C 100%);
+  --grad-mesh:radial-gradient(at 0% 0%,rgba(232,154,60,0.20) 0%,transparent 55%),radial-gradient(at 100% 30%,rgba(255,140,90,0.16) 0%,transparent 55%),radial-gradient(at 30% 100%,rgba(127,176,105,0.12) 0%,transparent 55%);
+  --shadow-card:0 1px 0 rgba(255,201,130,0.08) inset,0 -1px 0 rgba(0,0,0,0.4) inset,0 18px 40px -10px rgba(0,0,0,0.7),0 4px 12px -4px rgba(232,154,60,0.20);
+  --shadow-btn:0 2px 0 rgba(255,255,255,0.22) inset,0 -2px 0 rgba(0,0,0,0.25) inset,0 8px 22px -3px rgba(232,154,60,0.55);
+  --shadow-btn-press:0 1px 0 rgba(255,255,255,0.10) inset,0 -1px 0 rgba(0,0,0,0.20) inset,0 2px 6px rgba(232,154,60,0.35);
+  --shadow-glow:0 0 24px rgba(232,154,60,0.55),0 0 60px rgba(232,154,60,0.25);
+  --r-sm:10px;--r-md:14px;--r-lg:18px;--r-xl:24px;--r-pill:999px;
+  --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+  --ease-smooth:cubic-bezier(0.22,1,0.36,1);
+  --logo:url('https://sumo001-cell.github.io/SUMO_DAILY/logo.png');
+  --logo-hd:url('https://sumo001-cell.github.io/SUMO_DAILY/logo_hd.png');
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+html,body{margin:0;padding:0;background:var(--bg-deep);color:var(--text);font-family:'Inter','Plus Jakarta Sans',-apple-system,sans-serif;min-height:100vh;overscroll-behavior:none;font-size:15px;line-height:1.5;overflow-x:hidden}
+body{padding:env(safe-area-inset-top) 14px env(safe-area-inset-bottom);max-width:480px;margin:0 auto;position:relative;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:var(--bg-deep);background-image:var(--grad-mesh);z-index:-2;animation:mesh 28s ease-in-out infinite alternate}
+@keyframes mesh{0%{background-position:0% 0%,100% 0%,0% 100%}100%{background-position:80% 30%,0% 70%,80% 0%}}
+body::after{content:'';position:fixed;inset:0;background:var(--logo-hd) center 100px no-repeat;background-size:300px auto;opacity:0.05;filter:blur(0.4px);z-index:-1;pointer-events:none}
+
+/* HERO HEADER */
+.hero{padding:18px 0 14px;text-align:center;position:relative}
+.hero-glow{position:absolute;inset:0 -50px;background:radial-gradient(ellipse at center,rgba(232,154,60,0.18) 0%,transparent 60%);pointer-events:none;z-index:-1}
+.brand-logo{width:180px;height:auto;display:block;margin:0 auto;filter:drop-shadow(0 10px 28px rgba(232,154,60,0.55)) drop-shadow(0 2px 6px rgba(0,0,0,0.4));animation:float 4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-0.4deg)}50%{transform:translateY(-5px) rotate(0.4deg)}}
+.brand-tag{margin-top:6px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:var(--gold-2);letter-spacing:0.30em;text-transform:uppercase;font-weight:700;opacity:0.85}
+
+/* TABS */
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:14px 0;background:linear-gradient(180deg,var(--bg-1) 0%,var(--bg-2) 100%);padding:5px;border-radius:var(--r-pill);border:1px solid var(--line-2);box-shadow:0 1px 0 rgba(255,255,255,0.04) inset,0 8px 20px -6px rgba(0,0,0,0.6)}
+.tab{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 4px;border-radius:var(--r-pill);cursor:pointer;font-size:10px;color:var(--text-3);font-weight:700;letter-spacing:0.05em;transition:all 0.4s var(--ease-spring);text-transform:uppercase}
+.tab svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:all 0.4s var(--ease-spring)}
+.tab:not(.active):hover{color:var(--text-2);transform:translateY(-1px)}
+.tab.active{background:var(--grad-gold);color:#1a1208;box-shadow:0 2px 0 rgba(255,255,255,0.3) inset,0 -1px 0 rgba(0,0,0,0.2) inset,0 6px 18px -3px rgba(232,154,60,0.6)}
+.tab.active svg{transform:scale(1.15)}
+
+/* PANEL */
+.panel{background:linear-gradient(180deg,rgba(36,27,44,0.78) 0%,rgba(18,13,20,0.86) 100%);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border-radius:var(--r-lg);padding:18px;margin-bottom:12px;display:none;border:1px solid var(--line-2);box-shadow:var(--shadow-card);animation:panelIn 0.5s var(--ease-spring)}
+.panel.active{display:block}
+@keyframes panelIn{0%{opacity:0;transform:translateY(14px) scale(0.98)}100%{opacity:1;transform:translateY(0) scale(1)}}
+.panel h2{margin:0 0 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:var(--gold-3);display:flex;align-items:center;gap:10px;letter-spacing:-0.01em}
+.panel h2::before{content:'';width:5px;height:22px;background:var(--grad-gold);border-radius:3px;box-shadow:0 0 12px rgba(232,154,60,0.6)}
+.label{display:block;font-size:11px;color:var(--text-3);margin:14px 0 6px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+
+/* INPUTS */
+input,select,textarea{font-family:inherit;font-size:15px;width:100%;padding:13px 15px;border-radius:var(--r-md);border:1.5px solid var(--line-2);background:rgba(8,7,10,0.55);color:var(--text);outline:none;transition:all 0.3s var(--ease-smooth);box-shadow:0 1px 0 rgba(255,255,255,0.03) inset,0 2px 8px rgba(0,0,0,0.3) inset}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(232,154,60,0.18),0 0 18px rgba(232,154,60,0.20),0 1px 0 rgba(255,255,255,0.06) inset;background:rgba(15,13,18,0.7)}
+input::placeholder,textarea::placeholder{color:var(--text-4)}
+textarea{min-height:84px;resize:vertical;line-height:1.55}
+.input-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+
+/* TOGGLE BUTTONS */
+.loc-toggle{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.loc-btn{padding:14px;border-radius:var(--r-md);border:1.5px solid var(--line-2);background:linear-gradient(180deg,var(--bg-2) 0%,var(--bg-1) 100%);color:var(--text-3);text-align:center;cursor:pointer;font-weight:700;font-size:13px;transition:all 0.3s var(--ease-spring);position:relative;overflow:hidden}
+.loc-btn::after{content:'';position:absolute;inset:0;background:var(--grad-gold);opacity:0;transition:opacity 0.3s;border-radius:inherit;z-index:-1}
+.loc-btn.active{border-color:transparent;color:#1a1208;box-shadow:var(--shadow-btn);transform:translateY(-1px)}
+.loc-btn.active::after{opacity:1}
+.loc-btn:active{transform:translateY(0) scale(0.98)}
+
+/* BUTTONS */
+.btn{cursor:pointer;font-weight:800;border:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;padding:16px 20px;border-radius:var(--r-md);transition:all 0.18s var(--ease-spring);width:100%;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:0.01em;position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);transition:left 0.6s}
+.btn:hover::before{left:100%}
+.btn:active{transform:scale(0.96);box-shadow:var(--shadow-btn-press)!important}
+.btn-primary{background:var(--grad-gold);color:#1a1208;margin-top:18px;box-shadow:var(--shadow-btn)}
+.btn-primary:hover{box-shadow:var(--shadow-glow),var(--shadow-btn);transform:translateY(-1px)}
+.btn-secondary{background:linear-gradient(180deg,var(--bg-2) 0%,var(--bg-1) 100%);color:var(--text-2);border:1.5px solid var(--line-2)}
+.btn-secondary:hover{border-color:var(--gold-2);color:var(--gold-2)}
+.btn-ghost{background:transparent;color:var(--text-3);font-weight:600}
+
+/* PREVIEW BOX */
+.parsed-box{background:linear-gradient(180deg,rgba(15,13,18,0.7) 0%,rgba(34,29,44,0.5) 100%);padding:14px 16px;border-radius:var(--r-md);margin-top:14px;border-left:3px solid var(--gold);font-size:14px;line-height:1.85;backdrop-filter:blur(8px);min-height:60px}
+.parsed-box.error{border-left-color:var(--red);background:linear-gradient(180deg,rgba(229,97,91,0.10) 0%,rgba(15,13,18,0.55) 100%)}
+.preview-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed var(--line)}
+.preview-row:last-child{border-bottom:0}
+.preview-row .pl{color:var(--text-3);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;display:flex;align-items:center;gap:6px}
+.preview-row .pv{font-weight:700;color:var(--text)}
+.preview-row .pv.amt{color:var(--gold-3);font-size:17px}
+
+/* VOICE MIC */
+.voice-mic{width:124px;height:124px;border-radius:50%;background:var(--grad-gold);color:#1a1208;font-size:46px;border:none;cursor:pointer;margin:24px auto 14px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-glow),0 12px 32px -6px rgba(232,154,60,0.4),0 2px 0 rgba(255,255,255,0.3) inset,0 -2px 0 rgba(0,0,0,0.2) inset;transition:all 0.3s var(--ease-spring);position:relative}
+.voice-mic::before{content:'';position:absolute;inset:-6px;border-radius:50%;background:var(--grad-gold);z-index:-1;opacity:0.4;filter:blur(14px);animation:pulseRing 3s ease-in-out infinite}
+@keyframes pulseRing{0%,100%{transform:scale(1);opacity:0.4}50%{transform:scale(1.18);opacity:0.7}}
+.voice-mic:active{transform:scale(0.92)}
+.voice-mic.recording{background:linear-gradient(135deg,#FF6B6B 0%,#C9514A 100%);color:#fff;animation:rec 1.2s infinite}
+@keyframes rec{0%,100%{box-shadow:0 0 0 0 rgba(201,81,74,0.7)}50%{box-shadow:0 0 0 26px rgba(201,81,74,0)}}
+.voice-status{text-align:center;font-size:13px;color:var(--text-3);min-height:30px;margin-top:8px;font-weight:600}
+.voice-tip{background:linear-gradient(135deg,rgba(232,154,60,0.10) 0%,rgba(232,154,60,0.02) 100%);border:1px solid var(--line-2);border-left:3px solid var(--gold);border-radius:var(--r-md);padding:14px;margin-top:12px;font-size:13px;line-height:1.7;color:var(--text-2)}
+.voice-tip strong{color:var(--gold-3)}
+
+/* MODAL CONFIRM */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);display:flex;align-items:flex-end;justify-content:center;padding:0;z-index:9999;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.modal-overlay.show{opacity:1;pointer-events:auto}
+.modal{background:linear-gradient(180deg,var(--bg-2) 0%,var(--bg-deep) 100%);border-radius:var(--r-xl) var(--r-xl) 0 0;padding:24px 18px calc(24px + env(safe-area-inset-bottom));width:100%;max-width:480px;border-top:2px solid var(--gold);box-shadow:0 -20px 60px rgba(0,0,0,0.7);transform:translateY(100%);transition:transform 0.4s var(--ease-spring);max-height:90vh;overflow-y:auto}
+.modal-overlay.show .modal{transform:translateY(0)}
+.modal-handle{width:40px;height:4px;background:var(--line-3);border-radius:2px;margin:0 auto 14px}
+.modal h3{margin:0 0 4px;font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;color:var(--gold-3);text-align:center}
+.modal-sub{text-align:center;font-size:12px;color:var(--text-3);margin-bottom:18px;letter-spacing:0.04em}
+.form-row{margin-bottom:12px}
+.form-row .label{margin:0 0 5px;font-size:11px}
+.form-row .hint{font-size:11px;color:var(--text-4);margin-top:4px}
+.calc-result{background:linear-gradient(135deg,rgba(232,154,60,0.18) 0%,rgba(232,154,60,0.04) 100%);border:1.5px solid var(--gold);border-radius:var(--r-md);padding:14px 16px;margin:14px 0;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow-glow)}
+.calc-result .pl{color:var(--gold-2);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em}
+.calc-result .pv{font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:800;color:var(--gold-3);text-shadow:0 0 12px rgba(232,154,60,0.4)}
+.modal-actions{display:flex;gap:10px;margin-top:20px}
+.modal-actions .btn{flex:1;margin-top:0}
+
+/* TOAST */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(20px) scale(0.92);background:linear-gradient(180deg,var(--bg-3) 0%,var(--bg-1) 100%);color:var(--text);padding:14px 20px;border-radius:var(--r-md);border:1px solid var(--gold);font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:all 0.4s var(--ease-spring);z-index:10000;max-width:90%;text-align:center;box-shadow:0 12px 32px rgba(0,0,0,0.6),var(--shadow-glow);backdrop-filter:blur(12px)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}
+.toast.success{border-color:var(--green);box-shadow:0 12px 32px rgba(0,0,0,0.6),0 0 24px rgba(127,176,105,0.4)}
+.toast.error{border-color:var(--red);box-shadow:0 12px 32px rgba(0,0,0,0.6),0 0 24px rgba(229,97,91,0.4)}
+
+/* VERSION BADGE */
+.version{position:fixed;bottom:6px;right:8px;font-size:10px;color:var(--text-3);background:rgba(0,0,0,0.5);padding:3px 8px;border-radius:var(--r-pill);z-index:99998;font-family:'JetBrains Mono',monospace;pointer-events:none;letter-spacing:0.04em}
+
+/* SETTINGS */
+.set-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.set-row .l{color:var(--text-2)}
+.set-row .v{color:var(--text-3);font-family:'JetBrains Mono',monospace;font-size:12px}
+
+/* PHOTO TAB */
+.photo-drop{border:2px dashed var(--line-2);border-radius:var(--r-md);padding:32px 18px;text-align:center;cursor:pointer;transition:all 0.3s var(--ease-spring);color:var(--text-3);background:rgba(15,13,18,0.4)}
+.photo-drop:hover{border-color:var(--gold);background:rgba(232,154,60,0.06);color:var(--gold-2)}
+.photo-drop .icon{font-size:32px;margin-bottom:8px;display:block}
+.photo-preview{max-width:100%;border-radius:var(--r-md);margin-top:12px;display:none}
+.photo-preview.show{display:block}
+
+/* AUTOCOMPLETE DATALIST */
+.autocomplete-wrap{position:relative}
+.autocomplete-suggest{display:none}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-glow"></div>
+  <img class="brand-logo" src="https://sumo001-cell.github.io/SUMO_DAILY/logo.png" alt="Sumo Snack">
+  <div class="brand-tag">Cổng nhập kho · Sumo Snack</div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" data-tab="voice">
+    <svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3"/></svg>
+    Voice
+  </div>
+  <div class="tab" data-tab="text">
+    <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+    Text
+  </div>
+  <div class="tab" data-tab="photo">
+    <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+    Ảnh
+  </div>
+  <div class="tab" data-tab="settings">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    Cài đặt
+  </div>
+</div>
+
+<!-- VOICE PANEL -->
+<div class="panel active" id="panel-voice">
+  <h2>Nói để nhập</h2>
+  <button class="voice-mic" id="vmic" aria-label="Bấm để nói">🎤</button>
+  <div class="voice-status" id="vstatus">Bấm mic và đọc rõ</div>
+  <div class="label">Hoặc gõ trực tiếp</div>
+  <textarea id="vtext" placeholder="VD: hôm nay nhập 10kg khoai lang 200 nghìn ở Vạn Kiếp"></textarea>
+  <div class="parsed-box" id="vpreview">Em sẽ phân tích khi anh đọc/gõ xong…</div>
+  <div class="voice-tip"><strong>Mẫu:</strong> "Hôm nay nhập <strong>10 kg khoai lang 160 nghìn ở BĐT</strong>" hoặc "<strong>Tiền điện 2 triệu rưỡi Vạn Kiếp</strong>"</div>
+  <button class="btn btn-primary" id="bAnalyze">📋 Phân tích & Xác nhận</button>
+</div>
+
+<!-- TEXT PANEL -->
+<div class="panel" id="panel-text">
+  <h2>Nhập tay nhanh</h2>
+  <div class="label">Tên vật tư / Chi phí</div>
+  <input id="tname" placeholder="VD: Khoai lang">
+  <div class="input-row" style="margin-top:10px">
+    <div><div class="label">Số lượng</div><input id="tqty" type="number" inputmode="decimal" placeholder="0"></div>
+    <div><div class="label">ĐVT</div><input id="tdvt" placeholder="kg / chai / lon"></div>
+  </div>
+  <div class="label">Đơn giá (đ)</div>
+  <input id="tprice" type="number" inputmode="numeric" placeholder="0">
+  <div class="label">Địa điểm</div>
+  <div class="loc-toggle">
+    <button type="button" class="loc-btn active" data-loc="BDT">Bùi Đình Túy</button>
+    <button type="button" class="loc-btn" data-loc="VK">Vạn Kiếp</button>
+  </div>
+  <div class="label">Ghi chú (tùy chọn)</div>
+  <textarea id="tnote" placeholder="Ví dụ: nhập từ NCC ABC"></textarea>
+  <button class="btn btn-primary" id="bTextSave">💾 Lưu nhập kho</button>
+</div>
+
+<!-- PHOTO PANEL -->
+<div class="panel" id="panel-photo">
+  <h2>Chụp hóa đơn</h2>
+  <div class="photo-drop" id="pdrop"><span class="icon">📸</span><div>Bấm để chụp / chọn ảnh hóa đơn</div></div>
+  <input type="file" id="pfile" accept="image/*" capture="environment" style="display:none">
+  <img class="photo-preview" id="ppreview" alt="Preview">
+  <div class="voice-tip" style="margin-top:14px">Tính năng OCR đang được phát triển. Tạm thời anh ghi tay vào tab <strong>Text</strong>.</div>
+</div>
+
+<!-- SETTINGS PANEL -->
+<div class="panel" id="panel-settings">
+  <h2>Cài đặt</h2>
+  <div class="set-row"><span class="l">Tên thiết bị</span><span class="v" id="sDevice">iPhone Safari</span></div>
+  <div class="set-row"><span class="l">Số mã VT trong master</span><span class="v" id="sMaster">…</span></div>
+  <div class="set-row"><span class="l">Phiên bản</span><span class="v" id="sVer">v17 · 02/05/2026</span></div>
+  <button class="btn btn-secondary" id="bRefreshMaster" style="margin-top:18px">🔄 Tải lại danh mục VT</button>
+  <button class="btn btn-ghost" id="bClearCache" style="margin-top:8px">🗑 Xóa cache & tải lại</button>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <h3>Xác nhận nhập kho</h3>
+    <div class="modal-sub">Anh kiểm lần cuối, sửa nếu cần</div>
+    <div class="form-row">
+      <div class="label">Mã vật tư</div>
+      <input id="fMa" readonly>
+      <div class="hint" id="fMaHint"></div>
+    </div>
+    <div class="form-row">
+      <div class="label">Tên vật tư (chuẩn)</div>
+      <input id="fTen" list="masterList" autocomplete="off">
+      <datalist id="masterList"></datalist>
+    </div>
+    <div class="input-row">
+      <div class="form-row" style="margin-bottom:0">
+        <div class="label">Số lượng</div>
+        <input id="fQty" type="number" inputmode="decimal" step="0.01">
+      </div>
+      <div class="form-row" style="margin-bottom:0">
+        <div class="label">ĐVT</div>
+        <input id="fDvt">
+      </div>
+    </div>
+    <div class="form-row" style="margin-top:12px">
+      <div class="label">Đơn giá (đ / 1 đvt)</div>
+      <input id="fPrice" type="number" inputmode="numeric">
+    </div>
+    <div class="calc-result"><span class="pl">💰 Thành tiền</span><span class="pv" id="fTotal">0đ</span></div>
+    <div class="form-row">
+      <div class="label">Địa điểm</div>
+      <div class="loc-toggle">
+        <button type="button" class="loc-btn" data-mloc="BDT" id="lmBDT">Bùi Đình Túy</button>
+        <button type="button" class="loc-btn" data-mloc="VK" id="lmVK">Vạn Kiếp</button>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="label">Danh mục</div>
+      <input id="fCat" placeholder="NVL chính / Tiện ích / …">
+    </div>
+    <div class="form-row">
+      <div class="label">Ghi chú</div>
+      <textarea id="fNote" placeholder="(tùy chọn)"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" id="mCancel">Hủy / Sửa</button>
+      <button class="btn btn-primary" id="mConfirm">✅ Xác nhận lưu</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="version" id="vbadge">v17 · loading…</div>
+
+<script>
+// ========== UTILITIES ==========
+const $ = id => document.getElementById(id);
+const fmtN = n => Number(n||0).toLocaleString('vi-VN');
+const noDia = s => (s||'').toString().normalize('NFC').toLowerCase().replace(/[àáạảãâầấậẩẫăằắặẳẵ]/g,'a').replace(/[èéẹẻẽêềếệểễ]/g,'e').replace(/[ìíịỉĩ]/g,'i').replace(/[òóọỏõôồốộổỗơờớợởỡ]/g,'o').replace(/[ùúụủũưừứựửữ]/g,'u').replace(/[ỳýỵỷỹ]/g,'y').replace(/đ/g,'d');
+const QTY_UNITS = ['kg','gram','gam','goi','lit','ml','cc','cai','chai','lon','hop','bao','thung','phan','suat','ly','to','dia','con','vien','cu','qua','trai','bo','bich','tap','quyen','g','goi','bich'];
+
+function parseAmt(text){
+  if(!text) return null;
+  const s = noDia(text).replace(/,/g,'');
+  let amounts=[];
+  // Step 1: number with money unit (k/nghin/ngan/trieu/tr/d/dong)
+  const moneyRe = /(\d+(?:[.]\d+)*)\s*(trieu|tr|nghin|ngan|k|dong|d)(?![a-z])/g;
+  let m;
+  while((m=moneyRe.exec(s))!==null){
+    let num = parseFloat(m[1].replace(/\./g,''));
+    const u = m[2];
+    if(u==='trieu'||u==='tr') num*=1000000;
+    else if(u==='nghin'||u==='ngan'||u==='k') num*=1000;
+    const after = s.slice(m.index+m[0].length).trim().slice(0,8);
+    if(after.startsWith('ruoi')||after.startsWith('ruoi')){
+      if(u==='trieu'||u==='tr') num+=500000;
+      else if(u==='nghin'||u==='ngan'||u==='k') num+=500;
+    }
+    amounts.push(Math.round(num));
+  }
+  // Step 2: number + 'ruoi' without unit -> default thousand (200 ruoi = 250K)
+  if(amounts.length===0){
+    const ruoiRe = /(\d+)\s*ruoi\b/g;
+    while((m=ruoiRe.exec(s))!==null){
+      const n=parseInt(m[1],10);
+      amounts.push((n+50)*1000);
+    }
+  }
+  // Step 3: bare number >=1000 (with separator or 4+ digits), not followed by qty unit
+  if(amounts.length===0){
+    const QTY = QTY_UNITS.join('|');
+    const bareRe = new RegExp('(\\d{1,3}(?:[.]\\d{3})+|\\d{4,})(?!\\s*(?:'+QTY+')\\b)','g');
+    while((m=bareRe.exec(s))!==null){
+      const num = parseInt(m[1].replace(/\./g,''),10);
+      if(num>=1000) amounts.push(num);
+    }
+  }
+  return amounts.length>0 ? Math.max.apply(null,amounts) : null;
+}
+
+function parseQtyDvt(text){
+  if(!text) return {qty:null,dvt:null};
+  const s = noDia(text);
+  const QTY = QTY_UNITS.join('|');
+  const re = new RegExp('(\\d+(?:[.]\\d+)?)\\s*('+QTY+')\\b');
+  const m = s.match(re);
+  if(!m) return {qty:null,dvt:null};
+  return {qty:parseFloat(m[1]),dvt:m[2]};
+}
+
+function autoLoc(text){
+  const s = noDia(text);
+  if(s.indexOf('van kiep')>=0||s.indexOf(' vk')>=0||s.endsWith('vk')) return 'VK';
+  if(s.indexOf('bui dinh tuy')>=0||s.indexOf(' bdt')>=0||s.endsWith('bdt')||s.indexOf('bdt ')>=0) return 'BDT';
+  return null;
+}
+
+const KW = {
+  'NVL chính':['chuoi','khoai','sake','sa ke','bot','duong','muoi','sot','pho mai','phomai','me','sa ke'],
+  'Tiện ích':['dien','nuoc','wifi','mat bang','rac','ve sinh'],
+  'Nhân lực':['luong','thuong','bao hiem'],
+  'Bao bì':['hop','bao','goi','tui','ly','khay','que','que ghim'],
+  'Phí app':['shopee','grab','baemin','foody','app'],
+  'Tiêu hao':['gas','dau','con sat','gum'],
+  'Marketing':['marketing','quang cao','ad']
+};
+function autoLabel(text){
+  const s = noDia(text);
+  for(const c in KW){ for(const k of KW[c]){ if(s.indexOf(k)>=0) return c; } }
+  if(/\d+\s*(kg|gram|gam|lit|ml|cai|chai|lon|hop|bao|thung|goi|cu|qua|trai|bich|g)\b/.test(s)) return 'NVL chính';
+  if(/\b(nhap|mua)\b/.test(s)) return 'NVL chính';
+  return 'Khác';
+}
+
+// ========== MASTER VT CACHE ==========
+let MASTER = [];
+function loadMaster(){
+  google.script.run
+    .withSuccessHandler(data => {
+      MASTER = data || [];
+      $('sMaster').textContent = MASTER.length + ' mã';
+      // populate datalist
+      const dl = $('masterList');
+      dl.innerHTML = MASTER.map(it => '<option value="'+it.ten.replace(/"/g,'&quot;')+'" data-ma="'+it.ma+'" data-dvt="'+it.dvt+'">').join('');
+    })
+    .withFailureHandler(err => { $('sMaster').textContent = 'lỗi: '+err.message; })
+    .getMasterVatTu();
+}
+
+function matchVT(text){
+  if(!MASTER.length) return null;
+  const t = ' '+noDia(text)+' ';
+  let best = null;
+  for(const it of MASTER){
+    const tn = noDia(it.ten);
+    if(!tn||tn.length<2) continue;
+    if(t.indexOf(' '+tn+' ')>=0||t.indexOf(' '+tn+',')>=0||t.indexOf(' '+tn+'.')>=0){
+      if(!best||tn.length>noDia(best.ten).length) best=it;
+    }
+  }
+  return best;
+}
+
+function nextNewMa(){
+  let max=0;
+  for(const it of MASTER){ const m=it.ma.match(/^SC(\d+)$/); if(m) max=Math.max(max,+m[1]); }
+  return 'SC'+String(max+1).padStart(6,'0');
+}
+
+// ========== STATE ==========
+const state = {
+  loc: 'BDT',
+  modalLoc: 'BDT',
+  isNewVT: false,
+  device: navigator.userAgent.indexOf('iPhone')>=0 ? 'iPhone Safari' : (navigator.userAgent.indexOf('Android')>=0 ? 'Android' : 'Desktop'),
+  recording: false
+};
+$('sDevice').textContent = state.device;
+
+// ========== TABS ==========
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  t.classList.add('active');
+  $('panel-'+t.dataset.tab).classList.add('active');
+}));
+
+// ========== LOCATION TOGGLES ==========
+document.querySelectorAll('#panel-text .loc-btn').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#panel-text .loc-btn').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  state.loc = b.dataset.loc;
+}));
+
+// ========== TOAST ==========
+function toast(msg, type){
+  const t = $('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + (type||'');
+  clearTimeout(t._h);
+  t._h = setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ========== VOICE RECOGNITION ==========
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let recognition = null;
+if(SR){
+  recognition = new SR();
+  recognition.lang = 'vi-VN';
+  recognition.continuous = false;
+  recognition.interimResults = true;
+  recognition.onresult = e => {
+    let txt = '';
+    for(let i=0;i<e.results.length;i++) txt += e.results[i][0].transcript;
+    $('vtext').value = txt;
+    updateVoicePreview();
+  };
+  recognition.onerror = e => { $('vstatus').textContent = 'Lỗi mic: '+e.error; state.recording=false; $('vmic').classList.remove('recording'); };
+  recognition.onend = () => { state.recording=false; $('vmic').classList.remove('recording'); $('vstatus').textContent='Đã dừng. Bấm lại để nói tiếp.'; };
+}
+
+$('vmic').addEventListener('click', () => {
+  if(!recognition){ alert('Trình duyệt không hỗ trợ voice. Anh dùng Safari iPhone hoặc gõ tay.'); return; }
+  if(state.recording){ recognition.stop(); return; }
+  state.recording=true;
+  $('vmic').classList.add('recording');
+  $('vstatus').textContent='Đang nghe…';
+  $('vtext').value='';
+  try{ recognition.start(); }catch(e){ state.recording=false; $('vmic').classList.remove('recording'); }
+});
+
+// ========== VOICE PREVIEW ==========
+function updateVoicePreview(){
+  const text = $('vtext').value.trim();
+  const box = $('vpreview');
+  if(!text){ box.className='parsed-box'; box.innerHTML='Em sẽ phân tích khi anh đọc/gõ xong…'; return; }
+  const amt = parseAmt(text);
+  const qd = parseQtyDvt(text);
+  const loc = autoLoc(text) || state.loc;
+  const cat = autoLabel(text);
+  const vt = matchVT(text);
+  if(!amt){
+    box.className='parsed-box error';
+    box.innerHTML='<div class="preview-row"><span class="pl">⚠ Chưa hiểu số tiền</span></div><div style="font-size:12px;color:var(--text-3);margin-top:6px">Mẫu: "200 nghìn", "2 triệu rưỡi", "160K", "160.000"</div>';
+    return;
+  }
+  box.className='parsed-box';
+  box.innerHTML =
+    '<div class="preview-row"><span class="pl">💰 Số tiền</span><span class="pv amt">'+fmtN(amt)+'đ</span></div>'+
+    (qd.qty?'<div class="preview-row"><span class="pl">📦 Số lượng</span><span class="pv">'+qd.qty+' '+qd.dvt+'</span></div>':'')+
+    '<div class="preview-row"><span class="pl">📍 Địa điểm</span><span class="pv">'+loc+'</span></div>'+
+    '<div class="preview-row"><span class="pl">🏷 Danh mục</span><span class="pv">'+cat+'</span></div>'+
+    '<div class="preview-row"><span class="pl">🆔 Mã VT</span><span class="pv">'+(vt?vt.ma+' — '+vt.ten:'<span style="color:var(--gold-2)">⚠ Chưa có (sẽ tạo mới)</span>')+'</span></div>';
+}
+$('vtext').addEventListener('input', updateVoicePreview);
+
+// ========== MODAL OPEN ==========
+function openConfirm(payload){
+  $('fMa').value = payload.ma;
+  $('fMaHint').textContent = payload.isNew ? 'Mã mới — sẽ tự thêm vào master khi lưu' : 'Đã có trong master';
+  $('fTen').value = payload.ten;
+  $('fQty').value = payload.qty || '';
+  $('fDvt').value = payload.dvt || '';
+  $('fPrice').value = payload.price || '';
+  $('fCat').value = payload.cat || '';
+  $('fNote').value = '';
+  state.modalLoc = payload.loc;
+  state.isNewVT = payload.isNew;
+  document.querySelectorAll('.modal .loc-btn').forEach(b => b.classList.toggle('active', b.dataset.mloc===payload.loc));
+  recalcTotal();
+  $('modal').classList.add('show');
+}
+
+function closeConfirm(){ $('modal').classList.remove('show'); }
+$('mCancel').addEventListener('click', closeConfirm);
+document.getElementById('modal').addEventListener('click', e => { if(e.target.id==='modal') closeConfirm(); });
+
+// modal location toggle
+document.querySelectorAll('.modal .loc-btn').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.modal .loc-btn').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  state.modalLoc = b.dataset.mloc;
+}));
+
+// auto-recalc
+function recalcTotal(){
+  const q = parseFloat($('fQty').value)||0;
+  const p = parseFloat($('fPrice').value)||0;
+  const total = Math.round(q*p);
+  $('fTotal').textContent = fmtN(total)+'đ';
+  return total;
+}
+['fQty','fPrice'].forEach(id => $(id).addEventListener('input', recalcTotal));
+
+// when user types ten in modal -> match master, fill ma + dvt
+$('fTen').addEventListener('change', () => {
+  const v = $('fTen').value.trim();
+  const found = MASTER.find(it => it.ten.toUpperCase()===v.toUpperCase());
+  if(found){ $('fMa').value=found.ma; $('fDvt').value=found.dvt; $('fMaHint').textContent='Đã match master'; state.isNewVT=false; }
+  else if(v){ $('fMa').value=nextNewMa(); $('fMaHint').textContent='Mã mới — sẽ tự thêm vào master khi lưu'; state.isNewVT=true; }
+});
+
+// ========== ANALYZE & OPEN MODAL ==========
+$('bAnalyze').addEventListener('click', () => {
+  const text = $('vtext').value.trim();
+  if(!text){ toast('Chưa có nội dung','error'); return; }
+  const amt = parseAmt(text);
+  if(!amt){ toast('Chưa hiểu số tiền — đọc rõ "X nghìn" / "X triệu" / "X K"','error'); return; }
+  const qd = parseQtyDvt(text);
+  const loc = autoLoc(text) || state.loc;
+  const cat = autoLabel(text);
+  const vt = matchVT(text);
+  const price = qd.qty ? Math.round(amt/qd.qty) : amt;
+  openConfirm({
+    ma: vt ? vt.ma : nextNewMa(),
+    ten: vt ? vt.ten : (qd.dvt ? text.split(qd.dvt)[0].split(/\s+/).pop().toUpperCase() : ''),
+    qty: qd.qty || 1,
+    dvt: qd.dvt || (vt?vt.dvt:''),
+    price: price,
+    loc: loc,
+    cat: cat,
+    isNew: !vt,
+    description: text,
+    source: 'Voice'
+  });
+});
+
+$('bTextSave').addEventListener('click', () => {
+  const name = $('tname').value.trim();
+  if(!name){ toast('Nhập tên VT','error'); return; }
+  const qty = parseFloat($('tqty').value)||0;
+  const dvt = $('tdvt').value.trim();
+  const price = parseInt($('tprice').value)||0;
+  if(!price && !qty){ toast('Nhập số lượng hoặc đơn giá','error'); return; }
+  const vt = matchVT(name);
+  openConfirm({
+    ma: vt ? vt.ma : nextNewMa(),
+    ten: vt ? vt.ten : name.toUpperCase(),
+    qty: qty || 1,
+    dvt: dvt || (vt?vt.dvt:''),
+    price: price,
+    loc: state.loc,
+    cat: autoLabel(name),
+    isNew: !vt,
+    description: name + (qty?' '+qty+(dvt?' '+dvt:''):'') + (price?' '+fmtN(price)+'đ':''),
+    source: 'Text'
+  });
+});
+
+// ========== SUBMIT TO BACKEND ==========
+$('mConfirm').addEventListener('click', () => {
+  const total = recalcTotal();
+  if(!total){ toast('Đơn giá hoặc số lượng = 0','error'); return; }
+  const ma = $('fMa').value.trim();
+  const ten = $('fTen').value.trim();
+  if(!ma||!ten){ toast('Thiếu mã hoặc tên VT','error'); return; }
+  // If new VT -> add to master first
+  if(state.isNewVT){
+    google.script.run.apiAppendNewVT(ma, ten, $('fDvt').value.trim(), '5.MOI');
+    MASTER.push({ma:ma, ten:ten, dvt:$('fDvt').value.trim(), nhom:'5.MOI'});
+  }
+  const payload = {
+    timestamp: new Date().toISOString(),
+    source: 'Voice',
+    description: ten + ' ' + $('fNote').value.trim(),
+    amount: total,
+    location: state.modalLoc,
+    category: $('fCat').value.trim() || 'Khác',
+    quantity: parseFloat($('fQty').value)||0,
+    unit: $('fDvt').value.trim(),
+    maVT: ma,
+    tenVT: ten,
+    donGia: parseInt($('fPrice').value)||0,
+    thanhTien: total,
+    note: $('fNote').value.trim(),
+    device: state.device
+  };
+  $('mConfirm').textContent='Đang lưu…'; $('mConfirm').disabled=true;
+  google.script.run
+    .withSuccessHandler(() => {
+      toast('✅ Đã lưu '+ma+' · '+fmtN(total)+'đ','success');
+      $('mConfirm').textContent='✅ Xác nhận lưu'; $('mConfirm').disabled=false;
+      closeConfirm();
+      // reset form inputs
+      $('vtext').value=''; updateVoicePreview();
+      $('tname').value=''; $('tqty').value=''; $('tdvt').value=''; $('tprice').value=''; $('tnote').value='';
+    })
+    .withFailureHandler(err => {
+      toast('Lỗi lưu: '+err.message,'error');
+      $('mConfirm').textContent='✅ Xác nhận lưu'; $('mConfirm').disabled=false;
+    })
+    .submitFromWeb(payload);
+});
+
+// ========== PHOTO ==========
+$('pdrop').addEventListener('click', () => $('pfile').click());
+$('pfile').addEventListener('change', e => {
+  const f = e.target.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = ev => { $('ppreview').src = ev.target.result; $('ppreview').classList.add('show'); };
+  r.readAsDataURL(f);
+});
+
+// ========== SETTINGS ==========
+$('bRefreshMaster').addEventListener('click', () => { $('sMaster').textContent='đang tải…'; loadMaster(); toast('Đang tải lại master','success'); });
+$('bClearCache').addEventListener('click', () => {
+  if(confirm('Xóa cache app + tải lại?')){
+    sessionStorage.clear();
+    localStorage.clear();
+    location.replace(location.href.split('?')[0] + '?_v=' + Date.now());
+  }
+});
+
+// ========== INIT ==========
+const APP_VER = 'v17 · ' + new Date().toLocaleTimeString('vi-VN', {hour:'2-digit',minute:'2-digit'});
+$('vbadge').textContent = 'Bản ' + APP_VER;
+$('sVer').textContent = APP_VER;
+loadMaster();
+</script>
+</body>
+</html>
