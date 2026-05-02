@@ -508,7 +508,6 @@
           <div class="ph">Thông tin trích xuất</div>
           <div class="row"><div class="lab"><span class="di"><svg viewBox="0 0 12 12"><path d="M6 1v10M3 4h5a2 2 0 0 1 0 4H3"/></svg></span>Số tiền</div><div class="val amt" id="exAmt">—</div></div>
           <div class="row" id="rowNhom" style="display:none"><div class="lab"><span class="di"><svg viewBox="0 0 12 12"><path d="M2 2h8v3H2zM2 7h8v3H2z"/></svg></span>Nhóm</div><div class="val" id="exNhom">—</div></div>
-          <div class="row" id="rowPhanLoai" style="display:none"><div class="lab"><span class="di"><svg viewBox="0 0 12 12"><circle cx="3" cy="6" r="2"/><circle cx="9" cy="6" r="2"/></svg></span>Phân loại</div><div class="val" id="exPhanLoai">—</div></div>
           <div class="row"><div class="lab"><span class="di"><svg viewBox="0 0 12 12"><rect x="1" y="1" width="4" height="4"/><rect x="7" y="1" width="4" height="4"/><rect x="1" y="7" width="4" height="4"/></svg></span>Danh mục</div><div class="val" id="exCat">—</div></div>
           <div class="row"><div class="lab"><span class="di"><svg viewBox="0 0 12 12"><path d="M10 5c0 3.5-4 6.5-4 6.5S2 8.5 2 5a4 4 0 0 1 8 0z"/><circle cx="6" cy="5" r="1.4"/></svg></span>Địa điểm</div><div class="val" id="exLoc">—</div></div>
           <div class="row" id="rowQty" style="display:none"><div class="lab"><span class="di"><svg viewBox="0 0 12 12"><rect x="2" y="2" width="8" height="8" rx="1"/><path d="M2 5h8M5 2v8"/></svg></span>Số lượng</div><div class="val" id="exQty">—</div></div>
@@ -1009,9 +1008,8 @@ function doParse(txt){
   document.getElementById('exAmt').textContent=a?fmtVND(a):'—';
   document.getElementById('exCat').textContent=c||'—';
   document.getElementById('exLoc').textContent=l||'—';
-  // Reset Nhóm/Phân loại — sẽ hiện lại nếu lookup tìm thấy
+  // Reset Nhóm — sẽ hiện lại nếu lookup tìm thấy
   document.getElementById('rowNhom').style.display='none';
-  document.getElementById('rowPhanLoai').style.display='none';
   // Số lượng + Đơn giá: chỉ hiện khi có q
   document.getElementById('rowQty').style.display=q?'flex':'none';
   document.getElementById('rowUnit').style.display=(q&&unitPrice)?'flex':'none';
@@ -1026,18 +1024,13 @@ function doParse(txt){
   window.__lastParse={amt:a,qty:q?q.qty:null,unit:q?q.unit:null,unitPrice:unitPrice,cat:c,loc:l,note:noteClean,noteRaw:txt,itemName:itemName,ma:'',ten:itemName};
   if(itemName)lookupWithTimeout(itemName,5000).then(r=>{
     if(r&&r.ok&&r.found){
-      // ✓ Có trong Master_VatTu — hiện đầy đủ Nhóm/Phân loại/Mã VT
+      // ✓ Có trong Master_VatTu — hiện Nhóm + Mã VT
       document.getElementById('exMa').textContent=r.ma;
       document.getElementById('exTen').textContent=r.ten;
       if(r.nhom){
         document.getElementById('rowNhom').style.display='flex';
         document.getElementById('exNhom').textContent=r.nhom;
         window.__lastParse.nhom=r.nhom;
-      }
-      if(r.phanLoai){
-        document.getElementById('rowPhanLoai').style.display='flex';
-        document.getElementById('exPhanLoai').textContent=r.phanLoai;
-        window.__lastParse.phanLoai=r.phanLoai;
       }
       if(r.dvt){window.__lastParse.unit=r.dvt}
       window.__lastParse.ma=r.ma;
@@ -1069,7 +1062,6 @@ function showSaveConfirm(payload,onSuccess){
   window.__pendingSave={payload:payload,onSuccess:onSuccess};
   const rows=[];
   if(payload.nhom)rows.push(['Nhóm',payload.nhom]);
-  if(payload.phanLoai)rows.push(['Phân loại',payload.phanLoai]);
   if(payload.ma)rows.push(['Mã VT',payload.ma]);
   if(payload.ten)rows.push(['Tên VT',payload.ten]);
   if(payload.quantity)rows.push(['Số lượng',payload.quantity+' '+(payload.unit||'')]);
@@ -1088,7 +1080,7 @@ async function doSaveBackend(p){
     itemName:payload.itemName||payload.note||'',
     category:payload.category, location:payload.location,
     note:payload.note||'', source:payload.source,
-    nhom:payload.nhom||'', phanLoai:payload.phanLoai||'',
+    nhom:payload.nhom||'',
     confirmNewSKU: !!payload.confirmNewSKU,
     newTenVT: payload.newTenVT||'',
     dvt: payload.dvt||payload.unit||''
@@ -1124,9 +1116,8 @@ function showNewSKUConfirm(serverHint,payload,onSuccess){
     '<h2 style="color:#FCA5A5">Vật tư mới — chưa có trong Master</h2>'+
     '<div class="sub">App không tìm thấy <b style="color:#fff">"'+itemName+'"</b> trong Sumo_v34. Anh xác nhận tạo SKU mới?</div>'+
     '<div class="row"><span class="l">Tên VT chuẩn</span><span class="v"><input id="nsTen" value="'+itemName.toUpperCase().replace(/"/g,'&quot;')+'" style="background:rgba(255,255,255,0.05);border:1px solid var(--line);color:#fff;padding:6px 9px;border-radius:8px;font-family:var(--mono);font-size:12px;width:160px"></span></div>'+
-    '<div class="row"><span class="l">Nhóm</span><span class="v"><select id="nsNhom" style="background:#091B17;border:1px solid var(--line);color:#fff;padding:6px 9px;border-radius:8px;font-family:var(--display);font-size:12px;width:160px"><option value="1.KHẤU HAO">1.KHẤU HAO (KH)</option><option value="2.CHI PHÍ" selected>2.CHI PHÍ (CP)</option><option value="3.NVL">3.NVL (NL)</option></select></span></div>'+
-    '<div class="row"><span class="l">Phân loại</span><span class="v"><select id="nsPhanLoai" style="background:#091B17;border:1px solid var(--line);color:#fff;padding:6px 9px;border-radius:8px;font-family:var(--display);font-size:12px;width:160px"><option value="1.NGUYÊN LIỆU CHÍNH">1.NGUYÊN LIỆU CHÍNH</option><option value="2.NGUYÊN LIỆU PHỤ">2.NGUYÊN LIỆU PHỤ</option><option value="3.BAO BÌ">3.BAO BÌ</option><option value="4.DỤNG CỤ">4.DỤNG CỤ</option><option value="5.KHÁC" selected>5.KHÁC</option></select></span></div>'+
-    '<div class="row"><span class="l">Đơn vị tính</span><span class="v"><input id="nsDVT" value="'+sugDVT.toUpperCase()+'" style="background:rgba(255,255,255,0.05);border:1px solid var(--line);color:#fff;padding:6px 9px;border-radius:8px;font-family:var(--mono);font-size:12px;width:80px"></span></div>'+
+    '<div class="row"><span class="l">Nhóm</span><span class="v"><select id="nsNhom" style="background:#091B17;border:1px solid var(--line);color:#fff;padding:6px 9px;border-radius:8px;font-family:var(--display);font-size:12px;width:170px"><option value="1.KHẤU HAO">1.KHẤU HAO (KH)</option><option value="2.CHI PHÍ" selected>2.CHI PHÍ (CP)</option><option value="3.NVL">3.NVL (NL)</option></select></span></div>'+
+    '<div class="row"><span class="l">Đơn vị tính</span><span class="v"><input id="nsDVT" value="'+sugDVT.toUpperCase()+'" style="background:rgba(255,255,255,0.05);border:1px solid var(--line);color:#fff;padding:6px 9px;border-radius:8px;font-family:var(--mono);font-size:12px;width:90px"></span></div>'+
     '<div class="row"><span class="l">Mã VT mới</span><span class="v" style="color:var(--accent-l);font-family:var(--mono)">'+sugMa+' <small style="color:var(--t-3)">(tự sinh khi lưu)</small></span></div>'+
     '<div class="modal-actions">'+
       '<button class="modal-act pri" onclick="confirmCreateSKU()">Xác nhận tạo SKU mới + Lưu</button>'+
@@ -1141,18 +1132,15 @@ function confirmCreateSKU(){
   if(!ctx)return;
   const newTenVT=document.getElementById('nsTen').value.trim();
   const nhom=document.getElementById('nsNhom').value;
-  const phanLoai=document.getElementById('nsPhanLoai').value;
   const dvt=document.getElementById('nsDVT').value.trim().toUpperCase();
   if(!newTenVT){toast('Tên VT không được trống','warn');return}
   if(!dvt){toast('ĐVT không được trống','warn');return}
   closeModal();
   window.__pendingNewSKU=null;
-  // Gọi lại doSaveBackend với confirmNewSKU=true + thông tin user chọn
   const payload=Object.assign({},ctx.payload,{
     confirmNewSKU:true,
     newTenVT:newTenVT,
     nhom:nhom,
-    phanLoai:phanLoai,
     dvt:dvt,
     unit:dvt
   });
